@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 29 April 2024                                            Google
+Expires: 2 May 2024                                               Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         27 October 2023
+                                                         30 October 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 April 2024.
+   This Internet-Draft will expire on 2 May 2024.
 
 Copyright Notice
 
@@ -1062,7 +1062,7 @@ Table of Contents
 
    Manufacturers can register their service UUID by reaching out to the
    listed authors here (link TBD).  Backwards compatibility requests
-   must be submitted by January 15, 2023.
+   must be submitted by January 15, 2024.
 
    Legacy IDs that have been registered with the platforms are listed in
    Table 15.
