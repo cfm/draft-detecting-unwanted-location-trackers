@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-29T00:39:38.552378+00:00",
+  "timestamp": "2023-10-31T00:37:36.273198+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -3821,13 +3821,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-10-25T19:14:06Z",
-      "updatedAt": "2023-10-27T16:39:14Z",
+      "updatedAt": "2023-10-30T23:25:53Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "36f1b16b24fb0973e8708a4190dd16b37f123255",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-10",
-      "headRefOid": "d0522057bc744814bede020d495483afef8172bb",
+      "headRefOid": "7f3b009ad1dabb0edca89d12733604683b0ffc2e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -3854,6 +3854,98 @@
           "createdAt": "2023-10-26T02:28:02Z",
           "updatedAt": "2023-10-26T02:28:02Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5lo4Oe",
+          "commit": {
+            "abbreviatedOid": "d052205"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2023-10-30T23:15:02Z",
+          "updatedAt": "2023-10-30T23:17:06Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "Was this meant to be dropped?",
+              "createdAt": "2023-10-30T23:15:03Z",
+              "updatedAt": "2023-10-30T23:17:06Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "Should we consider adding this policy for existing accessories only?",
+              "createdAt": "2023-10-30T23:16:26Z",
+              "updatedAt": "2023-10-30T23:17:06Z"
+            },
+            {
+              "originalPosition": 10,
+              "body": "I think this is January 15, 2024",
+              "createdAt": "2023-10-30T23:16:55Z",
+              "updatedAt": "2023-10-30T23:17:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5lo5SY",
+          "commit": {
+            "abbreviatedOid": "d052205"
+          },
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-30T23:20:57Z",
+          "updatedAt": "2023-10-30T23:20:57Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "+1 will update",
+              "createdAt": "2023-10-30T23:20:57Z",
+              "updatedAt": "2023-10-30T23:20:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5lo58M",
+          "commit": {
+            "abbreviatedOid": "d052205"
+          },
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-30T23:24:43Z",
+          "updatedAt": "2023-10-30T23:24:43Z",
+          "comments": [
+            {
+              "originalPosition": 19,
+              "body": "yeah, row 544 now has: _Legacy IDs that have been registered with the platforms are listed in {{table-legacy-IDs}}._",
+              "createdAt": "2023-10-30T23:24:43Z",
+              "updatedAt": "2023-10-30T23:24:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5lo6FC",
+          "commit": {
+            "abbreviatedOid": "d052205"
+          },
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-30T23:25:36Z",
+          "updatedAt": "2023-10-30T23:25:36Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "I don't think we need to.. because then we need to define 'existing' accessories. Manufacturing was started on date X? Or developed on date X? Or on shelves?",
+              "createdAt": "2023-10-30T23:25:36Z",
+              "updatedAt": "2023-10-30T23:25:36Z"
+            }
+          ]
         }
       ]
     },
