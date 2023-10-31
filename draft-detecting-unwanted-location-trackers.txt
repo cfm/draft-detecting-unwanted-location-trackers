@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 29 April 2024                                            Google
+Expires: 3 May 2024                                               Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         27 October 2023
+                                                         31 October 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 April 2024.
+   This Internet-Draft will expire on 3 May 2024.
 
 Copyright Notice
 
@@ -93,6 +93,7 @@ Table of Contents
      3.9.  Bluetooth LE advertising interval
      3.10. Accessory Connections
        3.10.1.  Byte transmission order
+       3.10.2.  Maximum transmission unit
      3.11. Accessory Information
        3.11.1.  Opcodes
      3.12. Non-Owner Finding
@@ -500,6 +501,15 @@ Table of Contents
 
    The characteristic used within this service SHALL be transmitted with
    the least significant octet first (that is, little endian).
+
+3.10.2.  Maximum transmission unit
+
+   Data fragmentation and reassembly is not defined in this document;
+   therefore, the accessory SHALL NOT request an MTU (Maximum
+   Transmission Unit) smaller than the maximum length of its write
+   responses for the opcodes defined in (Non-owner controls)[#non-owner-
+   controls] and (opcodes){#opcodes}. In other words, all opcode
+   response data must fit within a single write operation.
 
 3.11.  Accessory Information
 
