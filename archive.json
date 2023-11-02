@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-31T00:37:36.273198+00:00",
+  "timestamp": "2023-11-02T00:37:17.810476+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -3610,26 +3610,42 @@
       "id": "PR_kwDOJdqgvc5c9GwM",
       "title": "Add requirements for Bluetooth MTU",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/89",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-10-16T23:03:20Z",
-      "updatedAt": "2023-10-16T23:04:59Z",
+      "updatedAt": "2023-10-31T16:31:59Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "e446c27c81e5a40659693206f2cea95eae7a3bbf",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "specify-bt-mtu-behavior",
       "headRefOid": "b89bb77f74147c96dfaa1e8046c619a9cbdea3a3",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-10-31T16:31:59Z",
+      "mergedAt": "2023-10-31T16:31:59Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "b6018addb547f992b1f926cca1f000b7c1a45459"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5luu_U",
+          "commit": {
+            "abbreviatedOid": "b89bb77"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Changes look good!",
+          "createdAt": "2023-10-31T16:23:59Z",
+          "updatedAt": "2023-10-31T16:23:59Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 90,
@@ -3732,24 +3748,26 @@
       "id": "PR_kwDOJdqgvc5dyaMR",
       "title": "Clarify opcode structure",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/94",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-10-25T19:03:30Z",
-      "updatedAt": "2023-10-28T02:53:13Z",
+      "updatedAt": "2023-10-31T16:43:05Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "36f1b16b24fb0973e8708a4190dd16b37f123255",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-8",
-      "headRefOid": "9e99d2c2c66a1a9a4e1ddfe3a84cad593edf63ac",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "3664cda57d5a84f796ca66e4410e7f98ad59fa13",
+      "closedAt": "2023-10-31T16:43:05Z",
+      "mergedAt": "2023-10-31T16:43:05Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "858830b20f697a979f81ebcfd24b97beb3102e31"
+      },
       "comments": [
         {
           "author": "bledvina",
@@ -3759,7 +3777,21 @@
           "updatedAt": "2023-10-28T02:53:12Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5lu4v0",
+          "commit": {
+            "abbreviatedOid": "3664cda"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-10-31T16:42:48Z",
+          "updatedAt": "2023-10-31T16:42:48Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 95,
@@ -3821,7 +3853,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-10-25T19:14:06Z",
-      "updatedAt": "2023-10-30T23:25:53Z",
+      "updatedAt": "2023-10-31T20:13:52Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "36f1b16b24fb0973e8708a4190dd16b37f123255",
@@ -3944,6 +3976,26 @@
               "body": "I don't think we need to.. because then we need to define 'existing' accessories. Manufacturing was started on date X? Or developed on date X? Or on shelves?",
               "createdAt": "2023-10-30T23:25:36Z",
               "updatedAt": "2023-10-30T23:25:36Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5lwUhN",
+          "commit": {
+            "abbreviatedOid": "7f3b009"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-10-31T20:13:51Z",
+          "updatedAt": "2023-10-31T20:13:52Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "Perhaps 'Protocol ID MAY be omitted' should be 'SHOULD be omitted'? I think it will reduce complexity around any existing UUID is we assume none will have a protocol ID field (which I think is a fair assumption?)",
+              "createdAt": "2023-10-31T20:13:51Z",
+              "updatedAt": "2023-10-31T20:14:28Z"
             }
           ]
         }
