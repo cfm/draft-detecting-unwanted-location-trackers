@@ -1202,7 +1202,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="auto internal xref">3.6</a>.  <a href="#name-service-data-tlv" class="internal xref">Service data TLV</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.7">
-                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-network-id" class="internal xref">network ID</a></p>
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="auto internal xref">3.7</a>.  <a href="#name-network-id" class="internal xref">Network ID</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.8">
                 <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="auto internal xref">3.8</a>.  <a href="#name-near-owner-bit" class="internal xref">Near-owner bit</a></p>
@@ -1379,7 +1379,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-manufacturer-network-id-reg" class="internal xref">Manufacturer network ID Registry</a></p>
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-manufacturer-network-id-reg" class="internal xref">Manufacturer Network ID Registry</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1.2.1">
                     <p id="section-toc.1-1.9.2.1.2.1.1"><a href="#section-9.1.1" class="auto internal xref">9.1.1</a>.  <a href="#name-temporary-registry" class="internal xref">Temporary Registry</a></p>
@@ -1620,7 +1620,7 @@ The connection interval of the Bluetooth LE link between the device and accessor
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">13</td>
-                <td class="text-left" rowspan="1" colspan="1">network ID</td>
+                <td class="text-left" rowspan="1" colspan="1">Network ID</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span class="bcp14">REQUIRED</span>
 </td>
@@ -1731,9 +1731,9 @@ This duration allows a platform's unwanted tracking algorithms to detect that th
 <div id="network-id">
 <section id="section-3.7">
         <h3 id="name-network-id">
-<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-network-id" class="section-name selfRef">network ID</a>
+<a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-network-id" class="section-name selfRef">Network ID</a>
         </h3>
-<p id="section-3.7-1">The 1-byte network ID <span class="bcp14">SHALL</span> be set based on a registered value for the manufacturer, as defined in <span><a href="#manufacturer-protocol-registry" class="internal xref">Manufacturer network ID Registry</a> (<a href="#manufacturer-protocol-registry" class="auto internal xref">Section 9.1</a>)</span>.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-1">The 1-byte Network ID <span class="bcp14">SHALL</span> be set based on a registered value for the manufacturer, as defined in <span><a href="#manufacturer-protocol-registry" class="internal xref">Manufacturer Network ID Registry</a> (<a href="#manufacturer-protocol-registry" class="auto internal xref">Section 9.1</a>)</span>.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="near-owner-bit">
@@ -2807,7 +2807,7 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
           </h4>
 <p id="section-5.1.1-1">The manufacturer <span class="bcp14">MAY</span> continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID <span class="bcp14">MUST</span> be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by December 1, 2023.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.1.1-2">Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
-<p id="section-5.1.1-3">Companies who have registered their network IDs will appear in a table below.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-3">Companies who have registered their Network IDs will appear in a table below.<a href="#section-5.1.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2842,7 +2842,7 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
           </h4>
 <p id="section-6.1.2-1">Platforms <span class="bcp14">SHOULD</span> implement the owned accessory identification capability as a software extension to its unwanted tracking detection.<a href="#section-6.1.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.1.2-2">Accessory manufacturers <span class="bcp14">SHALL</span> provide this set of MAC addresses to the platform. This set <span class="bcp14">MUST</span> account for the uncertainty involved with the <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>.<a href="#section-6.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.1.2-3">The network ID in the advertisement payload, as specified in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>, <span class="bcp14">SHALL</span> be used to associate an accessory detected with the manufacturer's software extension.<a href="#section-6.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-6.1.2-3">The Network ID in the advertisement payload, as specified in <a href="#_table-payload-format" class="auto internal xref">Table 1</a>, <span class="bcp14">SHALL</span> be used to associate an accessory detected with the manufacturer's software extension.<a href="#section-6.1.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-access">
@@ -2953,11 +2953,11 @@ on the whereabouts of an accessory.<a href="#section-8.3.1-1" class="pilcrow">¶
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
 <p id="section-9-1">IANA will create a new registry group called "Unwanted Tracking Protocols (UTP)".
-This group includes the "Manufacturer network ID" and "Product Data" registries described below.<a href="#section-9-1" class="pilcrow">¶</a></p>
+This group includes the "Manufacturer Network ID" and "Product Data" registries described below.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <div id="manufacturer-protocol-registry">
 <section id="section-9.1">
         <h3 id="name-manufacturer-network-id-reg">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-manufacturer-network-id-reg" class="section-name selfRef">Manufacturer network ID Registry</a>
+<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-manufacturer-network-id-reg" class="section-name selfRef">Manufacturer Network ID Registry</a>
         </h3>
 <p id="section-9.1-1">New entries are assigned only for values that have received Expert Review, per <span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.5" class="relref">Section 4.5</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 <p id="section-9.1-2">An entry in this registry contains the following fields:<a href="#section-9.1-2" class="pilcrow">¶</a></p>
@@ -2966,7 +2966,7 @@ This group includes the "Manufacturer network ID" and "Product Data" registries 
             <p id="section-9.1-3.1.1">Manufacturer Name: the name of an organization that is producing a location-tracker accessory<a href="#section-9.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-9.1-3.2">
-            <p id="section-9.1-3.2.1">network ID: a 1-byte value specifying the network ID associated with the Manufacturer Name<a href="#section-9.1-3.2.1" class="pilcrow">¶</a></p>
+            <p id="section-9.1-3.2.1">Network ID: a 1-byte value specifying the Network ID associated with the Manufacturer Name<a href="#section-9.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <div id="temporary-registry">
@@ -2983,7 +2983,7 @@ This group includes the "Manufacturer network ID" and "Product Data" registries 
             </caption>
 <thead>
               <tr>
-                <th class="text-center" rowspan="1" colspan="1">network ID</th>
+                <th class="text-center" rowspan="1" colspan="1">Network ID</th>
                 <th class="text-center" rowspan="1" colspan="1">Manufacturer</th>
               </tr>
             </thead>
