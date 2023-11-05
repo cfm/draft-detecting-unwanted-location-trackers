@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 29 April 2024                                            Google
+Expires: 8 May 2024                                               Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         27 October 2023
+                                                         5 November 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 April 2024.
+   This Internet-Draft will expire on 8 May 2024.
 
 Copyright Notice
 
@@ -93,6 +93,7 @@ Table of Contents
      3.9.  Bluetooth LE advertising interval
      3.10. Accessory Connections
        3.10.1.  Byte transmission order
+       3.10.2.  Maximum transmission unit
      3.11. Accessory Information
        3.11.1.  Opcodes
      3.12. Non-Owner Finding
@@ -501,6 +502,15 @@ Table of Contents
    The characteristic used within this service SHALL be transmitted with
    the least significant octet first (that is, little endian).
 
+3.10.2.  Maximum transmission unit
+
+   Data fragmentation and reassembly is not defined in this document;
+   therefore, the accessory SHALL NOT request an MTU (Maximum
+   Transmission Unit) smaller than the maximum length of its write
+   responses for the opcodes defined in (Non-owner controls)[#non-owner-
+   controls] and (opcodes){#opcodes}. In other words, all opcode
+   response data must fit within a single write operation.
+
 3.11.  Accessory Information
 
    The following accessory information MUST be persistent through the
@@ -566,6 +576,19 @@ Table of Contents
 
                    Table 4: Accessory Information Opcodes
 
+   Opcodes should be structured as defined below.
+
+                          +=======+==============+
+                          | Bytes | Description  |
+                          +=======+==============+
+                          |  0-1  | Opcode value |
+                          +-------+--------------+
+                          |   2+  |   Operand    |
+                          +-------+--------------+
+
+                             Table 5: Accessory
+                              Opcode Structure
+
 3.11.1.1.  Product data
 
    The Product Data operand represents an 8-byte value that is intended
@@ -589,7 +612,7 @@ Table of Contents
      |              |           |               | (Section 3.11.1.1) |
      +--------------+-----------+---------------+--------------------+
 
-                       Table 5: Product Data Operand
+                       Table 6: Product Data Operand
 
 3.11.1.2.  Manufacturer name
 
@@ -603,7 +626,7 @@ Table of Contents
    |                   |           |               |        name       |
    +-------------------+-----------+---------------+-------------------+
 
-                     Table 6: Manufacturer Name Operand
+                     Table 7: Manufacturer Name Operand
 
 3.11.1.3.  Model name
 
@@ -616,7 +639,7 @@ Table of Contents
         |  Model Name  |   UTF-8   |       64      |  Model name |
         +--------------+-----------+---------------+-------------+
 
-                       Table 7: Model Name Operand
+                       Table 8: Model Name Operand
 
 3.11.1.4.  Accessory category
 
@@ -632,7 +655,7 @@ Table of Contents
     |           |       |          | Byte 1-7: Reserved               |
     +-----------+-------+----------+----------------------------------+
 
-                    Table 8: Accessory Category Operand
+                    Table 9: Accessory Category Operand
 
 3.11.1.5.  Protocol implementation version
 
@@ -651,7 +674,7 @@ Table of Contents
         |                |        |          |   version number  |
         +----------------+--------+----------+-------------------+
 
-             Table 9: Protocol Implementation Version Operand
+            Table 10: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
    1.0.0.  The equivalent byte value is 0x00000001.
@@ -659,7 +682,7 @@ Table of Contents
 3.11.1.6.  Accessory capabilities
 
    The Accessory Capabilities operand enumerates the various
-   capabilities supported on the accessory as defined in Table 10.
+   capabilities supported on the accessory as defined in Table 11.
 
     +==============+========+==========+=============================+
     | Operand name |  Data  |   Size   | Description                 |
@@ -674,7 +697,7 @@ Table of Contents
     |              |        |          | lookup by BLE               |
     +--------------+--------+----------+-----------------------------+
 
-                 Table 10: Accessory Capabilities Operand
+                 Table 11: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
    and identifier look-up over BT will have the value set as 1011 in
@@ -702,7 +725,7 @@ Table of Contents
 
    The details in this section apply to those accessories that include a
    motion detector.  Values of the variables referenced are specified in
-   Table 11.
+   Table 12.
 
 
    After T_(SEPARATED_UT_TIMEOUT) in separated state, the accessory MUST
@@ -764,7 +787,7 @@ Table of Contents
    |                                 | distribution |                  |
    +---------------------------------+--------------+------------------+
 
-                   Table 11: Motion Detector Time Values
+                   Table 12: Motion Detector Time Values
 
 3.12.3.  Sound maker
 
@@ -788,7 +811,7 @@ Table of Contents
    UUIDs as defined in Accessory Connections (Section 3.10).  The non-
    owner control point enables a non-owner device to locate the
    accessory by playing a sound.  The opcodes for the control point are
-   defined in Table 12.
+   defined in Table 13.
 
    +============================+========+=============+==============+
    |           Opcode           | Opcode |   Operands  |     GATT     |
@@ -818,7 +841,7 @@ Table of Contents
    |                            |        |  3.12.4.2)  |              |
    +----------------------------+--------+-------------+--------------+
 
-                Table 12: Non-Owner Control Point Opcodes
+                Table 13: Non-Owner Control Point Opcodes
 
    This control point SHALL be available to the platform only when the
    accessory is in separated state.  In all other states, the accessory
@@ -879,7 +902,7 @@ Table of Contents
    |                |        |          | 0xFFFF Invalid_command       |
    +----------------+--------+----------+------------------------------+
 
-                    Table 13: Command Response Operands
+                    Table 14: Command Response Operands
 
 3.12.4.2.  Identifier Payload
 
@@ -898,7 +921,7 @@ Table of Contents
     | Number URL |       | accessory  |  identifier can be retrieved  |
     +------------+-------+------------+-------------------------------+
 
-               Table 14: Serial Number Payload Over Bluetooth
+               Table 15: Serial Number Payload Over Bluetooth
 
    The encrypted identifier SHALL be an argument passed to this URL and
    it is REQUIRED that any metadata passed be non-identifiable.
@@ -916,7 +939,7 @@ Table of Contents
 
 3.12.6.  Recommended Finding Options
 
-   Table 15 lists two RECOMMENDED options on the set of technology in an
+   Table 16 lists two RECOMMENDED options on the set of technology in an
    accessory to make it findable.
 
                    +=============+==========+==========+
@@ -931,7 +954,7 @@ Table of Contents
                    | Lights      |          |    X     |
                    +-------------+----------+----------+
 
-                        Table 15: Accessory Finding
+                        Table 16: Accessory Finding
                               Hardware Options
 
 3.12.7.  Future hardware
@@ -1013,7 +1036,7 @@ Table of Contents
    the identifier value SHALL be available for platforms to reference,
    as defined in Section 9.2.  This URL MUST return a response which can
    be rendered by an HTML view.  The arguments sent to this URL SHALL
-   match those that are defined in Table 14.  Security considerations
+   match those that are defined in Table 15.  Security considerations
    are discussed in Section 7.1.
 
 3.14.5.  Identifer over NFC
@@ -1066,7 +1089,7 @@ Table of Contents
 
    Accessory manufacturer’s MUST pick an accessory category value that
    closest resembles their physical product.  If none of the accessory
-   categories provided in Table 16 match the physical product, Other
+   categories provided in Table 17 match the physical product, Other
    MUST be chosen.
 
                +============================+=============+
@@ -1157,7 +1180,7 @@ Table of Contents
                | Reserved for future use    | 2-127, 168+ |
                +----------------------------+-------------+
 
-                   Table 16: Accessory Category Values
+                   Table 17: Accessory Category Values
 
 5.  Firmware Updates
 
@@ -1360,7 +1383,7 @@ Table of Contents
 9.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 17.
+   are listed in Table 18.
 
                       +=============+==============+
                       | Protocol ID | Manufacturer |
@@ -1372,7 +1395,7 @@ Table of Contents
                       |     0x02    |  Google LLC  |
                       +-------------+--------------+
 
-                          Table 17: Manufacturer
+                          Table 18: Manufacturer
                                  Registry
 
 9.2.  Product Data Registry
@@ -1406,7 +1429,7 @@ Table of Contents
 9.2.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 18.
+   are listed in Table 19.
 
    +=========+==================+============================+=========+
    | Product |   Disablement    |      Identifier Look-      | Product |
@@ -1415,7 +1438,7 @@ Table of Contents
    +=========+==================+============================+=========+
    +---------+------------------+----------------------------+---------+
 
-                      Table 18: Product Data Registry
+                      Table 19: Product Data Registry
 
 10.  Normative References
 
