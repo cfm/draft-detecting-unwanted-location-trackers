@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-02T00:37:17.810476+00:00",
+  "timestamp": "2023-11-05T00:40:43.714806+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -1499,7 +1499,7 @@
       "id": "I_kwDOJdqgvc5xe4ss",
       "title": "Charter: include a signature in the charter to authenticate",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/65",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -1508,8 +1508,8 @@
       ],
       "body": "Jonathan Hoyland mentioned he wants to include a signature in the charter to authenticate",
       "createdAt": "2023-09-20T01:13:51Z",
-      "updatedAt": "2023-10-27T23:19:02Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-02T22:15:18Z",
+      "closedAt": "2023-11-02T22:15:18Z",
       "comments": [
         {
           "author": "ekr",
@@ -1717,7 +1717,7 @@
       "id": "I_kwDOJdqgvc5z12Gf",
       "title": "Charter: Specify what types of devices are in-scope for DULT protocol",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/86",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "nacho319",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1726,8 +1726,8 @@
       ],
       "body": "It was noted in some of the earlier documents, but its not mentioned in the current charter - what devices are in scope.  \r\n\r\nIf I leave my phone somewhere, I would really rather not have a protocol by which anyone can disable it.\r\n\r\nI would note an interesting distinction between my phone and a simple tracker: my phone doesn't need the support of other devices to know its location or tell some service where it is located beyond a transport network.  That's not a sufficient distinction for my headphones, though.  They need the support of crowd devices.  I would say that any device that does NOT require the support of crowd devices should be immediately out of scope; I don't think that's practical here.  If we want to talk about protocols to disable LoJack devices, we should do that explicitly.  I also think this distinction aligns with some thinking from dkg about possible liability.\r\n\r\nI would like this to be in the charter to avoid future rat hole discussions.\r\n",
       "createdAt": "2023-10-14T19:15:23Z",
-      "updatedAt": "2023-10-27T23:34:17Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-02T22:14:59Z",
+      "closedAt": "2023-11-02T22:14:59Z",
       "comments": [
         {
           "author": "bledvina",
@@ -1742,6 +1742,13 @@
           "body": "@nacho319 PR #98 attempts to address your concern. Let us know what you think!",
           "createdAt": "2023-10-27T23:34:17Z",
           "updatedAt": "2023-10-27T23:34:17Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We went ahead and pushed PR #98 into mainline.",
+          "createdAt": "2023-11-02T22:14:59Z",
+          "updatedAt": "2023-11-02T22:14:59Z"
         }
       ]
     },
@@ -1750,7 +1757,7 @@
       "id": "I_kwDOJdqgvc50zJDL",
       "title": "IETF is a Standards Body and not a Regulatory Body",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/93",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cfossace",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1759,8 +1766,8 @@
       ],
       "body": "One thing I think that is important to point out is that the IETF is a standards body and not a regulatory. Body. This means that the standards we are creating are a recommendation at most.  It is currently relatively easy to create a tracker that will be nonconformant to the exisiting protocol, so I think we need to make sure that nonconformant trackers are not supported by the protocol, and will not be able to benefit from the protocol, since there is no regulatory body that would be able to enforce the standard we implement.",
       "createdAt": "2023-10-24T15:47:29Z",
-      "updatedAt": "2023-10-27T23:50:30Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-03T19:30:26Z",
+      "closedAt": "2023-11-02T22:15:09Z",
       "comments": [
         {
           "author": "zaeddinger",
@@ -1775,6 +1782,13 @@
           "body": "It seems that proposed charter is trying to focus on having technical ways to prevent non-conformant devices from participating, which is I believe the right approach, and also inline with @cfossace's comment (that these are technical standards not regulatory goals).",
           "createdAt": "2023-10-27T23:50:29Z",
           "updatedAt": "2023-10-27T23:50:29Z"
+        },
+        {
+          "author": "cfossace",
+          "authorAssociation": "NONE",
+          "body": "So, one way to make sure that items that are non-conformant do not benefit from the protocol is doing endpoint authorization. https://petsymposium.org/popets/2023/popets-2023-0006.pdf\r\n\r\nThe authors would be happy to discuss this. The authorization would still be privacy preserving. ",
+          "createdAt": "2023-11-03T19:30:26Z",
+          "updatedAt": "2023-11-03T19:30:26Z"
         }
       ]
     }
@@ -4048,7 +4062,7 @@
       "id": "PR_kwDOJdqgvc5eA7XU",
       "title": "adding specificity on devices considered in scope",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/98",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4057,19 +4071,35 @@
       ],
       "body": "Addressing issue #86",
       "createdAt": "2023-10-27T23:33:49Z",
-      "updatedAt": "2023-10-28T02:52:35Z",
+      "updatedAt": "2023-11-02T22:14:27Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "4b5939f441c86ce47cbee2212891ba6aef6d871a",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-12",
       "headRefOid": "ab5d19b68599cfadc37b49d9e123ac27b4e260c0",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-11-02T22:14:27Z",
+      "mergedAt": "2023-11-02T22:14:27Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "0116d4b9bad7f602df65ecf86f520065dd8d6df0"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5mANKx",
+          "commit": {
+            "abbreviatedOid": "ab5d19b"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me!",
+          "createdAt": "2023-11-02T22:14:22Z",
+          "updatedAt": "2023-11-02T22:14:22Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 99,
@@ -4090,6 +4120,32 @@
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-11-1",
       "headRefOid": "1659159c3c59ba4965a9c4904bac931734a7f216",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 100,
+      "id": "PR_kwDOJdqgvc5eYkQZ",
+      "title": "Replace protocol ID with network ID",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/100",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Proposed to change protocol ID to network ID, as this value is intended to represent the finding network (not the DULT protocol or some other protocol). Curious what people think about this proposal?",
+      "createdAt": "2023-11-02T00:43:04Z",
+      "updatedAt": "2023-11-02T00:58:30Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "858830b20f697a979f81ebcfd24b97beb3102e31",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-7",
+      "headRefOid": "7702abf59da7cd5ebf01d203b73d99214613da8c",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
