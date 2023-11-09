@@ -1613,21 +1613,21 @@ The connection interval of the Bluetooth LE link between the device and accessor
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">9-12</td>
-                <td class="text-left" rowspan="1" colspan="1">Service Data TLV; length = 1 byte, type = 0x16, value = 0xFCB2</td>
+                <td class="text-left" rowspan="1" colspan="1">Service data TLV; length = 1 byte, type = 1 byte, value = 2 bytes (TBD value)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span class="bcp14">REQUIRED</span>
 </td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">13</td>
-                <td class="text-left" rowspan="1" colspan="1">Protocol ID</td>
+                <td class="text-left" rowspan="1" colspan="1">Protocol ID (TBD value)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span class="bcp14">REQUIRED</span>
 </td>
               </tr>
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">14</td>
-                <td class="text-left" rowspan="1" colspan="1">Near-owner bit (1 bit) + reserved (7 bits)</td>
+                <td class="text-left" rowspan="1" colspan="1">Near-owner bit (1 bit, least significant bit) + reserved (7 bits)</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span class="bcp14">REQUIRED</span>
 </td>
@@ -1742,6 +1742,7 @@ This duration allows a platform's unwanted tracking algorithms to detect that th
 <a href="#section-3.8" class="section-number selfRef">3.8. </a><a href="#name-near-owner-bit" class="section-name selfRef">Near-owner bit</a>
         </h3>
 <p id="section-3.8-1">It is important to prevent unwanted tracking alerts from occurring when the owner of the accessory is in physical proximity of the accessory, i.e., it is in near-owner mode. In order to allow suppression of unwanted tracking alerts for an accessory advertising the location-enabled advertisement with the owner nearby, the accessory <span class="bcp14">MUST</span> set the near-owner bit to be 1 when the near-owner state is in near-owner mode, otherwise the bit is set to 0. <a href="#_table-near-owner-bit" class="auto internal xref">Table 3</a> specifies the values of this bit.<a href="#section-3.8-1" class="pilcrow">¶</a></p>
+<p id="section-3.8-2">The near-owner bit <span class="bcp14">MUST</span> be the least significant bit.<a href="#section-3.8-2" class="pilcrow">¶</a></p>
 <span id="name-near-owner-bit-2"></span><div id="_table-near-owner-bit">
 <table class="center" id="table-3">
           <caption>

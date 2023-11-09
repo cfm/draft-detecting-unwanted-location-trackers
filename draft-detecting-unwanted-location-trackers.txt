@@ -333,24 +333,24 @@ Table of Contents
 
    The payload format is defined in Table 1
 
-        +=======+===================================+=============+
-        | Bytes | Description                       | Requirement |
-        +=======+===================================+=============+
-        |  0-5  | MAC address                       |   REQUIRED  |
-        +-------+-----------------------------------+-------------+
-        |  6-8  | Flags TLV; length = 1 byte, type  |   OPTIONAL  |
-        |       | = 1 byte, value = 1 byte          |             |
-        +-------+-----------------------------------+-------------+
-        |  9-12 | Service Data TLV; length = 1      |   REQUIRED  |
-        |       | byte, type = 0x16, value = 0xFCB2 |             |
-        +-------+-----------------------------------+-------------+
-        |   13  | Protocol ID                       |   REQUIRED  |
-        +-------+-----------------------------------+-------------+
-        |   14  | Near-owner bit (1 bit) + reserved |   REQUIRED  |
-        |       | (7 bits)                          |             |
-        +-------+-----------------------------------+-------------+
-        | 15-36 | Proprietary company payload data  |   OPTIONAL  |
-        +-------+-----------------------------------+-------------+
+     +=======+=========================================+=============+
+     | Bytes | Description                             | Requirement |
+     +=======+=========================================+=============+
+     |  0-5  | MAC address                             |   REQUIRED  |
+     +-------+-----------------------------------------+-------------+
+     |  6-8  | Flags TLV; length = 1 byte, type = 1    |   OPTIONAL  |
+     |       | byte, value = 1 byte                    |             |
+     +-------+-----------------------------------------+-------------+
+     |  9-12 | Service data TLV; length = 1 byte, type |   REQUIRED  |
+     |       | = 1 byte, value = 2 bytes (TBD value)   |             |
+     +-------+-----------------------------------------+-------------+
+     |   13  | Protocol ID (TBD value)                 |   REQUIRED  |
+     +-------+-----------------------------------------+-------------+
+     |   14  | Near-owner bit (1 bit, least            |   REQUIRED  |
+     |       | significant bit) + reserved (7 bits)    |             |
+     +-------+-----------------------------------------+-------------+
+     | 15-36 | Proprietary company payload data        |   OPTIONAL  |
+     +-------+-----------------------------------------+-------------+
 
                   Table 1: Location-Enabled Payload Format
 
@@ -472,6 +472,8 @@ Table of Contents
    accessory MUST set the near-owner bit to be 1 when the near-owner
    state is in near-owner mode, otherwise the bit is set to 0.  Table 3
    specifies the values of this bit.
+
+   The near-owner bit MUST be the least significant bit.
 
                 +======================+==================+
                 | Near-owner Bit Value | Near-owner state |
