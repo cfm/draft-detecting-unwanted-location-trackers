@@ -127,21 +127,23 @@ Table of Contents
        6.1.2.  Platform Software Extension
        6.1.3.  Network Access
        6.1.4.  Removal
-   7.  Security Considerations
-     7.1.  Obfuscated owner information look-up
-       7.1.1.  Design of encrypted serial number look-up
-   8.  Privacy Considerations
-     8.1.  Obfuscated owner information
-     8.2.  Serial number look-up
-     8.3.  Location-enabled payload
-       8.3.1.  Stable identifiers
-       8.3.2.  Proprietary company payload data
-   9.  IANA Considerations
-     9.1.  Manufacturer Protocol ID Registry
-       9.1.1.  Temporary Registry
-     9.2.  Product Data Registry
-       9.2.1.  Temporary Registry
-   10. Normative References
+   7.  Onboarding
+     7.1.  Network providers
+   8.  Security Considerations
+     8.1.  Obfuscated owner information look-up
+       8.1.1.  Design of encrypted serial number look-up
+   9.  Privacy Considerations
+     9.1.  Obfuscated owner information
+     9.2.  Serial number look-up
+     9.3.  Location-enabled payload
+       9.3.1.  Stable identifiers
+       9.3.2.  Proprietary company payload data
+   10. IANA Considerations
+     10.1.  Manufacturer Protocol ID Registry
+       10.1.1.  Temporary Registry
+     10.2.  Product Data Registry
+       10.2.1.  Temporary Registry
+   11. Normative References
    Authors' Addresses
 
 1.  Introduction
@@ -460,7 +462,7 @@ Table of Contents
 
    The 1-byte Protocol ID SHALL be set based on a registered value for
    the manufacturer, as defined in Manufacturer Protocol ID Registry
-   (Section 9.1).
+   (Section 10.1).
 
 3.8.  Near-owner bit
 
@@ -596,7 +598,7 @@ Table of Contents
    The Product Data operand represents an 8-byte value that is intended
    to serve as a unique identifier for the accessory make and model.
    This value SHALL be available in a public registry as defined in
-   Section 9.2.
+   Section 10.2.
 
    The Product Data operand is 8 bytes, composed of two 8-character hex
    strings (lowercase zero padded), each of which is 4 bytes.
@@ -932,7 +934,7 @@ Table of Contents
    Command_Response (Section 3.12.4.1.1) with the Invalid_command as the
    ResponseStatus.  Further considerations for how these operands should
    be implemented are discussed in Design of encrypted serial number
-   look-up (Section 7.1.1).
+   look-up (Section 8.1.1).
 
 3.12.5.  Alternate finding hardware
 
@@ -983,7 +985,7 @@ Table of Contents
 
    A registry which maps Product data (Section 3.11.1.1) to an
    affiliated URL supporting retrieval of disablement instructions SHALL
-   be available for platforms to reference, as defined in Section 9.2.
+   be available for platforms to reference, as defined in Section 10.2.
    This URL must return a response which can be rendered by an HTML
    view.
 
@@ -1024,7 +1026,7 @@ Table of Contents
    A registry which maps Product Data (Section 3.11.1.1) to an
    affiliated URL that will return a text description and visual
    depiction of how to enable identifier look-up over Bluetooth LE SHALL
-   be available for platforms to reference, as defined in Section 9.2.
+   be available for platforms to reference, as defined in Section 10.2.
    This URL MUST return a response which can be rendered by an HTML
    view.
 
@@ -1036,10 +1038,10 @@ Table of Contents
    A registry which maps Product Data (Section 3.11.1.1) to an
    affiliated URL which will decrypt the identifier payload and return
    the identifier value SHALL be available for platforms to reference,
-   as defined in Section 9.2.  This URL MUST return a response which can
-   be rendered by an HTML view.  The arguments sent to this URL SHALL
-   match those that are defined in Table 15.  Security considerations
-   are discussed in Section 7.1.
+   as defined in Section 10.2.  This URL MUST return a response which
+   can be rendered by an HTML view.  The arguments sent to this URL
+   SHALL match those that are defined in Table 15.  Security
+   considerations are discussed in Section 8.1.
 
 3.14.5.  Identifer over NFC
 
@@ -1262,9 +1264,27 @@ Table of Contents
    with an accessory if the manufacturer's software is removed or if the
    platform unassociates from the accessory.
 
-7.  Security Considerations
+7.  Onboarding
 
-7.1.  Obfuscated owner information look-up
+   Accessory manufacturers MUST follow a minimum set of steps for their
+   accessories to be detectable by platforms. * Add their company to the
+   IANA registry (until available, manufacturers can use the temporary
+   registry) * Add complete information for each accessory to the
+   Product Data Registry
+
+   Additional details will follow in 2024 to specify formats for
+   disablement instructions and product images.
+
+7.1.  Network providers
+
+   Companies that have their own accessory-locating networks will need
+   to create infrastructure to support the scaled retrieval of
+   disablement instructions and product images.  Additional information
+   for network providers will be updated in 2024.
+
+8.  Security Considerations
+
+8.1.  Obfuscated owner information look-up
 
    Obfuscated owner information look-up is required to display important
    information to users who encounter an unwanted tracking notification.
@@ -1300,7 +1320,7 @@ Table of Contents
    the accessory, while the authentication prevents an adversary from
    impersonating any accessory from a single payload.
 
-7.1.1.  Design of encrypted serial number look-up
+8.1.1.  Design of encrypted serial number look-up
 
    One way to design this encryption is for the accessory to contain a
    public key for the accessory network server.  For every request
@@ -1317,9 +1337,9 @@ Table of Contents
    connect to for the decryption, and for the service to know which
    decryption key and protocol version to use.
 
-8.  Privacy Considerations
+9.  Privacy Considerations
 
-8.1.  Obfuscated owner information
+9.1.  Obfuscated owner information
 
    In many circumstances when unwanted tracking occurs, the individual
    being tracked knows the owner of the location-tracker.  By allowing
@@ -1330,7 +1350,7 @@ Table of Contents
    arbitrary situations where they have separated from those
    accessories.
 
-8.2.  Serial number look-up
+9.2.  Serial number look-up
 
    A serial number both physically on the device, as well as retrievable
    over NFC or Bluetooth LE, can aid recourse actions in the case of
@@ -1343,9 +1363,9 @@ Table of Contents
    to be in separated state as well as a physical action be performed to
    enable the serial number retrieval.
 
-8.3.  Location-enabled payload
+9.3.  Location-enabled payload
 
-8.3.1.  Stable identifiers
+9.3.1.  Stable identifiers
 
    Rotating the mac address of the location-enabled payload, as
    described in Section 3.5, balances the risk of nefarious stable
@@ -1356,20 +1376,20 @@ Table of Contents
    the ability to piece together long stretches of longitudinal data on
    the whereabouts of an accessory.
 
-8.3.2.  Proprietary company payload data
+9.3.2.  Proprietary company payload data
 
    Accessory manufacturers SHOULD evaluate the contents of the
    proprietary company payload data in Table 1 to ensure it does not
    introduce additional privacy risk through the broadcast of stable
    identifiers or unencrypted sensitive data.
 
-9.  IANA Considerations
+10.  IANA Considerations
 
    IANA will create a new registry group called "Unwanted Tracking
    Protocols (UTP)".  This group includes the "Manufacturer Protocol ID"
    and "Product Data" registries described below.
 
-9.1.  Manufacturer Protocol ID Registry
+10.1.  Manufacturer Protocol ID Registry
 
    New entries are assigned only for values that have received Expert
    Review, per Section 4.5 of [RFC8126].
@@ -1382,7 +1402,7 @@ Table of Contents
    *  Protocol ID: a 1-byte value specifying the Protocol ID associated
       with the Manufacturer Name
 
-9.1.1.  Temporary Registry
+10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
    are listed in Table 18.
@@ -1400,7 +1420,7 @@ Table of Contents
                           Table 18: Manufacturer
                                  Registry
 
-9.2.  Product Data Registry
+10.2.  Product Data Registry
 
    New entries are assigned only for values that have received Expert
    Review, per Section 4.5 of [RFC8126].
@@ -1428,7 +1448,7 @@ Table of Contents
    *  Product Name: a string representing the product name associated
       with the Product Data string.
 
-9.2.1.  Temporary Registry
+10.2.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
    are listed in Table 19.
@@ -1442,7 +1462,7 @@ Table of Contents
 
                       Table 19: Product Data Registry
 
-10.  Normative References
+11.  Normative References
 
    [BTCore5.4]
               "Bluetooth Core Specification v5.4", 31 January 2023,
