@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 8 May 2024                                               Google
+Expires: 12 May 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         5 November 2023
+                                                         9 November 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 May 2024.
+   This Internet-Draft will expire on 12 May 2024.
 
 Copyright Notice
 
@@ -1095,7 +1095,7 @@ Table of Contents
                +============================+=============+
                | Accessory Category Name    |    Value    |
                +============================+=============+
-               | Finder                     |      1      |
+               | Location-Tracker           |      1      |
                +----------------------------+-------------+
                | Other                      |     128     |
                +----------------------------+-------------+
