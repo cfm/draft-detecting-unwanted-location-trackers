@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-09T00:37:36.163263+00:00",
+  "timestamp": "2023-11-12T00:40:44.710442+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -1981,12 +1981,43 @@
       "author": "ekr",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "Charter"
+      ],
       "body": "I want to make sure we agree on what we are trying to do. Here's my understanding:\r\n\r\n  -  Standardize the protocols used by (1) the tag to communicate with finding devices (2) the tag to communicate with devices when apparent unwanted tracking is detected (e.g., to cause it to beep).\r\n   - Not standardize the protocols use by the finding device to report to the tracking network (e.g., to upload to iCloud), the protocols used to initialize the tag, or the protocols used by the tag owner to query the network for location.\r\n\r\nOne way to phrase this is that it ought to be enough to allow you to build your own tag that would work with the network, assuming it had the right keying material.\r\n\r\nDoes that sound right? If so, I can provide some text to try to sharpen this\r\n",
       "createdAt": "2023-11-08T05:03:33Z",
-      "updatedAt": "2023-11-08T05:03:33Z",
+      "updatedAt": "2023-11-09T17:33:55Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@ekr for item (1) \"the tag to communicate with finding devices\", just to be clear, I see two components of the BT advertisement packet that are relevant and in scope:\r\n\r\na. BT advertisement header that indicates information like this is used for finding, it operates on a particular finding network, and some status info (e.g., is it near owner or not). We want to specify format, data contents, and security/privacy requirements for this as this is key to interoperability for UT detection\r\nb. BT advertisement payload (part of the advertisement after the header) which will contain finding-network specific information. We definitely want this to be in scope in the sense that its security and privacy requirements need to be defined, but the specifics on the format and data contents of the payload will vary from finding network to finding network. \r\n\r\nDoes this align with your thinking?",
+          "createdAt": "2023-11-09T16:00:16Z",
+          "updatedAt": "2023-11-09T16:00:16Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "No, this does not match my expectation. I believe the entire system including the format of the payload needs to be defined in order to permit security analysis of the system as a whole. I suppose it's possible that we might be able to describe the abstract contents minus the encoding, but i think the contents need to be specified, not just \"here's an opaque blob plus some security and privacy requirements\".\r\n\r\nIt's unfortunate that we didn't manage to flesh this out in the meeting.\r\n\r\n",
+          "createdAt": "2023-11-09T16:24:30Z",
+          "updatedAt": "2023-11-09T16:24:30Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Agreed it's a bummer we didn't flesh this out.\r\n\r\nAnother way I could see addressing this would be to specify a baseline (e.g., reference design) finding network protocol for item (1) which would include the full contents of the BT advertisement along with security and privacy requirements for the entire header + payload. Do you think that could work?",
+          "createdAt": "2023-11-09T16:30:58Z",
+          "updatedAt": "2023-11-09T16:30:58Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I don't think that this works because we still won't be able to say anything meaningful about the security and privacy properties of anything which doesn't use the reference design. ISTM that the point of designing something in this space is so that we can say \"if you do what it says in this spec, then you will have the following properties\". That doesn't mean that there's no room for individual variation, but it needs to be straightforward to evaluate whether an implementation meets a given requirement, and that's not the case if it's an opaque blob with some overall requirements.",
+          "createdAt": "2023-11-09T16:42:35Z",
+          "updatedAt": "2023-11-09T16:42:35Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2615,24 +2646,26 @@
       "id": "PR_kwDOJdqgvc5ZSK0D",
       "title": "Near-owner bit is least significant",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/43",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adding changes to explicitly state that near-owner bit is the least significant bit",
       "createdAt": "2023-08-31T22:05:25Z",
-      "updatedAt": "2023-09-25T15:28:05Z",
+      "updatedAt": "2023-11-09T17:24:18Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
-      "baseRefOid": "5b3a2cfa3a7f5e5329558d5ee1f823ca3782e28c",
+      "baseRefOid": "3e53a01a29ae64639eccf77c0362b4ed299a718f",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-near-owner",
-      "headRefOid": "eed562c98f5700db229360ec676d95c3e55fd684",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "a93ae4afafa1a3047d20fdf086c811e83d371e51",
+      "closedAt": "2023-11-09T17:24:18Z",
+      "mergedAt": "2023-11-09T17:24:18Z",
+      "mergedBy": "zaeddinger",
+      "mergeCommit": {
+        "oid": "67737ceeb747406d9e7091a085ed43d65811a428"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4820,7 +4853,7 @@
       ],
       "body": "See issue #109",
       "createdAt": "2023-11-06T14:30:15Z",
-      "updatedAt": "2023-11-08T16:07:52Z",
+      "updatedAt": "2023-11-10T21:24:49Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
@@ -4890,6 +4923,46 @@
               "body": "Anyone disagree with being able to close issue #109 based on PR #111?",
               "createdAt": "2023-11-08T16:07:52Z",
               "updatedAt": "2023-11-08T16:07:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5m0iul",
+          "commit": {
+            "abbreviatedOid": "6e60909"
+          },
+          "author": "npdoty",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-10T15:39:19Z",
+          "updatedAt": "2023-11-10T15:39:20Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "111 suggests that gender-based violence experts should just be consulted at the end of the process before publication to confirm efficacy. That's specifically contrary to the agreement in the meeting that we want to work with these advocates and experts throughout the standardization process.",
+              "createdAt": "2023-11-10T15:39:19Z",
+              "updatedAt": "2023-11-10T15:39:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5m25MA",
+          "commit": {
+            "abbreviatedOid": "6e60909"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-10T21:24:49Z",
+          "updatedAt": "2023-11-10T21:24:49Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "@npdoty what about this revised version:\r\n\r\n4.  WG will work closely with gender-based violence experts to incorporate their input and feedback. Before deciding to publish the protocol the WG will:\r\n\t* Carry out a threat analysis and security analysis \r\n\t* Gather implementation experience",
+              "createdAt": "2023-11-10T21:24:49Z",
+              "updatedAt": "2023-11-10T21:24:49Z"
             }
           ]
         }
@@ -4964,18 +5037,26 @@
       ],
       "body": "Attempts to address issue #105. \r\n\r\nNeed to tag Roman on this one to get his feedback.",
       "createdAt": "2023-11-06T14:43:45Z",
-      "updatedAt": "2023-11-06T15:29:21Z",
+      "updatedAt": "2023-11-10T23:32:02Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-16",
-      "headRefOid": "99eeea94a89832e6227d9ed394300c645efabed3",
+      "headRefOid": "9d1a21e9467eeb672c95fec898f3ba64fec1cc2d",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@tfpauly took another stab at this",
+          "createdAt": "2023-11-10T22:51:27Z",
+          "updatedAt": "2023-11-10T22:51:27Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOJdqgvc5mQFMO",
@@ -5083,6 +5164,112 @@
           "body": "@bdetwiler I'm not sure my section references are correct. Could you take a look?",
           "createdAt": "2023-11-07T23:35:06Z",
           "updatedAt": "2023-11-07T23:35:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 120,
+      "id": "PR_kwDOJdqgvc5fDp95",
+      "title": "Change 'Finder' -> 'Location-Tracker'",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/120",
+      "state": "MERGED",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "'Finder' terminology used in the accessory category table is confusing, update this to be more clear.",
+      "createdAt": "2023-11-09T16:56:33Z",
+      "updatedAt": "2023-11-09T16:56:48Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "update-terminology-in-accessory-category",
+      "headRefOid": "28a7d6e99204d314e600ffca4d55c7bd8527e521",
+      "closedAt": "2023-11-09T16:56:48Z",
+      "mergedAt": "2023-11-09T16:56:48Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "ba7b046816022589a0e0a081ec27ff2a87634369"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 121,
+      "id": "PR_kwDOJdqgvc5fDyjX",
+      "title": "remove hyphen",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/121",
+      "state": "MERGED",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-09T17:20:48Z",
+      "updatedAt": "2023-11-09T17:20:58Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "ba7b046816022589a0e0a081ec27ff2a87634369",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "remove-hyphen",
+      "headRefOid": "a1b234e2a3b968bb8341d370a4892c0764f44f9c",
+      "closedAt": "2023-11-09T17:20:58Z",
+      "mergedAt": "2023-11-09T17:20:58Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "3e53a01a29ae64639eccf77c0362b4ed299a718f"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 122,
+      "id": "PR_kwDOJdqgvc5fEGst",
+      "title": "update with onboarding",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/122",
+      "state": "MERGED",
+      "author": "zaeddinger",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-09T18:21:53Z",
+      "updatedAt": "2023-11-09T18:25:08Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "67737ceeb747406d9e7091a085ed43d65811a428",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "zaeddinger-patch-13",
+      "headRefOid": "cc60305e056b0ec28e39313f794cfa47eda5df1f",
+      "closedAt": "2023-11-09T18:25:07Z",
+      "mergedAt": "2023-11-09T18:25:07Z",
+      "mergedBy": "zaeddinger",
+      "mergeCommit": {
+        "oid": "e249ba917e6d475c6d75537dc8602707f1ffa41d"
+      },
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "LGTM",
+          "createdAt": "2023-11-09T18:23:09Z",
+          "updatedAt": "2023-11-09T18:23:09Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5mtnzo",
+          "commit": {
+            "abbreviatedOid": "62e7587"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-09T18:22:58Z",
+          "updatedAt": "2023-11-09T18:22:58Z",
           "comments": []
         }
       ]
