@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-12T00:40:44.710442+00:00",
+  "timestamp": "2023-11-14T00:38:08.033018+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -4853,7 +4853,7 @@
       ],
       "body": "See issue #109",
       "createdAt": "2023-11-06T14:30:15Z",
-      "updatedAt": "2023-11-10T21:24:49Z",
+      "updatedAt": "2023-11-13T14:07:31Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
@@ -4963,6 +4963,26 @@
               "body": "@npdoty what about this revised version:\r\n\r\n4.  WG will work closely with gender-based violence experts to incorporate their input and feedback. Before deciding to publish the protocol the WG will:\r\n\t* Carry out a threat analysis and security analysis \r\n\t* Gather implementation experience",
               "createdAt": "2023-11-10T21:24:49Z",
               "updatedAt": "2023-11-10T21:24:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5m9exw",
+          "commit": {
+            "abbreviatedOid": "6e60909"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-13T14:07:31Z",
+          "updatedAt": "2023-11-13T14:07:31Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "That looks better to me. I think this is more in the spirit of what we discussed at the BoF.",
+              "createdAt": "2023-11-13T14:07:31Z",
+              "updatedAt": "2023-11-13T14:07:31Z"
             }
           ]
         }
