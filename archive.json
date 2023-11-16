@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-14T00:38:08.033018+00:00",
+  "timestamp": "2023-11-16T00:39:26.099820+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -4621,13 +4621,13 @@
       ],
       "body": "See issue #106",
       "createdAt": "2023-11-06T14:10:18Z",
-      "updatedAt": "2023-11-07T23:16:38Z",
+      "updatedAt": "2023-11-15T20:36:12Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-11",
-      "headRefOid": "e5d530122ace1940126c71978bd405cececffe93",
+      "headRefOid": "3db65475e0f9c1a143c0905ff32370428e2cde0a",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -4686,6 +4686,45 @@
           "createdAt": "2023-11-07T23:16:38Z",
           "updatedAt": "2023-11-07T23:16:38Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nSeQh",
+          "commit": {
+            "abbreviatedOid": "e5d5301"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-15T20:22:10Z",
+          "updatedAt": "2023-11-15T20:22:33Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n4. Before publishing the protocol the WG will:\r\n```",
+              "createdAt": "2023-11-15T20:22:10Z",
+              "updatedAt": "2023-11-15T20:22:33Z"
+            },
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\n\t* Review its work with gender-based violence experts\r\n```",
+              "createdAt": "2023-11-15T20:22:23Z",
+              "updatedAt": "2023-11-15T20:22:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nSob4",
+          "commit": {
+            "abbreviatedOid": "3db6547"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-15T20:36:12Z",
+          "updatedAt": "2023-11-15T20:36:12Z",
+          "comments": []
         }
       ]
     },
@@ -4694,7 +4733,7 @@
       "id": "PR_kwDOJdqgvc5esdKK",
       "title": "BoF #2 charter issue #4",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/112",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4703,18 +4742,28 @@
       ],
       "body": "See issue #107",
       "createdAt": "2023-11-06T14:15:35Z",
-      "updatedAt": "2023-11-06T17:40:40Z",
+      "updatedAt": "2023-11-15T20:20:56Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-12",
       "headRefOid": "edfbf17fda8da5fd53e24e7396b31cfd3ad87b9c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2023-11-15T20:20:53Z",
+      "mergedAt": "2023-11-15T20:20:53Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "0e76231f0f3eb5bdb2844f99213c32413f9cbdfb"
+      },
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging!",
+          "createdAt": "2023-11-15T20:20:55Z",
+          "updatedAt": "2023-11-15T20:20:55Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOJdqgvc5mPrpu",
@@ -4758,18 +4807,40 @@
       ],
       "body": "Attempts to address issue #108",
       "createdAt": "2023-11-06T14:21:59Z",
-      "updatedAt": "2023-11-07T20:47:02Z",
+      "updatedAt": "2023-11-15T22:22:10Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
-      "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
+      "baseRefOid": "0e76231f0f3eb5bdb2844f99213c32413f9cbdfb",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-13",
-      "headRefOid": "b305de0af6f09c94eea5a2d61db21e3ff06777db",
+      "headRefOid": "065dc04e3ad442aa4bfd14d44be5ccfccdb0842e",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Well, I guess I don't really understand what the relevance of this scoping is. Like, what are the special characteristics of smaller tags that would lead to requirements you wouldn't want to impose on tags in bicycles? \r\n\r\nMy bigger point is that suppose you say \"tags in big but cheap item X don't need to conform\" and then it turns out that the way people tag cheap item X is by making the same transponder and just gluing it to X, so you can take it out and use it for tracking.\r\n",
+          "createdAt": "2023-11-15T22:13:56Z",
+          "updatedAt": "2023-11-15T22:13:56Z"
+        },
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I am thinking of this less as cases where there are requirements we wouldn't want to impose on large objects (bicycles), but rather that if there are features that are _not_ supported by the protocol that are needed for the very small devices (like triggering sounds or fetching a picture) that the work of the WG may not have satisfied the primary use case.",
+          "createdAt": "2023-11-15T22:17:09Z",
+          "updatedAt": "2023-11-15T22:17:09Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "OK, I can live with the current text, I guess,",
+          "createdAt": "2023-11-15T22:22:10Z",
+          "updatedAt": "2023-11-15T22:22:10Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOJdqgvc5mRWfr",
@@ -4836,6 +4907,99 @@
               "updatedAt": "2023-11-07T20:47:02Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nSlu_",
+          "commit": {
+            "abbreviatedOid": "ff5045d"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-15T20:32:44Z",
+          "updatedAt": "2023-11-15T20:32:45Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nThe WG will not define requirements for interactions between accessory manufacturers and law enforcement. The focus of the WG will be on solving the use case of detecting small and not easily-discoverable accessories, supporting any functionality that is necessary for identifying and recognizing such accessories.\r\n```",
+              "createdAt": "2023-11-15T20:32:45Z",
+              "updatedAt": "2023-11-15T20:32:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nSm-8",
+          "commit": {
+            "abbreviatedOid": "065dc04"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-15T20:33:54Z",
+          "updatedAt": "2023-11-15T20:33:54Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nSoOK",
+          "commit": {
+            "abbreviatedOid": "065dc04"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-15T20:35:49Z",
+          "updatedAt": "2023-11-15T20:35:49Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "@ekr does this help explain why the focus would be on the use cases for small devices? Effectively, this lets the protocol work include things like ways to trigger playing a sound or getting a picture of what the accessory looks like, which isn't necessary for the bike case.",
+              "createdAt": "2023-11-15T20:35:49Z",
+              "updatedAt": "2023-11-15T20:35:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nS1jY",
+          "commit": {
+            "abbreviatedOid": "065dc04"
+          },
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-15T21:07:02Z",
+          "updatedAt": "2023-11-15T21:07:02Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "I think it depends on whether the tag is removable, right?",
+              "createdAt": "2023-11-15T21:07:02Z",
+              "updatedAt": "2023-11-15T21:07:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nTNfq",
+          "commit": {
+            "abbreviatedOid": "065dc04"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-15T22:04:27Z",
+          "updatedAt": "2023-11-15T22:04:27Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "What depends on being removable? I think the main point is to have the focus of the development be on these kinds of devices, and make sure that if there needs to be a way to fetch a URL to get a picture of the device or a command to trigger a sound, those are scoped in.",
+              "createdAt": "2023-11-15T22:04:27Z",
+              "updatedAt": "2023-11-15T22:04:28Z"
+            }
+          ]
         }
       ]
     },
@@ -4844,7 +5008,7 @@
       "id": "PR_kwDOJdqgvc5esn0t",
       "title": "BoF #2 charter issue #6",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/114",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4853,18 +5017,33 @@
       ],
       "body": "See issue #109",
       "createdAt": "2023-11-06T14:30:15Z",
-      "updatedAt": "2023-11-13T14:07:31Z",
+      "updatedAt": "2023-11-15T22:17:21Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-14",
       "headRefOid": "6e609097f56229757686d95d5d7463cbbbab6565",
-      "closedAt": null,
+      "closedAt": "2023-11-15T22:17:20Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bledvina can this be closed in favor of #111?",
+          "createdAt": "2023-11-15T20:37:06Z",
+          "updatedAt": "2023-11-15T20:37:06Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing because PR #111 addresses the issue addressed in this PR.",
+          "createdAt": "2023-11-15T22:17:21Z",
+          "updatedAt": "2023-11-15T22:17:21Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOJdqgvc5mRY5u",
@@ -4985,6 +5164,26 @@
               "updatedAt": "2023-11-13T14:07:31Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nTSFB",
+          "commit": {
+            "abbreviatedOid": "6e60909"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-15T22:16:48Z",
+          "updatedAt": "2023-11-15T22:16:48Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Okay, closing this PR per above comments",
+              "createdAt": "2023-11-15T22:16:48Z",
+              "updatedAt": "2023-11-15T22:16:48Z"
+            }
+          ]
         }
       ]
     },
@@ -4993,7 +5192,7 @@
       "id": "PR_kwDOJdqgvc5esqnr",
       "title": "AD-requested changes to DULT charter",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/115",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -5002,17 +5201,19 @@
       ],
       "body": "Roman requested these changes be made",
       "createdAt": "2023-11-06T14:36:18Z",
-      "updatedAt": "2023-11-06T17:36:56Z",
+      "updatedAt": "2023-11-15T20:20:26Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
-      "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
+      "baseRefOid": "96398be8464c4e09ec43d1ac695f9f2c41acef3a",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-15",
-      "headRefOid": "02f45b672f155433a2058019e5a5b58e623f08c0",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "3891a3359fcc5e503600ef29f57b4b6fb6580de8",
+      "closedAt": "2023-11-15T20:20:26Z",
+      "mergedAt": "2023-11-15T20:20:26Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "4edb1b906ef1da46315d5e630a107d2f9a4ba832"
+      },
       "comments": [],
       "reviews": [
         {
@@ -5098,7 +5299,7 @@
       "id": "PR_kwDOJdqgvc5e2EsE",
       "title": "BoF #2 charter issue #1 (redux)",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/117",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -5107,17 +5308,19 @@
       ],
       "body": "Making this proposed change again because I created some confusion with how I did the previous one. This attempts to address issue #104",
       "createdAt": "2023-11-07T19:25:23Z",
-      "updatedAt": "2023-11-08T05:02:12Z",
+      "updatedAt": "2023-11-15T20:19:34Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-17",
       "headRefOid": "76d89d673246ab0873d63b99036ef8a240b81e4e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-11-15T20:19:12Z",
+      "mergedAt": "2023-11-15T20:19:12Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "96398be8464c4e09ec43d1ac695f9f2c41acef3a"
+      },
       "comments": [],
       "reviews": [
         {
@@ -5144,6 +5347,19 @@
           "body": "LGTM",
           "createdAt": "2023-11-08T05:02:12Z",
           "updatedAt": "2023-11-08T05:02:12Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5nScT8",
+          "commit": {
+            "abbreviatedOid": "76d89d6"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-15T20:19:04Z",
+          "updatedAt": "2023-11-15T20:19:04Z",
           "comments": []
         }
       ]
