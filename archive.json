@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-16T00:39:26.099820+00:00",
+  "timestamp": "2023-11-19T00:42:07.567458+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -1838,7 +1838,7 @@
       "id": "I_kwDOJdqgvc51-JzR",
       "title": "Charter Changes #1",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/104",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1847,8 +1847,8 @@
       ],
       "body": "Include as in-scope a baseline algorithm for determination of unwanted tracking.",
       "createdAt": "2023-11-06T13:59:43Z",
-      "updatedAt": "2023-11-07T19:34:50Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-16T02:35:17Z",
+      "closedAt": "2023-11-16T02:35:17Z",
       "comments": [
         {
           "author": "bledvina",
@@ -1863,6 +1863,13 @@
           "body": "Please see PR #117 instead. That PR is tracking the proposed change for this issue.",
           "createdAt": "2023-11-07T19:34:50Z",
           "updatedAt": "2023-11-07T19:34:50Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this as we believe PR #117  addresses this. Please re-open if needed.",
+          "createdAt": "2023-11-16T02:35:17Z",
+          "updatedAt": "2023-11-16T02:35:17Z"
         }
       ]
     },
@@ -1871,7 +1878,7 @@
       "id": "I_kwDOJdqgvc51-KFO",
       "title": "Charter Changes #2",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/105",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1880,8 +1887,8 @@
       ],
       "body": "Edit the opening two paragraphs to be clear that the full scope of interfaces in the architecture diagram (plus #1 above) is in scope.",
       "createdAt": "2023-11-06T14:00:18Z",
-      "updatedAt": "2023-11-06T14:44:30Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-17T16:48:46Z",
+      "closedAt": "2023-11-17T16:48:46Z",
       "comments": [
         {
           "author": "bledvina",
@@ -1889,6 +1896,13 @@
           "body": "See PR #116 ",
           "createdAt": "2023-11-06T14:44:29Z",
           "updatedAt": "2023-11-06T14:44:29Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "PR #116 was merged. Please re-open if you think this isn't sufficient.",
+          "createdAt": "2023-11-17T16:48:46Z",
+          "updatedAt": "2023-11-17T16:48:46Z"
         }
       ]
     },
@@ -1897,7 +1911,7 @@
       "id": "I_kwDOJdqgvc51-KOo",
       "title": "Charter Changes #3",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/106",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1906,8 +1920,8 @@
       ],
       "body": "Add/edit text to make clear that the WG will get implementation experience before deciding to publish its specifications and will vet its work with gender-based violence experts.",
       "createdAt": "2023-11-06T14:00:37Z",
-      "updatedAt": "2023-11-06T14:11:14Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-17T16:49:06Z",
+      "closedAt": "2023-11-17T16:49:06Z",
       "comments": [
         {
           "author": "bledvina",
@@ -1915,6 +1929,13 @@
           "body": "PR #111 attempts to address this issue",
           "createdAt": "2023-11-06T14:11:14Z",
           "updatedAt": "2023-11-06T14:11:14Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "PR #111 was merged. Please re-open if you think this is insufficient.",
+          "createdAt": "2023-11-17T16:49:06Z",
+          "updatedAt": "2023-11-17T16:49:06Z"
         }
       ]
     },
@@ -1923,7 +1944,7 @@
       "id": "I_kwDOJdqgvc51-Kch",
       "title": "Charter Changes #4",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/107",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1932,16 +1953,24 @@
       ],
       "body": "Add/refine existing charter privacy text to explicitly state that the unwanted tracking detection mechanisms will be designed to not create new vectors for user tracking.",
       "createdAt": "2023-11-06T14:01:06Z",
-      "updatedAt": "2023-11-06T14:01:34Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-11-16T02:35:40Z",
+      "closedAt": "2023-11-16T02:35:39Z",
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this as we believe PR #112  addresses this. Please re-open if needed.",
+          "createdAt": "2023-11-16T02:35:39Z",
+          "updatedAt": "2023-11-16T02:35:39Z"
+        }
+      ]
     },
     {
       "number": 108,
       "id": "I_kwDOJdqgvc51-Kmc",
       "title": "Charter Changes #5",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/108",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1950,16 +1979,24 @@
       ],
       "body": "Edit the language about which accessories are included in scope such that it describes the characteristics of the accessories in scope, rather than listing phones, watches, tablets, etc.",
       "createdAt": "2023-11-06T14:01:25Z",
-      "updatedAt": "2023-11-06T14:01:45Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-11-16T16:41:10Z",
+      "closedAt": "2023-11-16T16:41:10Z",
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this as PR #113 is closed. Please re-open if needed!",
+          "createdAt": "2023-11-16T16:41:10Z",
+          "updatedAt": "2023-11-16T16:41:10Z"
+        }
+      ]
     },
     {
       "number": 109,
       "id": "I_kwDOJdqgvc51-KzM",
       "title": "Charter Changes #6",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/109",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "seanturner",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1968,9 +2005,17 @@
       ],
       "body": "The WG will work with gender-based violence experts.",
       "createdAt": "2023-11-06T14:01:50Z",
-      "updatedAt": "2023-11-06T14:02:07Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-11-16T02:34:57Z",
+      "closedAt": "2023-11-16T02:34:56Z",
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this as we believe PR #114 addresses this. Please re-open if needed.",
+          "createdAt": "2023-11-16T02:34:57Z",
+          "updatedAt": "2023-11-16T02:34:57Z"
+        }
+      ]
     },
     {
       "number": 119,
@@ -4061,21 +4106,21 @@
       "id": "PR_kwDOJdqgvc5dyceA",
       "title": "add protocol ID as first byte of product data",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/95",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-10-25T19:10:44Z",
-      "updatedAt": "2023-10-27T20:50:45Z",
+      "updatedAt": "2023-11-16T02:10:37Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "36f1b16b24fb0973e8708a4190dd16b37f123255",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-9",
       "headRefOid": "24a081f3223adf3ae848c550c7fe15b8550f88e8",
-      "closedAt": null,
+      "closedAt": "2023-11-16T02:10:37Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -4086,6 +4131,13 @@
           "body": "Also, looks like we're already using the first 4 bytes of the productData as the productGroup for Apple Find My Network accessories. I'm not sure how we use this, so getting more details.",
           "createdAt": "2023-10-27T20:50:45Z",
           "updatedAt": "2023-10-27T20:50:45Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I'd like to abandon this PR",
+          "createdAt": "2023-11-16T02:10:29Z",
+          "updatedAt": "2023-11-16T02:10:29Z"
         }
       ],
       "reviews": [
@@ -4381,26 +4433,42 @@
       "id": "PR_kwDOJdqgvc5eYkQZ",
       "title": "Replace protocol ID with network ID",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/100",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Proposed to change protocol ID to network ID, as this value is intended to represent the finding network (not the DULT protocol or some other protocol). Curious what people think about this proposal?",
       "createdAt": "2023-11-02T00:43:04Z",
-      "updatedAt": "2023-11-02T00:58:30Z",
+      "updatedAt": "2023-11-16T18:11:09Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
-      "baseRefOid": "858830b20f697a979f81ebcfd24b97beb3102e31",
+      "baseRefOid": "0e76231f0f3eb5bdb2844f99213c32413f9cbdfb",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-7",
-      "headRefOid": "7702abf59da7cd5ebf01d203b73d99214613da8c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "42c54ab33aae04cba5ce70b2ea86815d853b9647",
+      "closedAt": "2023-11-16T18:11:08Z",
+      "mergedAt": "2023-11-16T18:11:08Z",
+      "mergedBy": "zaeddinger",
+      "mergeCommit": {
+        "oid": "af54e804aac0ae73c9b113d60ce0f6a7e8cf66a4"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5nbAlr",
+          "commit": {
+            "abbreviatedOid": "42c54ab"
+          },
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-16T18:11:04Z",
+          "updatedAt": "2023-11-16T18:11:04Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 101,
@@ -4612,7 +4680,7 @@
       "id": "PR_kwDOJdqgvc5esZvV",
       "title": "BoF #2 charter issue #3",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/111",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4621,18 +4689,28 @@
       ],
       "body": "See issue #106",
       "createdAt": "2023-11-06T14:10:18Z",
-      "updatedAt": "2023-11-15T20:36:12Z",
+      "updatedAt": "2023-11-17T16:45:47Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-11",
       "headRefOid": "3db65475e0f9c1a143c0905ff32370428e2cde0a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2023-11-17T16:45:43Z",
+      "mergedAt": "2023-11-17T16:45:43Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "f25ab04535ebf9489f18b46aea04e6b495bf5272"
+      },
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging this in. Please send additional feedback if you want more changes. Thanks!",
+          "createdAt": "2023-11-17T16:45:46Z",
+          "updatedAt": "2023-11-17T16:45:46Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOJdqgvc5mPrWd",
@@ -4798,7 +4876,7 @@
       "id": "PR_kwDOJdqgvc5esjHf",
       "title": "BoF #2 charter issue #5",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/113",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4807,17 +4885,19 @@
       ],
       "body": "Attempts to address issue #108",
       "createdAt": "2023-11-06T14:21:59Z",
-      "updatedAt": "2023-11-15T22:22:10Z",
+      "updatedAt": "2023-11-16T16:35:07Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "0e76231f0f3eb5bdb2844f99213c32413f9cbdfb",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-13",
       "headRefOid": "065dc04e3ad442aa4bfd14d44be5ccfccdb0842e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-11-16T16:35:06Z",
+      "mergedAt": "2023-11-16T16:35:06Z",
+      "mergedBy": "tfpauly",
+      "mergeCommit": {
+        "oid": "1160827033b240b234b6d98fa60275d8abaed4c4"
+      },
       "comments": [
         {
           "author": "ekr",
@@ -5249,7 +5329,7 @@
       "id": "PR_kwDOJdqgvc5est8w",
       "title": "BoF #2 charter issue #2",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/116",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -5258,17 +5338,19 @@
       ],
       "body": "Attempts to address issue #105. \r\n\r\nNeed to tag Roman on this one to get his feedback.",
       "createdAt": "2023-11-06T14:43:45Z",
-      "updatedAt": "2023-11-10T23:32:02Z",
+      "updatedAt": "2023-11-17T16:46:19Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "37ea7e1a7c9997055236278aaf0e509f7d163d66",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-16",
-      "headRefOid": "9d1a21e9467eeb672c95fec898f3ba64fec1cc2d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c06ddc06e0dde8407a271ecf8b10ec59d97ea04b",
+      "closedAt": "2023-11-17T16:46:17Z",
+      "mergedAt": "2023-11-17T16:46:17Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30"
+      },
       "comments": [
         {
           "author": "bledvina",
@@ -5276,6 +5358,34 @@
           "body": "@tfpauly took another stab at this",
           "createdAt": "2023-11-10T22:51:27Z",
           "updatedAt": "2023-11-10T22:51:27Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@tfpauly pinging you again :-)",
+          "createdAt": "2023-11-16T02:56:23Z",
+          "updatedAt": "2023-11-16T02:56:23Z"
+        },
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bledvina i feel like the second inner list gets a bit long to have a letter for each item. Could that perhaps just be a more casual comma separated list?",
+          "createdAt": "2023-11-16T03:04:22Z",
+          "updatedAt": "2023-11-16T03:04:22Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@tfpauly removed the lettering!",
+          "createdAt": "2023-11-16T16:40:01Z",
+          "updatedAt": "2023-11-16T16:40:01Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merging this in. Please send additional feedback if you think this doesn't cover what is needed.",
+          "createdAt": "2023-11-17T16:46:18Z",
+          "updatedAt": "2023-11-17T16:46:18Z"
         }
       ],
       "reviews": [
@@ -5290,6 +5400,19 @@
           "body": "I think we need a bit more here to address the feedback than just the one sentence. I think that sentence is the right kind of intro (\"there are existing location tracking networks\"), but actually going into a bit more detail in a first paragraph, and then having the second paragraph be about the tracking risk would be good.",
           "createdAt": "2023-11-06T15:29:21Z",
           "updatedAt": "2023-11-06T15:29:21Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5naNuS",
+          "commit": {
+            "abbreviatedOid": "c06ddc0"
+          },
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-16T16:40:47Z",
+          "updatedAt": "2023-11-16T16:40:47Z",
           "comments": []
         }
       ]
@@ -5509,6 +5632,92 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 123,
+      "id": "PR_kwDOJdqgvc5fk9nO",
+      "title": "Add  0xFCB2 service data TLV to spec",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/123",
+      "state": "CLOSED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://www.bluetooth.com/specifications/assigned-numbers/",
+      "createdAt": "2023-11-16T01:36:43Z",
+      "updatedAt": "2023-11-16T18:23:27Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "0e76231f0f3eb5bdb2844f99213c32413f9cbdfb",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-19",
+      "headRefOid": "d8bed076e19e6b172a363067c6b0dcbcd61db569",
+      "closedAt": "2023-11-16T18:23:27Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Looks like this was alrady done. Abandoning this PR",
+          "createdAt": "2023-11-16T18:23:27Z",
+          "updatedAt": "2023-11-16T18:23:27Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 124,
+      "id": "PR_kwDOJdqgvc5fzBvp",
+      "title": "Proposal for adding network ID command + response opcodes",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/124",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-17T22:01:24Z",
+      "updatedAt": "2023-11-18T01:37:50Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-20",
+      "headRefOid": "404404dadddf8738c178310a5a6902b5a28dd87e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 125,
+      "id": "PR_kwDOJdqgvc5fziVY",
+      "title": "Change 2s maximum advertising interval to SHOULD",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/125",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Previous version said SHALL",
+      "createdAt": "2023-11-18T01:39:38Z",
+      "updatedAt": "2023-11-18T01:39:57Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-21",
+      "headRefOid": "3b6dfe9bd22515161482a132fff50d263b6bc107",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
