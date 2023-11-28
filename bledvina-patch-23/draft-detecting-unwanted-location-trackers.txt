@@ -521,7 +521,8 @@ Table of Contents
    lifetime of the accessory: Product data (Section 3.11.1.1),
    Manufacturer name (Section 3.11.1.2), Model name (Section 3.11.1.3),
    Accessory category (Section 3.11.1.4), Accessory capabilities
-   (Section 3.11.1.6), and Firmware version (Section 3.11.1.7).
+   (Section 3.11.1.6), Firmware version (Section 3.11.1.8), and Network
+   ID (Section 3.7).
 
 3.11.1.  Opcodes
 
@@ -577,13 +578,20 @@ Table of Contents
    |                                            |      |   (Section   | Accessory  |
    |                                            |      |  3.11.1.6)   |            |
    +--------------------------------------------+------+--------------+------------+
+   |               Get_Network_ID               |0x009 |     None     | Write; To  |
+   |                                            |      |              | Accessory  |
+   +--------------------------------------------+------+--------------+------------+
+   |          Get_Network_ID_Response           |0x809 |  Network ID  |Indications;|
+   |                                            |      |(Section 3.7) |    From    |
+   |                                            |      |              | Accessory  |
+   +--------------------------------------------+------+--------------+------------+
    |            Get_Firmware_Version            |0x00A |     None     | Write; To  |
    |                                            |      |              | Accessory  |
    +--------------------------------------------+------+--------------+------------+
    |       Get_Firmware_Version_Response        |0x80A |   Firmware   |Indications;|
    |                                            |      |   version    |    From    |
    |                                            |      |   (Section   | Accessory  |
-   |                                            |      |  3.11.1.7)   |            |
+   |                                            |      |  3.11.1.8)   |            |
    +--------------------------------------------+------+--------------+------------+
 
                    Table 4: Accessory Information Opcodes
@@ -715,7 +723,21 @@ Table of Contents
    and identifier look-up over BT will have the value set as 1011 in
    binary and 11 as Uint32.
 
-3.11.1.7.  Firmware version
+3.11.1.7.  Network ID
+
+   The Newtork Id operand contains the Network ID for the accessory.
+   This is the same information that's in the BT advertisement header in
+   Table 1.
+
+        +==============+===========+===============+=============+
+        | Operand name | Data type | Size (octets) | Description |
+        +==============+===========+===============+=============+
+        |  Network ID  |   Uint8   |       1       |  Network ID |
+        +--------------+-----------+---------------+-------------+
+
+                       Table 12: Network ID Operand
+
+3.11.1.8.  Firmware version
 
    The Firmware Version describes the current firmware version running
    on the accessory.  The firmware revision string SHALL use the
@@ -746,7 +768,7 @@ Table of Contents
     |          |       |          | Byte 2:3 : major version number  |
     +----------+-------+----------+----------------------------------+
 
-                    Table 12: Firmware Version Operand
+                    Table 13: Firmware Version Operand
 
 3.12.  Non-Owner Finding
 
@@ -770,7 +792,7 @@ Table of Contents
 
    The details in this section apply to those accessories that include a
    motion detector.  Values of the variables referenced are specified in
-   Table 13.
+   Table 14.
 
 
    After T_(SEPARATED_UT_TIMEOUT) in separated state, the accessory MUST
@@ -832,7 +854,7 @@ Table of Contents
    |                                 | distribution |                  |
    +---------------------------------+--------------+------------------+
 
-                   Table 13: Motion Detector Time Values
+                   Table 14: Motion Detector Time Values
 
 3.12.3.  Sound maker
 
@@ -856,7 +878,7 @@ Table of Contents
    UUIDs as defined in Accessory Connections (Section 3.10).  The non-
    owner control point enables a non-owner device to locate the
    accessory by playing a sound.  The opcodes for the control point are
-   defined in Table 14.
+   defined in Table 15.
 
    +============================+========+=============+==============+
    |           Opcode           | Opcode |   Operands  |     GATT     |
@@ -886,7 +908,7 @@ Table of Contents
    |                            |        |  3.12.4.2)  |              |
    +----------------------------+--------+-------------+--------------+
 
-                Table 14: Non-Owner Control Point Opcodes
+                Table 15: Non-Owner Control Point Opcodes
 
    This control point SHALL be available to the platform only when the
    accessory is in separated state.  In all other states, the accessory
@@ -947,7 +969,7 @@ Table of Contents
    |                |        |          | 0xFFFF Invalid_command       |
    +----------------+--------+----------+------------------------------+
 
-                    Table 15: Command Response Operands
+                    Table 16: Command Response Operands
 
 3.12.4.2.  Identifier Payload
 
@@ -966,7 +988,7 @@ Table of Contents
     | Number URL |       | accessory  |  identifier can be retrieved  |
     +------------+-------+------------+-------------------------------+
 
-               Table 16: Serial Number Payload Over Bluetooth
+               Table 17: Serial Number Payload Over Bluetooth
 
    The encrypted identifier SHALL be an argument passed to this URL and
    it is REQUIRED that any metadata passed be non-identifiable.
@@ -984,7 +1006,7 @@ Table of Contents
 
 3.12.6.  Recommended Finding Options
 
-   Table 17 lists two RECOMMENDED options on the set of technology in an
+   Table 18 lists two RECOMMENDED options on the set of technology in an
    accessory to make it findable.
 
                    +=============+==========+==========+
@@ -999,7 +1021,7 @@ Table of Contents
                    | Lights      |          |    X     |
                    +-------------+----------+----------+
 
-                        Table 17: Accessory Finding
+                        Table 18: Accessory Finding
                               Hardware Options
 
 3.12.7.  Future hardware
@@ -1081,7 +1103,7 @@ Table of Contents
    the identifier value SHALL be available for platforms to reference,
    as defined in Section 10.2.  This URL MUST return a response which
    can be rendered by an HTML view.  The arguments sent to this URL
-   SHALL match those that are defined in Table 16.  Security
+   SHALL match those that are defined in Table 17.  Security
    considerations are discussed in Section 8.1.
 
 3.14.5.  Identifer over NFC
@@ -1134,7 +1156,7 @@ Table of Contents
 
    Accessory manufacturer’s MUST pick an accessory category value that
    closest resembles their physical product.  If none of the accessory
-   categories provided in Table 18 match the physical product, Other
+   categories provided in Table 19 match the physical product, Other
    MUST be chosen.
 
                +============================+=============+
@@ -1225,7 +1247,7 @@ Table of Contents
                | Reserved for future use    | 2-127, 168+ |
                +----------------------------+-------------+
 
-                   Table 18: Accessory Category Values
+                   Table 19: Accessory Category Values
 
 5.  Firmware Updates
 
@@ -1446,7 +1468,7 @@ Table of Contents
 10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 19.
+   are listed in Table 20.
 
                        +============+==============+
                        | Network ID | Manufacturer |
@@ -1458,7 +1480,7 @@ Table of Contents
                        |    0x02    |  Google LLC  |
                        +------------+--------------+
 
-                           Table 19: Manufacturer
+                           Table 20: Manufacturer
                                   Registry
 
 10.2.  Product Data Registry
@@ -1492,7 +1514,7 @@ Table of Contents
 10.2.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 20.
+   are listed in Table 21.
 
    +=========+==================+============================+=========+
    | Product |   Disablement    |      Identifier Look-      | Product |
@@ -1501,7 +1523,7 @@ Table of Contents
    +=========+==================+============================+=========+
    +---------+------------------+----------------------------+---------+
 
-                      Table 20: Product Data Registry
+                      Table 21: Product Data Registry
 
 11.  Normative References
 
