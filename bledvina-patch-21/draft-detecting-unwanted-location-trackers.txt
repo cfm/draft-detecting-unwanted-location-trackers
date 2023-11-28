@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 21 May 2024                                              Google
+Expires: 31 May 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        18 November 2023
+                                                        28 November 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 May 2024.
+   This Internet-Draft will expire on 31 May 2024.
 
 Copyright Notice
 
@@ -490,8 +490,9 @@ Table of Contents
 3.9.  Bluetooth LE advertising interval
 
    The Bluetooth LE advertising interval SHOULD be a maximum interval of
-   2 seconds.  If an accessory manufacturer advertises at a less
-   frequent interval, detection performance is diminished.
+   2 seconds.  The advertising interval SHALL be less than or equal to 4
+   seconds.  If an accessory manufacturer advertises at a less frequent
+   interval, detection performance is diminished.
 
 3.10.  Accessory Connections
 
