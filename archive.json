@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-26T00:41:43.853669+00:00",
+  "timestamp": "2023-11-28T00:39:49.779966+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -1820,7 +1820,7 @@
       "id": "I_kwDOJdqgvc518u76",
       "title": "charter should commit to engagement with intimate partner violence advocacy and service provider groups",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/103",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "npdoty",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -1829,9 +1829,17 @@
       ],
       "body": "An important part of making this group successful in addressing the particular harms of unwanted tracking will be to engage with expertise of those working directly with people who are most severely affected by such tracking.\r\n\r\nCharter probably doesn't need to go into great detail on methods, but should note this engagement in addition to coordination with other standards groups. \r\n\r\nEngagement may need to be different than typical IETF practice, as those stakeholders may have less experience with protocol development and not all may be able to engage directly on publicly-archived fora. Liaisons, surveys and briefings/feedback sessions may be useful.",
       "createdAt": "2023-11-06T10:59:23Z",
-      "updatedAt": "2023-11-06T14:00:43Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-11-28T00:32:20Z",
+      "closedAt": "2023-11-28T00:32:20Z",
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@npdoty I believe we addressed this in PR #111. Closing this issue -- please re-open if you disagree",
+          "createdAt": "2023-11-28T00:32:20Z",
+          "updatedAt": "2023-11-28T00:32:20Z"
+        }
+      ]
     },
     {
       "number": 104,
@@ -2031,7 +2039,7 @@
       ],
       "body": "I want to make sure we agree on what we are trying to do. Here's my understanding:\r\n\r\n  -  Standardize the protocols used by (1) the tag to communicate with finding devices (2) the tag to communicate with devices when apparent unwanted tracking is detected (e.g., to cause it to beep).\r\n   - Not standardize the protocols use by the finding device to report to the tracking network (e.g., to upload to iCloud), the protocols used to initialize the tag, or the protocols used by the tag owner to query the network for location.\r\n\r\nOne way to phrase this is that it ought to be enough to allow you to build your own tag that would work with the network, assuming it had the right keying material.\r\n\r\nDoes that sound right? If so, I can provide some text to try to sharpen this\r\n",
       "createdAt": "2023-11-08T05:03:33Z",
-      "updatedAt": "2023-11-09T17:33:55Z",
+      "updatedAt": "2023-11-28T00:29:40Z",
       "closedAt": null,
       "comments": [
         {
@@ -2061,6 +2069,27 @@
           "body": "I don't think that this works because we still won't be able to say anything meaningful about the security and privacy properties of anything which doesn't use the reference design. ISTM that the point of designing something in this space is so that we can say \"if you do what it says in this spec, then you will have the following properties\". That doesn't mean that there's no room for individual variation, but it needs to be straightforward to evaluate whether an implementation meets a given requirement, and that's not the case if it's an opaque blob with some overall requirements.",
           "createdAt": "2023-11-09T16:42:35Z",
           "updatedAt": "2023-11-09T16:42:35Z"
+        },
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@ekr I think I'm on the same page as you for the protocol needing to specify the full advertisement (both the unencrypted and encrypted parts). Looking at the charter definition for the program of work section 1, what specific parts are missing? Maybe just getting your suggested text would be easiest.\r\n\r\n> 1. Develop a standards-track protocol (\"DULT protocol\") between tracking accessories and nearby devices, which may:\r\n> - Specify requirements and a baseline algorithm for determination of unwanted tracking\r\n> - Allow a tracking accessory to identify & advertise its presence when in a detectable mode, using standard formats defined for the underlying transports (e.g., Bluetooth, Near Field Communication, etc.)\r\n> - Allow a nearby device to trigger behavior on an unwanted tracking accessory to aid in determining its physical location\r\n> - Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions\r\n> - Add privacy and security requirements for all messages used for advertisement, interactions with crowdsourcing networks, and owners of accessories",
+          "createdAt": "2023-11-28T00:06:03Z",
+          "updatedAt": "2023-11-28T00:06:03Z"
+        },
+        {
+          "author": "ekr",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "It seems like the missing text is something like:\r\n\r\n\"Completely specify the message formats used between the accessory and the finding device\".\r\n",
+          "createdAt": "2023-11-28T00:10:04Z",
+          "updatedAt": "2023-11-28T00:12:05Z"
+        },
+        {
+          "author": "tfpauly",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@ekr how about this modification to the list? Trying to work it in without sounding awkward.\r\n\r\n> 1. Develop a standards-track protocol (\"DULT protocol\") between tracking accessories and nearby devices, which will:\r\n> - Specify requirements and a baseline algorithm for determination of unwanted tracking\r\n> - Specify complete message formats for accessories to advertise their presence to nearby devices, for one or more underlying transports (e.g., Bluetooth, Near Field Communication, etc.)\r\n> - Allow nearby devices to trigger behavior on an unwanted tracking accessory to aid in determining its physical location\r\n> - Allow nearby devices to fetch additional information about a tracker accessory, including such things as tracker image asset(s) and physical disablement instructions\r\n> - Define privacy and security requirements for all messages used for advertisement, interactions with crowdsourcing networks, and owners of accessories",
+          "createdAt": "2023-11-28T00:29:39Z",
+          "updatedAt": "2023-11-28T00:29:39Z"
         }
       ]
     }
@@ -5718,6 +5747,48 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 126,
+      "id": "PR_kwDOJdqgvc5gfuiZ",
+      "title": "Typo fix",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/126",
+      "state": "MERGED",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-27T23:59:09Z",
+      "updatedAt": "2023-11-28T00:00:09Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "tfpauly-patch-1",
+      "headRefOid": "c59b95855038c548f805bda8040daeb76003d14f",
+      "closedAt": "2023-11-28T00:00:09Z",
+      "mergedAt": "2023-11-28T00:00:09Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "92fba2a7164bf08d6f5289f494f3d6003ae1c9c7"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5oZ-lr",
+          "commit": {
+            "abbreviatedOid": "c59b958"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks like a good change!",
+          "createdAt": "2023-11-28T00:00:03Z",
+          "updatedAt": "2023-11-28T00:00:03Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
