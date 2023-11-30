@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 3 May 2024                                               Google
+Expires: 2 June 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         31 October 2023
+                                                        30 November 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 May 2024.
+   This Internet-Draft will expire on 2 June 2024.
 
 Copyright Notice
 
@@ -556,19 +556,6 @@ Table of Contents
 
                    Table 4: Accessory Information Opcodes
 
-   Opcodes should be structured as defined below.
-
-                          +=======+==============+
-                          | Bytes | Description  |
-                          +=======+==============+
-                          |  0-1  | Opcode value |
-                          +-------+--------------+
-                          |   2+  |   Operand    |
-                          +-------+--------------+
-
-                             Table 5: Accessory
-                              Opcode Structure
-
 3.11.1.1.  Product data
 
    The Product Data operand represents an 8-byte value that is intended
@@ -592,7 +579,7 @@ Table of Contents
      |              |           |               | (Section 3.11.1.1) |
      +--------------+-----------+---------------+--------------------+
 
-                       Table 6: Product Data Operand
+                       Table 5: Product Data Operand
 
 3.11.1.2.  Manufacturer name
 
@@ -606,7 +593,7 @@ Table of Contents
    |                   |           |               |        name       |
    +-------------------+-----------+---------------+-------------------+
 
-                     Table 7: Manufacturer Name Operand
+                     Table 6: Manufacturer Name Operand
 
 3.11.1.3.  Model name
 
@@ -619,7 +606,7 @@ Table of Contents
         |  Model Name  |   UTF-8   |       64      |  Model name |
         +--------------+-----------+---------------+-------------+
 
-                       Table 8: Model Name Operand
+                       Table 7: Model Name Operand
 
 3.11.1.4.  Protocol implementation version
 
@@ -638,7 +625,7 @@ Table of Contents
         |                |        |          |   version number  |
         +----------------+--------+----------+-------------------+
 
-             Table 9: Protocol Implementation Version Operand
+             Table 8: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
    1.0.0.  The equivalent byte value is 0x00000001.
@@ -646,7 +633,7 @@ Table of Contents
 3.11.1.5.  Accessory capabilities
 
    The Accessory Capabilities operand enumerates the various
-   capabilities supported on the accessory as defined in Table 10.
+   capabilities supported on the accessory as defined in Table 9.
 
     +==============+========+==========+=============================+
     | Operand name |  Data  |   Size   | Description                 |
@@ -661,7 +648,7 @@ Table of Contents
     |              |        |          | number lookup by BLE        |
     +--------------+--------+----------+-----------------------------+
 
-                 Table 10: Accessory Capabilities Operand
+                 Table 9: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
    and serial number look-up over BT will have the value set as 1011 in
@@ -689,7 +676,7 @@ Table of Contents
 
    The details in this section apply to those accessories that include a
    motion detector.  Values of the variables referenced are specified in
-   Table 11.
+   Table 10.
 
 
    After T_(SEPARATED_UT_TIMEOUT) in separated state, the accessory MUST
@@ -751,7 +738,7 @@ Table of Contents
    |                                 | distribution |                  |
    +---------------------------------+--------------+------------------+
 
-                   Table 11: Motion Detector Time Values
+                   Table 10: Motion Detector Time Values
 
 3.12.3.  Sound maker
 
@@ -775,7 +762,7 @@ Table of Contents
    UUIDs as defined in Accessory Connections (Section 3.10).  The non-
    owner control point enables a non-owner device to locate the
    accessory by playing a sound.  The opcodes for the control point are
-   defined in Table 12.
+   defined in Table 11.
 
    +============================+========+=============+==============+
    |           Opcode           | Opcode |   Operands  |     GATT     |
@@ -806,7 +793,7 @@ Table of Contents
    |                            |        |  3.12.4.2)  |              |
    +----------------------------+--------+-------------+--------------+
 
-                Table 12: Non-Owner Control Point Opcodes
+                Table 11: Non-Owner Control Point Opcodes
 
    This control point SHALL be available to the platform only when the
    accessory is in separated state.  In all other states, the accessory
@@ -867,7 +854,7 @@ Table of Contents
    |                |        |          | 0xFFFF Invalid_command       |
    +----------------+--------+----------+------------------------------+
 
-                    Table 13: Command Response Operands
+                    Table 12: Command Response Operands
 
 3.12.4.2.  Serial Number Payload
 
@@ -886,7 +873,7 @@ Table of Contents
    | Number URL |       | accessory  | serial number can be retrieved |
    +------------+-------+------------+--------------------------------+
 
-              Table 14: Serial Number Payload Over Bluetooth
+              Table 13: Serial Number Payload Over Bluetooth
 
    The encrypted serial number SHALL be an argument passed to this URL
    and it is REQUIRED that any metadata passed be non-identifiable.
@@ -904,7 +891,7 @@ Table of Contents
 
 3.12.6.  Recommended Finding Options
 
-   Table 15 lists two RECOMMENDED options on the set of technology in an
+   Table 14 lists two RECOMMENDED options on the set of technology in an
    accessory to make it findable.
 
                    +=============+==========+==========+
@@ -919,7 +906,7 @@ Table of Contents
                    | Lights      |          |    X     |
                    +-------------+----------+----------+
 
-                        Table 15: Accessory Finding
+                        Table 14: Accessory Finding
                               Hardware Options
 
 3.12.7.  Future hardware
@@ -1000,7 +987,7 @@ Table of Contents
    the identifier value SHALL be available for platforms to reference,
    as defined in Section 8.2.  This URL MUST return a response which can
    be rendered by an HTML view.  The arguments sent to this URL SHALL
-   match those that are defined in Table 14.  Security considerations
+   match those that are defined in Table 13.  Security considerations
    are discussed in Section 6.1.
 
 3.14.5.  Identifer over NFC
@@ -1063,21 +1050,32 @@ Table of Contents
 4.1.1.  Advertisement backwards compatibility
 
    The manufacturer MAY continue to use the company’s existing service
-   UUID as registered in the Bluetooth SIG until October 1, 2024, after
-   which all manufacturers must use the unwanted tracking service UUID
-   to be detected for unwanted tracking.  This applies to new or updated
-   trackers and any existing trackers that have the ability to have
-   their firmware updated.  If the manufacturer wishes to use their
-   existing service UUID until that time, the UUID MUST be registered
-   with platforms.  Manufacturers can register their service UUID by
-   reaching out to the listed authors here (link TBD).  Backwards
-   compatibility requests must be submitted by December 1, 2023.
+   UUID (Legacy ID) as registered in the Bluetooth SIG until November 1,
+   2024, after which all manufacturers MUST use the unwanted tracking
+   service UUID to be detected for unwanted tracking.  Trackers that use
+   the company's Legacy ID MUST be able to have their firmware updated.
+   This applies to new or updated trackers and any existing trackers
+   that have the ability to have their firmware updated.
 
-   Detection performance for existing service UUIDs may be lower than if
-   the unwanted tracking protocol UUID is used.
+   If the manufacturer wishes to use their Legacy ID, the Legacy ID MUST
+   be registered with platforms.  If a manufacturer is using a Legacy
+   ID, Protocol ID MAY be omitted.
 
-   Companies who have registered their protocol IDs will appear in a
-   table below.
+   Manufacturers can register their service UUID by reaching out to the
+   listed authors here (link TBD).  Backwards compatibility requests
+   must be submitted by January 15, 2024.
+
+   Legacy IDs that have been registered with the platforms are listed in
+   Table 15.
+
+                       +==============+===========+
+                       | Manufacturer | Legacy ID |
+                       +==============+===========+
+                       | TBD          |    TBD    |
+                       +--------------+-----------+
+
+                             Table 15: Legacy
+                             Manufacturer IDs
 
 5.  Platform Support for Unwanted Tracking
 
