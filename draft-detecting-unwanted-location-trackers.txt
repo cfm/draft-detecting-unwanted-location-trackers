@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 31 May 2024                                              Google
+Expires: 2 June 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        28 November 2023
+                                                        30 November 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 May 2024.
+   This Internet-Draft will expire on 2 June 2024.
 
 Copyright Notice
 
@@ -236,9 +236,9 @@ Table of Contents
 
    Accessories are considered easily discoverable if they meet one of
    the following criteria:
-   - The item is larger than 30 cm in at least one dimension.
-   - The item is larger than 18 cm x 13 cm in two of its dimensions.
-   - The item is larger than 250 cm^3 in three-dimensional space.
+   - The item is larger than 30 cm in at least one dimension. - The item
+   is larger than 18 cm x 13 cm in two of its dimensions. - The item is
+   larger than 250 cm^3 in three-dimensional space.
 
 3.  Requirements
 
@@ -938,18 +938,20 @@ Table of Contents
    accessory is in this mode, it MUST respond with
    Get_Serial_Number_Response opcode and Serial Number Payload operand.
 
-    +============+=======+============+===============================+
-    |  Operand   |  Data |    Size    |          Description          |
-    |            |  type |  (octets)  |                               |
-    +============+=======+============+===============================+
-    |   Serial   | UTF-8 | defined by | String for URL from which the |
-    | Number URL |       | accessory  |  identifier can be retrieved  |
-    +------------+-------+------------+-------------------------------+
+   +===============+=======+============+==============================+
+   |    Operand    |  Data |    Size    |         Description          |
+   |               |  type |  (octets)  |                              |
+   +===============+=======+============+==============================+
+   |   Encrypted   | UTF-8 | defined by |     The encrypted serial     |
+   | Serial Number |       | accessory  |     number, encoded as a     |
+   |               |       |            |         hex string.          |
+   +---------------+-------+------------+------------------------------+
 
                Table 16: Serial Number Payload Over Bluetooth
 
-   The encrypted identifier SHALL be an argument passed to this URL and
-   it is REQUIRED that any metadata passed be non-identifiable.
+   The encrypted serial number SHALL be an argument passed to the URL
+   defined in the Product data registry (product-data-registry) and it
+   is REQUIRED that any metadata passed be non-identifiable.
 
    If the accessory is not in identifier read state, it MUST send
    Command_Response (Section 3.12.4.1.1) with the Invalid_command as the
@@ -1006,9 +1008,9 @@ Table of Contents
 
    A registry which maps Product data (Section 3.11.1.1) to an
    affiliated URL supporting retrieval of disablement instructions SHALL
-   be available for platforms to reference, as defined in Section 10.2.
-   This URL must return a response which can be rendered by an HTML
-   view.
+   be available for platforms to reference, as defined in Product data
+   registry (product-data-registry).  This URL must return a response
+   which can be rendered by an HTML view.
 
 3.14.  Identification
 
@@ -1047,9 +1049,9 @@ Table of Contents
    A registry which maps Product Data (Section 3.11.1.1) to an
    affiliated URL that will return a text description and visual
    depiction of how to enable identifier look-up over Bluetooth LE SHALL
-   be available for platforms to reference, as defined in Section 10.2.
-   This URL MUST return a response which can be rendered by an HTML
-   view.
+   be available for platforms to reference, as defined in Product data
+   registry (product-data-registry).  This URL MUST return a response
+   which can be rendered by an HTML view.
 
 3.14.4.  Identifier retrieval from a server
 
@@ -1059,17 +1061,20 @@ Table of Contents
    A registry which maps Product Data (Section 3.11.1.1) to an
    affiliated URL which will decrypt the identifier payload and return
    the identifier value SHALL be available for platforms to reference,
-   as defined in Section 10.2.  This URL MUST return a response which
-   can be rendered by an HTML view.  The arguments sent to this URL
-   SHALL match those that are defined in Table 16.  Security
-   considerations are discussed in Section 8.1.
+   as defined in Product data registry (product-data-registry).  This
+   URL MUST return a response which can be rendered by an HTML view.
+   The arguments sent to this URL SHALL match those that are defined in
+   Table 16.  Security considerations are discussed in Section 8.1.
 
 3.14.5.  Identifer over NFC
 
    For those accessories that support identifier retrieval over NFC, an
-   associated accessory SHALL advertise a URL which SHALL decrypt the
-   identifier payload and return the identifier of the accessory in a
-   form that can be rendered in the platform's HTML view.
+   associated accessory SHALL advertise the encrypted serial number
+   encoded as a hex string.  This string SHALL be an argument passed to
+   the URL defined in the Product data registry (product-data-registry)
+   which SHALL decrypt the identifier payload and return the identifier
+   of the accessory in a form that can be rendered in the platform's
+   HTML view.
 
    The encrypted identifier when in associated state SHALL be an
    argument passed to this URL and it is REQUIRED that any metadata
@@ -1468,6 +1473,16 @@ Table of Contents
 
    *  Product Name: a string representing the product name associated
       with the Product Data string.
+
+   *  The URL for serial number lookup operations SHALL only include the
+      base URL.  The HTTP handler serving the URL SHALL accept the
+      following query parameters, provided as a GET request:
+
+      -  ID - which includes the hex-encoded identifier read over BLE or
+         NFC.
+
+      -  Locale - which includes an IETF BCP 47 language tag
+         (https://datatracker.ietf.org/doc/html/rfc5646).
 
 10.2.1.  Temporary Registry
 
