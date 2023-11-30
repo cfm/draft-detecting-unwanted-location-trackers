@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-28T00:39:49.779966+00:00",
+  "timestamp": "2023-11-30T00:39:22.217308+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -5701,31 +5701,47 @@
       "id": "PR_kwDOJdqgvc5fzBvp",
       "title": "Proposal for adding network ID command + response opcodes",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/124",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-11-17T22:01:24Z",
-      "updatedAt": "2023-11-18T01:37:50Z",
+      "updatedAt": "2023-11-28T20:10:07Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-20",
-      "headRefOid": "404404dadddf8738c178310a5a6902b5a28dd87e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "535b1b13cd48398ace4a64fe41fb8143e354ccd9",
+      "closedAt": "2023-11-28T20:10:07Z",
+      "mergedAt": "2023-11-28T20:10:07Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "43d2b0c3c0e96dddc9b5d6186d2545e577abf903"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5oh11W",
+          "commit": {
+            "abbreviatedOid": "535b1b1"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-11-28T19:11:47Z",
+          "updatedAt": "2023-11-28T19:11:47Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 125,
       "id": "PR_kwDOJdqgvc5fziVY",
-      "title": "Change 2s maximum advertising interval to SHOULD",
+      "title": "Change 2s maximum advertising interval to SHOULD and add max",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/125",
       "state": "OPEN",
       "author": "bledvina",
@@ -5734,13 +5750,13 @@
       "labels": [],
       "body": "Previous version said SHALL",
       "createdAt": "2023-11-18T01:39:38Z",
-      "updatedAt": "2023-11-18T01:39:57Z",
+      "updatedAt": "2023-11-30T00:34:33Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-21",
-      "headRefOid": "3b6dfe9bd22515161482a132fff50d263b6bc107",
+      "headRefOid": "2dd45a9bae4da126857bc58706f367a7e7815e07",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -5789,6 +5805,233 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 127,
+      "id": "PR_kwDOJdqgvc5ggBov",
+      "title": "Proposal to add get/response firmware version opcode",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/127",
+      "state": "CLOSED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-28T01:27:44Z",
+      "updatedAt": "2023-11-28T17:40:35Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "92fba2a7164bf08d6f5289f494f3d6003ae1c9c7",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-22",
+      "headRefOid": "62586ef32c05387120320ae87367e8260d10e762",
+      "closedAt": "2023-11-28T17:40:35Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This PR is messy. Closing and starting a new one",
+          "createdAt": "2023-11-28T17:40:35Z",
+          "updatedAt": "2023-11-28T17:40:35Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 128,
+      "id": "PR_kwDOJdqgvc5ggagk",
+      "title": "Remove Product Data Registry",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/128",
+      "state": "CLOSED",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "It's expected that these details, specific to how the backend services of accessory manufacturers interface with UT implementations of platforms, are not required for this document; therefore, are being removed.",
+      "createdAt": "2023-11-28T03:21:13Z",
+      "updatedAt": "2023-11-28T03:22:08Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "92fba2a7164bf08d6f5289f494f3d6003ae1c9c7",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "remove-product-data-registry-section",
+      "headRefOid": "654ca43fbadd600a351c879623715882cad2d0cb",
+      "closedAt": "2023-11-28T03:21:48Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "mistake was made uploading this PR, closing. will create a new one",
+          "createdAt": "2023-11-28T03:22:07Z",
+          "updatedAt": "2023-11-28T03:22:07Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 129,
+      "id": "PR_kwDOJdqgvc5gga18",
+      "title": "Remove Product Data Registry",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/129",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "It's expected that these details, specific to how the backend services of accessory manufacturers interface with UT implementations of platforms, are not required for this document; therefore, they are being removed.",
+      "createdAt": "2023-11-28T03:23:03Z",
+      "updatedAt": "2023-11-30T00:33:58Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "92fba2a7164bf08d6f5289f494f3d6003ae1c9c7",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "remove-the-product-data-registry-section",
+      "headRefOid": "f6b2db93a91f89e949c5dfacf27015bef1a9c03e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@bdetwiler - I do think it's probably worth keeping a reference somewhere to state that a product data registry will exist (even if it's populated during onboarding)",
+          "createdAt": "2023-11-30T00:18:54Z",
+          "updatedAt": "2023-11-30T00:18:54Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@zaeddinger you have a good point.",
+          "createdAt": "2023-11-30T00:20:15Z",
+          "updatedAt": "2023-11-30T00:20:15Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5oa8NR",
+          "commit": {
+            "abbreviatedOid": "654ca43"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good to me, although I didn't check the entire document :-)",
+          "createdAt": "2023-11-28T03:51:40Z",
+          "updatedAt": "2023-11-29T03:02:59Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 130,
+      "id": "PR_kwDOJdqgvc5glUMp",
+      "title": "Add firmware version get/response opcode",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/130",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-28T17:42:03Z",
+      "updatedAt": "2023-11-28T21:10:26Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "43d2b0c3c0e96dddc9b5d6186d2545e577abf903",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-23",
+      "headRefOid": "6d2d9e03d0b1904a095194e21553eeb7b97c386f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 131,
+      "id": "PR_kwDOJdqgvc5glW6r",
+      "title": "Clarify that the protocol covers the complete advertisement message",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/131",
+      "state": "OPEN",
+      "author": "tfpauly",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "Charter"
+      ],
+      "body": "Closes #119 \r\n\r\nOr attempts to close =)",
+      "createdAt": "2023-11-28T17:49:20Z",
+      "updatedAt": "2023-11-28T21:35:39Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "92fba2a7164bf08d6f5289f494f3d6003ae1c9c7",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "tfpauly-patch-2",
+      "headRefOid": "346fa459ff50117a65de132caeeb077291dae227",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5oi8qi",
+          "commit": {
+            "abbreviatedOid": "346fa45"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I like this change. I think it's helpful for clarifying scope.",
+          "createdAt": "2023-11-28T21:35:39Z",
+          "updatedAt": "2023-11-28T21:35:39Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 132,
+      "id": "PR_kwDOJdqgvc5guQIu",
+      "title": "Add battery type and battery state opcodes",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/132",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-29T23:01:32Z",
+      "updatedAt": "2023-11-30T00:13:23Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "43d2b0c3c0e96dddc9b5d6186d2545e577abf903",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-24",
+      "headRefOid": "dfcf6ec0dcb52e9cdfd4391ce7dbd127f9c16311",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "zaeddinger",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I don't think that battery state is a MUST requirement. I'd propose removing those.",
+          "createdAt": "2023-11-30T00:13:21Z",
+          "updatedAt": "2023-11-30T00:13:21Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
