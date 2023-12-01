@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 2 June 2024                                              Google
+Expires: 3 June 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        30 November 2023
+                                                         1 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 June 2024.
+   This Internet-Draft will expire on 3 June 2024.
 
 Copyright Notice
 
@@ -1251,9 +1251,10 @@ Table of Contents
    (Section 3.11.1.1). * Disablement Instructions: information on how a
    user can disable the tracker. * Identifier Look-up Over Bluetooth
    Instructions: visual depictions for enabling identifier look-up over
-   Bluetooth LE. * Identifier Look-up: a method for the obfuscated owner
-   information to be retrieved. * Product Name: a string representing
-   the product name associated with the Product Data string.
+   Bluetooth LE. * Identifier Look-up: a method to retrieve the
+   obfuscated owner information and possibly serial number. * Product
+   Name: a string representing the accessory make and model associated
+   with the Product Data string.
 
    Additional details will follow in 2024 to specify formats for
    disablement instructions and product images.
