@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 2 June 2024                                              Google
+Expires: 4 June 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        30 November 2023
+                                                         2 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 June 2024.
+   This Internet-Draft will expire on 4 June 2024.
 
 Copyright Notice
 
@@ -106,7 +106,6 @@ Table of Contents
        3.12.7.  Future hardware
      3.13. Disablement
        3.13.1.  Disablement instructions
-       3.13.2.  Retrieval
      3.14. Identification
        3.14.1.  Serial number identification
        3.14.2.  Identifier retrieval capability
@@ -141,8 +140,6 @@ Table of Contents
    10. IANA Considerations
      10.1.  Manufacturer Network ID Registry
        10.1.1.  Temporary Registry
-     10.2.  Product Data Registry
-       10.2.1.  Temporary Registry
    11. Normative References
    Authors' Addresses
 
@@ -613,8 +610,8 @@ Table of Contents
 
    The Product Data operand represents an 8-byte value that is intended
    to serve as a unique identifier for the accessory make and model.
-   This value SHALL be available in a public registry as defined in
-   Section 10.2.
+   This value SHALL be determined during the onboarding process
+   (Section 7).
 
    The Product Data operand is 8 bytes, composed of two 8-character hex
    strings (lowercase zero padded), each of which is 4 bytes.
@@ -1046,14 +1043,6 @@ Table of Contents
    platform is online and OPTIONALLY when offline.  Disablement
    procedure or instructions CAN change with accessory firmware updates.
 
-3.13.2.  Retrieval
-
-   A registry which maps Product data (Section 3.11.1.1) to an
-   affiliated URL supporting retrieval of disablement instructions SHALL
-   be available for platforms to reference, as defined in Product data
-   registry (product-data-registry).  This URL must return a response
-   which can be rendered by an HTML view.
-
 3.14.  Identification
 
    The accessory MUST include a way to uniquely identify it - either via
@@ -1088,25 +1077,10 @@ Table of Contents
    The description and visual depiction CAN change with accessory
    firmware updates.
 
-   A registry which maps Product Data (Section 3.11.1.1) to an
-   affiliated URL that will return a text description and visual
-   depiction of how to enable identifier look-up over Bluetooth LE SHALL
-   be available for platforms to reference, as defined in Product data
-   registry (product-data-registry).  This URL MUST return a response
-   which can be rendered by an HTML view.
-
 3.14.4.  Identifier retrieval from a server
 
    For security reasons, the identifier payload returned from an
    accessory in the paired state SHALL be encrypted.
-
-   A registry which maps Product Data (Section 3.11.1.1) to an
-   affiliated URL which will decrypt the identifier payload and return
-   the identifier value SHALL be available for platforms to reference,
-   as defined in Product data registry (product-data-registry).  This
-   URL MUST return a response which can be rendered by an HTML view.
-   The arguments sent to this URL SHALL match those that are defined in
-   Table 17.  Security considerations are discussed in Section 8.1.
 
 3.14.5.  Identifer over NFC
 
@@ -1335,10 +1309,20 @@ Table of Contents
 7.  Onboarding
 
    Accessory manufacturers MUST follow a minimum set of steps for their
-   accessories to be detectable by platforms. * Add their company to the
-   IANA registry (until available, manufacturers can use the temporary
-   registry) * Add complete information for each accessory to the
-   Product Data Registry
+   accessories to be detectable by platforms such as adding their
+   Network ID value to the Manufacturer network ID Registry
+   (Section 10.1).
+
+   During onboarding, a product data registry will be created that
+   includes information such as: * Product Data: an 8-byte string
+   representing a unique identifier for a product.  See Product Data
+   (Section 3.11.1.1). * Disablement Instructions: information on how a
+   user can disable the tracker. * Identifier Look-up Over Bluetooth
+   Instructions: visual depictions for enabling identifier look-up over
+   Bluetooth LE. * Identifier Look-up: a method to retrieve the
+   obfuscated owner information and possibly serial number. * Product
+   Name: a string representing the accessory make and model associated
+   with the Product Data string.
 
    Additional details will follow in 2024 to specify formats for
    disablement instructions and product images.
@@ -1487,58 +1471,6 @@ Table of Contents
 
                            Table 20: Manufacturer
                                   Registry
-
-10.2.  Product Data Registry
-
-   New entries are assigned only for values that have received Expert
-   Review, per Section 4.5 of [RFC8126].
-
-   There SHALL NOT be two entries in this registry with the same Product
-   Data value.  Identifier Look-up Over Bluetooth Instructions field MAY
-   be left empty if the accessory does not support that capability.
-
-   An entry in this registry contains the following fields:
-
-   *  Product Data: an 8-byte string representing a unique identifier
-      for a product.  See Product Data (Section 3.11.1.1).
-
-   *  Disablement Instructions: a string representing the URL where
-      disablement instructions can be retrieved.
-
-   *  Identifier Look-up Over Bluetooth Instructions: a string
-      representing the URL where the text instructions and visual
-      depictions for enabling identifier look-up over Bluetooth LE can
-      be retrieved.
-
-   *  Identifier Look-up: a string representing the URL where the
-      identifier and obfuscated owner information can be retrieved.
-
-   *  Product Name: a string representing the product name associated
-      with the Product Data string.
-
-   *  The URL for serial number lookup operations SHALL only include the
-      base URL.  The HTTP handler serving the URL SHALL accept the
-      following query parameters, provided as a GET request:
-
-      -  ID - which includes the hex-encoded identifier read over BLE or
-         NFC.
-
-      -  Locale - which includes an IETF BCP 47 language tag
-         (https://datatracker.ietf.org/doc/html/rfc5646).
-
-10.2.1.  Temporary Registry
-
-   Until this an IANA registry is available, the values in this registry
-   are listed in Table 21.
-
-   +=========+==================+============================+=========+
-   | Product |   Disablement    |      Identifier Look-      | Product |
-   |   Data  | Instructions URL |     up Over Bluetooth      |   Name  |
-   |         |                  |      Instructions URL      |         |
-   +=========+==================+============================+=========+
-   +---------+------------------+----------------------------+---------+
-
-                      Table 21: Product Data Registry
 
 11.  Normative References
 

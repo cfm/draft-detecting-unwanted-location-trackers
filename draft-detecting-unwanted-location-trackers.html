@@ -1029,11 +1029,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Detecting Unwanted Location Trackers</td>
-<td class="right">November 2023</td>
+<td class="right">December 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 2 June 2024</td>
+<td class="center">Expires 4 June 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-detecting-unwanted-location-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-11-30" class="published">30 November 2023</time>
+<time datetime="2023-12-02" class="published">2 December 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-06-02">2 June 2024</time></dd>
+<dd class="expires"><time datetime="2024-06-04">4 June 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 2 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1261,9 +1261,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.13.2.1">
                     <p id="section-toc.1-1.3.2.13.2.1.1"><a href="#section-3.13.1" class="auto internal xref">3.13.1</a>.  <a href="#name-disablement-instructions" class="internal xref">Disablement instructions</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.13.2.2">
-                    <p id="section-toc.1-1.3.2.13.2.2.1"><a href="#section-3.13.2" class="auto internal xref">3.13.2</a>.  <a href="#name-retrieval" class="internal xref">Retrieval</a></p>
-</li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.14">
@@ -1391,14 +1388,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.1">
                     <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#section-10.1.1" class="auto internal xref">10.1.1</a>.  <a href="#name-temporary-registry" class="internal xref">Temporary Registry</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-product-data-registry" class="internal xref">Product Data Registry</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2.2.1">
-                    <p id="section-toc.1-1.10.2.2.2.1.1"><a href="#section-10.2.1" class="auto internal xref">10.2.1</a>.  <a href="#name-temporary-registry-2" class="internal xref">Temporary Registry</a></p>
 </li>
                 </ul>
 </li>
@@ -1983,7 +1972,7 @@ In other words, all opcode response data must fit within a single write operatio
 <a href="#section-3.11.1.1" class="section-number selfRef">3.11.1.1. </a><a href="#name-product-data" class="section-name selfRef">Product data</a>
             </h5>
 <p id="section-3.11.1.1-1">The Product Data operand represents an 8-byte value that is intended to serve as a unique identifier for the accessory make and model.
-This value <span class="bcp14">SHALL</span> be available in a public registry as defined in <a href="#product-data-registry" class="auto internal xref">Section 10.2</a>.<a href="#section-3.11.1.1-1" class="pilcrow">¶</a></p>
+This value <span class="bcp14">SHALL</span> be determined during the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.11.1.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.11.1.1-2">The Product Data operand is 8 bytes, composed of two 8-character hex strings (lowercase zero padded), each of which is 4 bytes.<a href="#section-3.11.1.1-2" class="pilcrow">¶</a></p>
 <p id="section-3.11.1.1-3">For example, the Product Data value of 0xdfeceff1e1ff54db, the value converted to binary would be<a href="#section-3.11.1.1-3" class="pilcrow">¶</a></p>
 <ul class="normal ulEmpty">
@@ -2594,14 +2583,6 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
 <p id="section-3.13.1-1">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates.<a href="#section-3.13.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="retrieval">
-<section id="section-3.13.2">
-          <h4 id="name-retrieval">
-<a href="#section-3.13.2" class="section-number selfRef">3.13.2. </a><a href="#name-retrieval" class="section-name selfRef">Retrieval</a>
-          </h4>
-<p id="section-3.13.2-1">A registry which maps <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span> to an affiliated URL supporting retrieval of disablement instructions <span class="bcp14">SHALL</span> be available for platforms to reference, as defined in <a href="product-data-registry">Product data registry</a>. This URL must return a response which can be rendered by an HTML view.<a href="#section-3.13.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
 </section>
 </div>
 <div id="identification">
@@ -2634,7 +2615,6 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
 <p id="section-3.14.3-1">For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE <span class="bcp14">MUST</span> have a physical mechanism, for example, a button, that <span class="bcp14">SHALL</span> be required to
 enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.14.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.14.3-2">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates.<a href="#section-3.14.3-2" class="pilcrow">¶</a></p>
-<p id="section-3.14.3-3">A registry which maps <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span> to an affiliated URL that will return a text description and visual depiction of how to enable identifier look-up over Bluetooth LE <span class="bcp14">SHALL</span> be available for platforms to reference, as defined in <a href="product-data-registry">Product data registry</a>. This URL <span class="bcp14">MUST</span> return a response which can be rendered by an HTML view.<a href="#section-3.14.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="identifier-from-server">
@@ -2643,10 +2623,6 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
 <a href="#section-3.14.4" class="section-number selfRef">3.14.4. </a><a href="#name-identifier-retrieval-from-a" class="section-name selfRef">Identifier retrieval from a server</a>
           </h4>
 <p id="section-3.14.4-1">For security reasons, the identifier payload returned from an accessory in the paired state <span class="bcp14">SHALL</span> be encrypted.<a href="#section-3.14.4-1" class="pilcrow">¶</a></p>
-<p id="section-3.14.4-2">A registry which maps <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span> to an affiliated URL which will decrypt the identifier payload and return the identifier value
-<span class="bcp14">SHALL</span> be available for platforms to reference, as defined in <a href="product-data-registry">Product data registry</a>. This URL <span class="bcp14">MUST</span> return a response which can be rendered by an HTML view.
-The arguments sent to this URL <span class="bcp14">SHALL</span> match those that are defined in <a href="#_table-sn-payload-over-bt" class="auto internal xref">Table 17</a>.
-Security considerations are discussed in <a href="#info-lookup-security" class="auto internal xref">Section 8.1</a>.<a href="#section-3.14.4-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="identifier-over-nfc">
@@ -2979,10 +2955,14 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
       <h2 id="name-onboarding">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-onboarding" class="section-name selfRef">Onboarding</a>
       </h2>
-<p id="section-7-1">Accessory manufacturers <span class="bcp14">MUST</span> follow a minimum set of steps for their accessories to be detectable by platforms.
-* Add their company to the IANA registry (until available, manufacturers can use the temporary registry)
-* Add complete information for each accessory to the Product Data Registry<a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">Additional details will follow in 2024 to specify formats for disablement instructions and product images.<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-1">Accessory manufacturers <span class="bcp14">MUST</span> follow a minimum set of steps for their accessories to be detectable by platforms such as adding their Network ID value to the <span><a href="#manufacturer-protocol-registry" class="internal xref">Manufacturer network ID Registry</a> (<a href="#manufacturer-protocol-registry" class="auto internal xref">Section 10.1</a>)</span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">During onboarding, a product data registry will be created that includes information such as:
+* Product Data: an 8-byte string representing a unique identifier for a product. See <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>.
+* Disablement Instructions: information on how a user can disable the tracker.
+* Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
+* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly serial number.
+* Product Name: a string representing the accessory make and model associated with the Product Data string.<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-3">Additional details will follow in 2024 to specify formats for disablement instructions and product images.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <div id="network-providers">
 <section id="section-7.1">
         <h3 id="name-network-providers">
@@ -3127,78 +3107,6 @@ This group includes the "Manufacturer Network ID" and "Product Data" registries 
               <tr>
                 <td class="text-center" rowspan="1" colspan="1">0x02</td>
                 <td class="text-center" rowspan="1" colspan="1">Google LLC</td>
-              </tr>
-            </tbody>
-          </table>
-</div>
-</section>
-</div>
-</section>
-</div>
-<div id="product-data-registry">
-<section id="section-10.2">
-        <h3 id="name-product-data-registry">
-<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-product-data-registry" class="section-name selfRef">Product Data Registry</a>
-        </h3>
-<p id="section-10.2-1">New entries are assigned only for values that have received Expert Review, per <span><a href="https://rfc-editor.org/rfc/rfc8126#section-4.5" class="relref">Section 4.5</a> of [<a href="#RFC8126" class="cite xref">RFC8126</a>]</span>.<a href="#section-10.2-1" class="pilcrow">¶</a></p>
-<p id="section-10.2-2">There <span class="bcp14">SHALL NOT</span> be two entries in this registry with the same Product Data value. Identifier Look-up Over Bluetooth Instructions field <span class="bcp14">MAY</span> be
-left empty if the accessory does not support that capability.<a href="#section-10.2-2" class="pilcrow">¶</a></p>
-<p id="section-10.2-3">An entry in this registry contains the following fields:<a href="#section-10.2-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-10.2-4.1">
-            <p id="section-10.2-4.1.1">Product Data: an 8-byte string representing a unique identifier for a product. See <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>.<a href="#section-10.2-4.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-10.2-4.2">
-            <p id="section-10.2-4.2.1">Disablement Instructions: a string representing the URL where disablement instructions can be retrieved.<a href="#section-10.2-4.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-10.2-4.3">
-            <p id="section-10.2-4.3.1">Identifier Look-up Over Bluetooth Instructions: a string representing the URL where the text instructions and visual depictions for enabling
-identifier look-up over Bluetooth LE can be retrieved.<a href="#section-10.2-4.3.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-10.2-4.4">
-            <p id="section-10.2-4.4.1">Identifier Look-up: a string representing the URL where the identifier and obfuscated owner information can be retrieved.<a href="#section-10.2-4.4.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-10.2-4.5">
-            <p id="section-10.2-4.5.1">Product Name: a string representing the product name associated with the Product Data string.<a href="#section-10.2-4.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-10.2-4.6">
-            <p id="section-10.2-4.6.1">The URL for serial number lookup operations <span class="bcp14">SHALL</span> only include the base URL. The HTTP handler serving the URL <span class="bcp14">SHALL</span> accept the following query parameters, provided as a GET request:<a href="#section-10.2-4.6.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-10.2-4.6.2.1">
-                <p id="section-10.2-4.6.2.1.1">ID - which includes the hex-encoded identifier read over BLE or NFC.<a href="#section-10.2-4.6.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="normal" id="section-10.2-4.6.2.2">
-                <p id="section-10.2-4.6.2.2.1">Locale - which includes an <a href="https://datatracker.ietf.org/doc/html/rfc5646">IETF BCP 47 language tag</a>.<a href="#section-10.2-4.6.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-        </ul>
-<div id="temporary-registry-1">
-<section id="section-10.2.1">
-          <h4 id="name-temporary-registry-2">
-<a href="#section-10.2.1" class="section-number selfRef">10.2.1. </a><a href="#name-temporary-registry-2" class="section-name selfRef">Temporary Registry</a>
-          </h4>
-<p id="section-10.2.1-1">Until this an IANA registry is available, the values in this registry are listed in <a href="#_table-temp-product-data-registry" class="auto internal xref">Table 21</a>.<a href="#section-10.2.1-1" class="pilcrow">¶</a></p>
-<span id="name-product-data-registry-2"></span><div id="_table-temp-product-data-registry">
-<table class="center" id="table-21">
-            <caption>
-<a href="#table-21" class="selfRef">Table 21</a>:
-<a href="#name-product-data-registry-2" class="selfRef">Product Data Registry</a>
-            </caption>
-<thead>
-              <tr>
-                <th class="text-center" rowspan="1" colspan="1">Product Data</th>
-                <th class="text-center" rowspan="1" colspan="1">Disablement Instructions URL</th>
-                <th class="text-center" rowspan="1" colspan="1">Identifier Look-up Over Bluetooth Instructions URL</th>
-                <th class="text-center" rowspan="1" colspan="1">Product Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
-                <td class="text-center" rowspan="1" colspan="1"> </td>
               </tr>
             </tbody>
           </table>
