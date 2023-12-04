@@ -30,7 +30,7 @@
     requests 2.31.0
     setuptools 67.7.2
     six 1.16.0
-    wcwidth 0.2.10
+    wcwidth 0.2.12
 -->
 <link href="draft-detecting-unwanted-location-trackers.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1033,7 +1033,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 3 June 2024</td>
+<td class="center">Expires 6 June 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-detecting-unwanted-location-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-12-01" class="published">1 December 2023</time>
+<time datetime="2023-12-04" class="published">4 December 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-06-03">3 June 2024</time></dd>
+<dd class="expires"><time datetime="2024-06-06">6 June 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1817,7 +1817,7 @@ In other words, all opcode response data must fit within a single write operatio
         <h3 id="name-accessory-information">
 <a href="#section-3.11" class="section-number selfRef">3.11. </a><a href="#name-accessory-information" class="section-name selfRef">Accessory Information</a>
         </h3>
-<p id="section-3.11-1">The following accessory information <span class="bcp14">MUST</span> be persistent through the lifetime of the accessory: <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>, <span><a href="#manufacturer-name" class="internal xref">Manufacturer name</a> (<a href="#manufacturer-name" class="auto internal xref">Section 3.11.1.2</a>)</span>, <span><a href="#model-name" class="internal xref">Model name</a> (<a href="#model-name" class="auto internal xref">Section 3.11.1.3</a>)</span>, <span><a href="#accessory-category" class="internal xref">Accessory category</a> (<a href="#accessory-category" class="auto internal xref">Section 3.11.1.4</a>)</span>, <span><a href="#accessory-capabilities" class="internal xref">Accessory capabilities</a> (<a href="#accessory-capabilities" class="auto internal xref">Section 3.11.1.6</a>)</span>, <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>, <span><a href="#battery-type" class="internal xref">Battery Type</a> (<a href="#battery-type" class="auto internal xref">Section 3.11.1.9</a>)</span>, and <span><a href="#battery-state" class="internal xref">Battery State</a> (<a href="#battery-state" class="auto internal xref">Section 3.11.1.10</a>)</span>.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
+<p id="section-3.11-1">The following accessory information <span class="bcp14">MUST</span> be persistent through the lifetime of the accessory: <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>, <span><a href="#manufacturer-name" class="internal xref">Manufacturer name</a> (<a href="#manufacturer-name" class="auto internal xref">Section 3.11.1.2</a>)</span>, <span><a href="#model-name" class="internal xref">Model name</a> (<a href="#model-name" class="auto internal xref">Section 3.11.1.3</a>)</span>, <span><a href="#accessory-category" class="internal xref">Accessory category</a> (<a href="#accessory-category" class="auto internal xref">Section 3.11.1.4</a>)</span>, <span><a href="#accessory-capabilities" class="internal xref">Accessory capabilities</a> (<a href="#accessory-capabilities" class="auto internal xref">Section 3.11.1.6</a>)</span>, <span><a href="#network-id" class="internal xref">Network ID</a> (<a href="#network-id" class="auto internal xref">Section 3.7</a>)</span>, <span><a href="#battery-type" class="internal xref">Battery Type</a> (<a href="#battery-type" class="auto internal xref">Section 3.11.1.9</a>)</span>, and <span><a href="#battery-level" class="internal xref">Battery Level</a> (<a href="#battery-level" class="auto internal xref">Section 3.11.1.10</a>)</span>.<a href="#section-3.11-1" class="pilcrow">¶</a></p>
 <div id="opcodes">
 <section id="section-3.11.1">
           <h4 id="name-opcodes">
@@ -2019,7 +2019,7 @@ In other words, all opcode response data must fit within a single write operatio
 </td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Get_Battery_State</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Battery_Level</td>
                 <td class="text-left" rowspan="1" colspan="1">0x00C</td>
                 <td class="text-left" rowspan="1" colspan="1">None</td>
                 <td class="text-left" rowspan="1" colspan="1">Write; To Accessory</td>
@@ -2028,10 +2028,10 @@ In other words, all opcode response data must fit within a single write operatio
 </td>
               </tr>
               <tr>
-                <td class="text-left" rowspan="1" colspan="1">Get_Battery_State_Response</td>
+                <td class="text-left" rowspan="1" colspan="1">Get_Battery_Level_Response</td>
                 <td class="text-left" rowspan="1" colspan="1">0x80C</td>
                 <td class="text-left" rowspan="1" colspan="1">
-                  <span><a href="#battery-state" class="internal xref">Battery State</a> (<a href="#battery-state" class="auto internal xref">Section 3.11.1.10</a>)</span>
+                  <span><a href="#battery-level" class="internal xref">Battery Level</a> (<a href="#battery-level" class="auto internal xref">Section 3.11.1.10</a>)</span>
 </td>
                 <td class="text-left" rowspan="1" colspan="1">Indications; From Accessory</td>
                 <td class="text-left" rowspan="1" colspan="1">
@@ -2361,16 +2361,16 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
             </table>
 </section>
 </div>
-<div id="battery-state">
+<div id="battery-level">
 <section id="section-3.11.1.10">
-            <h5 id="name-battery-state">
-<a href="#section-3.11.1.10" class="section-number selfRef">3.11.1.10. </a><a href="#name-battery-state" class="section-name selfRef">Battery state</a>
+            <h5 id="name-battery-level">
+<a href="#section-3.11.1.10" class="section-number selfRef">3.11.1.10. </a><a href="#name-battery-level" class="section-name selfRef">Battery level</a>
             </h5>
-<p id="section-3.11.1.10-1">The Battery state operand indicates the current battery level.<a href="#section-3.11.1.10-1" class="pilcrow">¶</a></p>
-<span id="name-battery-state-operand"></span><table class="center" id="table-15">
+<p id="section-3.11.1.10-1">The Battery level operand indicates the current battery level.<a href="#section-3.11.1.10-1" class="pilcrow">¶</a></p>
+<span id="name-battery-level-operand"></span><table class="center" id="table-15">
               <caption>
 <a href="#table-15" class="selfRef">Table 15</a>:
-<a href="#name-battery-state-operand" class="selfRef">Battery State Operand</a>
+<a href="#name-battery-level-operand" class="selfRef">Battery Level Operand</a>
               </caption>
 <thead>
                 <tr>
@@ -2382,7 +2382,7 @@ The value <span class="bcp14">MUST</span> change after every firmware update.<a 
               </thead>
               <tbody>
                 <tr>
-                  <td class="text-center" rowspan="1" colspan="1">Battery State</td>
+                  <td class="text-center" rowspan="1" colspan="1">Battery Level</td>
                   <td class="text-center" rowspan="1" colspan="1">Uint8</td>
                   <td class="text-center" rowspan="1" colspan="1">1</td>
                   <td class="text-center" rowspan="1" colspan="1">0 = Full&lt;\br&gt; 1 = Medium&lt;\br&gt; 2 = Low&lt;\br&gt;3 = Critically low</td>
