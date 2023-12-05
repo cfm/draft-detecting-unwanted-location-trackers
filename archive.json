@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-03T00:41:48.009111+00:00",
+  "timestamp": "2023-12-05T00:40:05.855280+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -203,9 +203,17 @@
       "labels": [],
       "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\u201cFinally, this document really focuses on how to detect unwanted\r\ntracking but doesn't describe how the system as a whole works.\r\nThat makes it difficult to understand the overall context and\r\nin particular to determine which invariants in this design are\r\nenforced by the tracking network (and thus presumably harder\r\nto evade) and those which are enforced by compliant tag behavior\r\n(and thus may be easier to evade). A future version of this\r\ndocument would be more useful if it described how the system\r\nworked in its \"as designed\" configuration. This would also\r\nallow evaluating its other security and privacy properties.\u201d",
       "createdAt": "2023-05-10T01:16:13Z",
-      "updatedAt": "2023-05-10T01:16:13Z",
+      "updatedAt": "2023-12-04T19:49:57Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This this diagram from Roman does a good sub summarizing the overall architecture: https://github.com/rdanyliw/ietf-dult/blob/main/dult-scope.md",
+          "createdAt": "2023-12-04T19:49:56Z",
+          "updatedAt": "2023-12-04T19:49:56Z"
+        }
+      ]
     },
     {
       "number": 8,
@@ -5818,7 +5826,7 @@
       "labels": [],
       "body": "Previous version said SHALL",
       "createdAt": "2023-11-18T01:39:38Z",
-      "updatedAt": "2023-11-30T00:34:33Z",
+      "updatedAt": "2023-12-04T18:31:59Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "0d2eefcb9a828699b026f19b9e19be7496c3ef30",
@@ -5830,7 +5838,21 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5pF0Wi",
+          "commit": {
+            "abbreviatedOid": "2dd45a9"
+          },
+          "author": "aravindvnair99",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-04T18:31:59Z",
+          "updatedAt": "2023-12-04T18:31:59Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 126,
@@ -6111,7 +6133,7 @@
       ],
       "body": "Closes #119 \r\n\r\nOr attempts to close =)",
       "createdAt": "2023-11-28T17:49:20Z",
-      "updatedAt": "2023-11-28T21:35:39Z",
+      "updatedAt": "2023-12-04T18:30:26Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "92fba2a7164bf08d6f5289f494f3d6003ae1c9c7",
@@ -6136,6 +6158,19 @@
           "createdAt": "2023-11-28T21:35:39Z",
           "updatedAt": "2023-11-28T21:35:39Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5pFznY",
+          "commit": {
+            "abbreviatedOid": "346fa45"
+          },
+          "author": "aravindvnair99",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-04T18:30:26Z",
+          "updatedAt": "2023-12-04T18:30:26Z",
+          "comments": []
         }
       ]
     },
@@ -6151,13 +6186,13 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-11-29T23:01:32Z",
-      "updatedAt": "2023-12-01T02:15:03Z",
+      "updatedAt": "2023-12-05T00:34:00Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "d021fac011e9dc9624a35021a4a6d98e3e25e929",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-24",
-      "headRefOid": "7c2e741ec60f3447d76c830385e3f609d332c5fc",
+      "headRefOid": "5591fbf41c7e6bf186af4314e69f560322de8b90",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -6176,9 +6211,83 @@
           "body": "Thought around inclusion for UT is that battery type can be good for fallback case of not getting disablement instructions. Showing battery level would also be helpful in the UT alert potentially. Keeping these as optional as they are clearly not required.",
           "createdAt": "2023-12-01T02:15:03Z",
           "updatedAt": "2023-12-01T02:15:03Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> any reasons to use \"battery state\" rather than \"battery level\"? Otherwise \"level\" feels more intuitive.\r\n\r\nokay, let me change to battery level. I agree that's more intuitive",
+          "createdAt": "2023-12-04T19:39:30Z",
+          "updatedAt": "2023-12-04T19:39:30Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5pF_ge",
+          "commit": {
+            "abbreviatedOid": "7c2e741"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-04T19:01:45Z",
+          "updatedAt": "2023-12-04T19:01:46Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Battery state must be removed from here as it cannot be persistent throughout the accessory lifetime.",
+              "createdAt": "2023-12-04T19:01:46Z",
+              "updatedAt": "2023-12-04T19:01:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5pGBtF",
+          "commit": {
+            "abbreviatedOid": "7c2e741"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "any reasons to use \"battery state\" rather than \"battery level\"? Otherwise \"level\" feels more intuitive.",
+          "createdAt": "2023-12-04T19:07:53Z",
+          "updatedAt": "2023-12-04T19:07:53Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5pGV1_",
+          "commit": {
+            "abbreviatedOid": "7c2e741"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-04T19:44:00Z",
+          "updatedAt": "2023-12-04T19:44:00Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Agreed. Let me fix that too!",
+              "createdAt": "2023-12-04T19:44:00Z",
+              "updatedAt": "2023-12-04T19:44:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5pH_Vf",
+          "commit": {
+            "abbreviatedOid": "5591fbf"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks Brent!",
+          "createdAt": "2023-12-05T00:34:00Z",
+          "updatedAt": "2023-12-05T00:34:00Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 133,
