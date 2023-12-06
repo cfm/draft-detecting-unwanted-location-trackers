@@ -151,10 +151,12 @@ Table of Contents
    but, as with all technology, it is possible for them to be misused.
    Misuse of location-tracking accessories can result in unwanted
    tracking of individuals or items for nefarious purposes such as
-   stalking, harassment, and theft.  Formalizing a set of best practices
-   for manufacturers will allow for scalable compatibility with unwanted
-   tracking detection technologies on various smartphone platforms and
-   improve privacy and security for individuals.
+   stalking, harassment, and theft.  This document is focused on
+   protecting people from misuse of location-tracking accessories.
+   Formalizing a set of best practices for manufacturers will allow for
+   scalable compatibility with unwanted tracking detection technologies
+   on various smartphone platforms and improve privacy and security for
+   individuals.
 
    Unwanted tracking detection can both detect and alert individuals
    that a location tracker separated from the owner's device is
