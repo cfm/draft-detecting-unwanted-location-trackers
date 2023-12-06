@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 7 June 2024                                              Google
+Expires: 8 June 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         5 December 2023
+                                                         6 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 June 2024.
+   This Internet-Draft will expire on 8 June 2024.
 
 Copyright Notice
 
@@ -744,7 +744,7 @@ Table of Contents
 
 3.11.1.7.  Network ID
 
-   The Newtork Id operand contains the Network ID for the accessory.
+   The Network ID operand contains the Network ID for the accessory.
    This is the same information that's in the BT advertisement header in
    Table 1.
 
