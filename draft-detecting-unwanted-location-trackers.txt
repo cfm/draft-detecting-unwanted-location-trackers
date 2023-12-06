@@ -640,15 +640,6 @@ Table of Contents
    This value SHALL be determined during the onboarding process
    (Section 7).
 
-   The Product Data operand is 8 bytes, composed of two 8-character hex
-   strings (lowercase zero padded), each of which is 4 bytes.
-
-   For example, the Product Data value of 0xdfeceff1e1ff54db, the value
-   converted to binary would be
-
-      0xdfeceff1 11011111 11101100 11101111 11110001
-      0xe1ff54db 11100001 11111111 01010100 11011011
-
      +==============+===========+===============+====================+
      | Operand name | Data type | Size (octets) |    Description     |
      +==============+===========+===============+====================+
