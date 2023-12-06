@@ -274,9 +274,9 @@ Table of Contents
    way to communicate its location to its owner via a network (e.g.,
    cell network, crowd-sourced location via Bluetooth, etc.).
 
-   The accessory SHALL maintain an internal state that determines when
-   its location is, or has been, available to the owner via a network.
-   This state is called the location-enabled state.
+   The accessory SHALL maintain an internal state that detects when its
+   location is, or has been, available to the owner via a network.  This
+   state is called the location-enabled state.
 
    Misuse of location-enabled accessories can occur when the owner’s
    device is not physically with the accessory.  Thereby, the accessory
