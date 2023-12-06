@@ -1096,6 +1096,7 @@ Table of Contents
    image, diagram, animation, etc.) that MUST be available when the
    platform is online and OPTIONALLY when offline.  Disablement
    procedure or instructions CAN change with accessory firmware updates.
+   These are provided as part of the onboarding process (Section 7).
 
 3.14.  Identification
 
@@ -1129,7 +1130,8 @@ Table of Contents
    visual depiction (e.g. image, diagram, animation, etc.) that MUST be
    available when the platform is online and OPTIONALLY when offline.
    The description and visual depiction CAN change with accessory
-   firmware updates.
+   firmware updates.  These are provided as part of the onboarding
+   process (Section 7).
 
 3.14.4.  Identifier retrieval from a server
 
