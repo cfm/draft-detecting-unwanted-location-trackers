@@ -783,16 +783,16 @@ Table of Contents
    revision version MUST not be greater than (2^8 - 1).  The value MUST
    change after every firmware update.
 
-    +==========+=======+==========+==================================+
-    | Operand  |  Data |   Size   |           Description            |
-    |   name   |  type | (octets) |                                  |
-    +==========+=======+==========+==================================+
-    | Firmware | Octet |    4     | Byte 0 : revision version number |
-    | version  |       |          |  Byte 1 : minor version number   |
-    |          |       |          | Byte 2:3 : major version number  |
-    +----------+-------+----------+----------------------------------+
+    +==========+========+==========+==================================+
+    | Operand  |  Data  |   Size   |           Description            |
+    |   name   |  type  | (octets) |                                  |
+    +==========+========+==========+==================================+
+    | Firmware | Uint32 |    4     | Byte 0 : revision version number |
+    | version  |        |          |  Byte 1 : minor version number   |
+    |          |        |          | Byte 2:3 : major version number  |
+    +----------+--------+----------+----------------------------------+
 
-                    Table 13: Firmware Version Operand
+                     Table 13: Firmware Version Operand
 
 3.11.1.9.  Battery type
 
