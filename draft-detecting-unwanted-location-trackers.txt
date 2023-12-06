@@ -488,9 +488,12 @@ Table of Contents
 
 3.9.  Bluetooth LE advertising interval
 
-   The Bluetooth LE advertising interval SHALL be a maximum interval of
-   2 seconds.  If an accessory manufacturer advertises at a less
-   frequent interval, detection performance is diminished.
+   The detection rate performance has a dependency on the BLE
+   advertising interval used. A maximum advertising interval of 4
+   seconds SHALL be used; for the best detection rate, the advertising
+   interval SHOULD be less than or equal to 2 seconds. If an accessory
+   manufacturer advertises at an interval less frequent than 2 seconds,
+   detection performance is diminished.
 
 3.10.  Accessory Connections
 
