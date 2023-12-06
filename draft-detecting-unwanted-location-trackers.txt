@@ -716,7 +716,7 @@ Table of Contents
             Table 10: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
-   1.0.0.  The equivalent byte value is 0x00000001.
+   1.0.0.  The equivalent 4-byte value is 0x00000001.
 
 3.11.1.6.  Accessory capabilities
 
@@ -794,30 +794,32 @@ Table of Contents
    The Battery type operand describes the battery type used in the
    accessory.
 
-        +=========+=======+==========+===========================+
-        | Operand |  Data |   Size   |        Description        |
-        |   name  |  type | (octets) |                           |
-        +=========+=======+==========+===========================+
-        | Battery | Uint8 |    1     | 0 = Powered<\br> 1 = Non- |
-        |   Type  |       |          | rechargeable battery<\br> |
-        |         |       |          |  2 = Rechargeable battery |
-        +---------+-------+----------+---------------------------+
+       +=========+=======+==========+==============================+
+       | Operand |  Data |   Size   |         Description          |
+       |   name  |  type | (octets) |                              |
+       +=========+=======+==========+==============================+
+       | Battery | Uint8 |    1     |         0 = Powered          |
+       |   Type  |       |          | 1 = Non-rechargeable battery |
+       |         |       |          |   2 = Rechargeable battery   |
+       +---------+-------+----------+------------------------------+
 
-                      Table 14: Battery Type Operand
+                       Table 14: Battery Type Operand
 
 3.11.1.10.  Battery level
 
    The Battery level operand indicates the current battery level.
 
-   +==============+=======+==========+================================+
-   | Operand name |  Data |   Size   |          Description           |
-   |              |  type | (octets) |                                |
-   +==============+=======+==========+================================+
-   |   Battery    | Uint8 |    1     | 0 = Full<\br> 1 = Medium<\br>  |
-   |    Level     |       |          | 2 = Low<\br>3 = Critically low |
-   +--------------+-------+----------+--------------------------------+
+            +=========+=======+==========+====================+
+            | Operand |  Data |   Size   |    Description     |
+            |   name  |  type | (octets) |                    |
+            +=========+=======+==========+====================+
+            | Battery | Uint8 |    1     |      0 = Full      |
+            |  Level  |       |          |     1 = Medium     |
+            |         |       |          |      2 = Low       |
+            |         |       |          | 3 = Critically low |
+            +---------+-------+----------+--------------------+
 
-                     Table 15: Battery Level Operand
+                      Table 15: Battery Level Operand
 
 3.12.  Non-Owner Finding
 
