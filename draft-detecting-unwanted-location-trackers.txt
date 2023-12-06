@@ -1524,6 +1524,8 @@ Table of Contents
                        +------------+--------------+
                        |    0x02    |  Google LLC  |
                        +------------+--------------+
+                       |    0xFF    |   Reserved   |
+                       +------------+--------------+
 
                            Table 22: Manufacturer
                                   Registry
