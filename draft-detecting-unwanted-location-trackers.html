@@ -1352,7 +1352,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-obfuscated-owner-information" class="internal xref">Obfuscated owner information look-up</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1.2.1">
-                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="auto internal xref">8.1.1</a>.  <a href="#name-design-of-encrypted-serial-" class="internal xref">Design of encrypted serial number look-up</a></p>
+                    <p id="section-toc.1-1.8.2.1.2.1.1"><a href="#section-8.1.1" class="auto internal xref">8.1.1</a>.  <a href="#name-design-of-encrypted-identif" class="internal xref">Design of encrypted identifier look-up</a></p>
 </li>
                 </ul>
 </li>
@@ -1365,7 +1365,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-obfuscated-owner-information-2" class="internal xref">Obfuscated owner information</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-serial-number-look-up" class="internal xref">Serial number look-up</a></p>
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-identifier-look-up" class="internal xref">Identifier look-up</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
                 <p id="section-toc.1-1.9.2.3.1"><a href="#section-9.3" class="auto internal xref">9.3</a>.  <a href="#name-location-enabled-payload" class="internal xref">Location-enabled payload</a></p>
@@ -2539,13 +2539,13 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <td class="text-center" rowspan="1" colspan="1">Indications; From accessory</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Serial_Number</td>
+                <td class="text-center" rowspan="1" colspan="1">Get_Identifier</td>
                 <td class="text-center" rowspan="1" colspan="1">0x404</td>
                 <td class="text-center" rowspan="1" colspan="1">None</td>
                 <td class="text-center" rowspan="1" colspan="1">Write; To accessory</td>
               </tr>
               <tr>
-                <td class="text-center" rowspan="1" colspan="1">Get_Serial_Number_Response</td>
+                <td class="text-center" rowspan="1" colspan="1">Get_Identifier_Response</td>
                 <td class="text-center" rowspan="1" colspan="1">0x405</td>
                 <td class="text-center" rowspan="1" colspan="1">
                   <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>
@@ -2629,14 +2629,14 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
             <h5 id="name-identifier-payload">
 <a href="#section-3.12.4.2" class="section-number selfRef">3.12.4.2. </a><a href="#name-identifier-payload" class="section-name selfRef">Identifier Payload</a>
             </h5>
-<p id="section-3.12.4.2-1">The Get_Serial_Number opcode is used to retrieve identifier lookup payload over Bluetooth LE.
+<p id="section-3.12.4.2-1">The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
 This <span class="bcp14">MUST</span> be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
-When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Serial_Number_Response opcode and Serial Number Payload operand.<a href="#section-3.12.4.2-1" class="pilcrow">¶</a></p>
-<span id="name-serial-number-payload-over-"></span><div id="_table-sn-payload-over-bt">
+When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Identifier_Response opcode and Identifier Payload operand.<a href="#section-3.12.4.2-1" class="pilcrow">¶</a></p>
+<span id="name-identifier-payload-over-blu"></span><div id="_table-id-payload-over-bt">
 <table class="center" id="table-19">
               <caption>
 <a href="#table-19" class="selfRef">Table 19</a>:
-<a href="#name-serial-number-payload-over-" class="selfRef">Serial Number Payload Over Bluetooth</a>
+<a href="#name-identifier-payload-over-blu" class="selfRef">Identifier Payload Over Bluetooth</a>
               </caption>
 <thead>
                 <tr>
@@ -2648,16 +2648,16 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
               </thead>
               <tbody>
                 <tr>
-                  <td class="text-center" rowspan="1" colspan="1">Encrypted Serial Number</td>
+                  <td class="text-center" rowspan="1" colspan="1">Encrypted Identifier</td>
                   <td class="text-center" rowspan="1" colspan="1">UTF-8</td>
                   <td class="text-center" rowspan="1" colspan="1">defined by accessory</td>
-                  <td class="text-center" rowspan="1" colspan="1">The encrypted serial number, encoded as a hex string.</td>
+                  <td class="text-center" rowspan="1" colspan="1">The encrypted identifier, encoded as a hex string.</td>
                 </tr>
               </tbody>
             </table>
 </div>
-<p id="section-3.12.4.2-3">The encrypted serial number <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.12.4.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.12.4.2-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-serial-number-look-up" class="internal xref">Design of encrypted serial number look-up</a> (<a href="#design-of-encrypted-serial-number-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.12.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.2-3">The encrypted identifier (which in some cases is the product serial number) <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.12.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.2-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-identifier-look-up" class="internal xref">Design of encrypted identifier look-up</a> (<a href="#design-of-encrypted-identifier-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.12.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2769,7 +2769,7 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
 <a href="#section-3.14.3" class="section-number selfRef">3.14.3. </a><a href="#name-identifier-retrieval-over-b" class="section-name selfRef">Identifier retrieval over Bluetooth LE</a>
           </h4>
 <p id="section-3.14.3-1">For privacy reasons, accessories that support identifier retrieval for identifiers not included in the advertising packet over Bluetooth LE <span class="bcp14">MUST</span> have a physical mechanism, for example, a button, that <span class="bcp14">SHALL</span> be required to
-enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.14.3-1" class="pilcrow">¶</a></p>
+enable the Get_Identifier opcode, as discussed in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.14.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.14.3-2">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to enable identifier retrieval over Bluetooth LE, as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. The description and visual depiction CAN change with accessory firmware updates. These are provided as part of the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.14.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2786,7 +2786,7 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
           <h4 id="name-identifier-over-nfc">
 <a href="#section-3.14.5" class="section-number selfRef">3.14.5. </a><a href="#name-identifier-over-nfc" class="section-name selfRef">Identifier over NFC</a>
           </h4>
-<p id="section-3.14.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the encrypted serial number encoded as a hex string. This string <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> which <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.<a href="#section-3.14.5-1" class="pilcrow">¶</a></p>
+<p id="section-3.14.5-1">For those accessories that support identifier retrieval over NFC, an associated accessory <span class="bcp14">SHALL</span> advertise the encrypted identifier encoded as a hex string. This string <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> which <span class="bcp14">SHALL</span> decrypt the identifier payload and return the identifier of the accessory in a form that can be rendered in the platform's HTML view.<a href="#section-3.14.5-1" class="pilcrow">¶</a></p>
 <p id="section-3.14.5-2">The encrypted identifier when in associated state <span class="bcp14">SHALL</span> be an argument passed to this URL and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.14.5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2803,7 +2803,7 @@ enable the Get_Serial_Number opcode, as discussed in <span><a href="#identifier-
           <h4 id="name-obfuscated-owner-informatio">
 <a href="#section-3.15.1" class="section-number selfRef">3.15.1. </a><a href="#name-obfuscated-owner-informatio" class="section-name selfRef">Obfuscated owner information</a>
           </h4>
-<p id="section-3.15.1-1">A limited amount of obfuscated owner information from the owner registry <span class="bcp14">SHALL</span> be made available to the platform along with a <a href="serial-number-retrieval">retrieved identifier</a>. This information <span class="bcp14">SHALL</span> be part of the response of the <a href="serial-number-from-server">identifier retrieval from a server</a> which can be rendered in a platform's HTML view.<a href="#section-3.15.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.15.1-1">A limited amount of obfuscated owner information from the owner registry <span class="bcp14">SHALL</span> be made available to the platform along with a <a href="identifier-retrieval">retrieved identifier</a>. This information <span class="bcp14">SHALL</span> be part of the response of the <a href="identifier-from-server">identifier retrieval from a server</a> which can be rendered in a platform's HTML view.<a href="#section-3.15.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.15.1-2">This <span class="bcp14">MUST</span> include at least one of the following:<a href="#section-3.15.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-3.15.1-3.1">
@@ -3116,7 +3116,7 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
 * Product Data: an 8-byte string representing a unique identifier for a product. See <span><a href="#product-data" class="internal xref">Product Data</a> (<a href="#product-data" class="auto internal xref">Section 3.11.1.1</a>)</span>.
 * Disablement Instructions: information on how a user can disable the tracker.
 * Identifier Look-up Over Bluetooth Instructions: visual depictions for enabling identifier look-up over Bluetooth LE.
-* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly serial number.
+* Identifier Look-up: a method to retrieve the obfuscated owner information and possibly identifier.
 * Product Name: a string representing the accessory make and model associated with the Product Data string.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">Additional details will follow in 2024 to specify formats for disablement instructions and product images.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <div id="network-providers">
@@ -3139,17 +3139,17 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
         <h3 id="name-obfuscated-owner-information">
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-obfuscated-owner-information" class="section-name selfRef">Obfuscated owner information look-up</a>
         </h3>
-<p id="section-8.1-1">Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying a serial number may be one method to allow for partial user information look up.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<p id="section-8.1-2">However, the serial number is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, serial number (if used) and obfuscated owner information <span class="bcp14">SHOULD NOT</span> be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps <span class="bcp14">SHOULD</span> be employed.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
-<p id="section-8.1-3">The obfuscated owner information and serial number look-up <span class="bcp14">SHALL</span> only be available in separated mode for an associated accessory.
-When requested through any long range wireless interface like Bluetooth, a user action <span class="bcp14">MUST</span> be required for the requesting device to access the obfuscated owner information and serial number. Over NFC, it <span class="bcp14">MAY</span> be acceptable to consider the close proximity as intent for this flow.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
-<p id="section-8.1-4">To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory <span class="bcp14">MUST</span> only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the serial number. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory <span class="bcp14">SHOULD</span> be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.<a href="#section-8.1-4" class="pilcrow">¶</a></p>
-<div id="design-of-encrypted-serial-number-look-up">
+<p id="section-8.1-1">Obfuscated owner information look-up is required to display important information to users who encounter an unwanted tracking notification. It helps them tie the notification to a specific physical device and recognize the accessory as belonging to a friend or relative. Displaying an identifier (or serial number) may be one method to allow for partial user information look up.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1-2">However, the identifier is unique and stable, and the partial user information can further make the accessory identifiable. Therefore, identifier (if used) and obfuscated owner information <span class="bcp14">SHOULD NOT</span> be made directly available to any requesting devices. Instead, several security- and privacy-preserving steps <span class="bcp14">SHOULD</span> be employed.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
+<p id="section-8.1-3">The obfuscated owner information and identifier look-up <span class="bcp14">SHALL</span> only be available in separated mode for an associated accessory.
+When requested through any long range wireless interface like Bluetooth, a user action <span class="bcp14">MUST</span> be required for the requesting device to access the obfuscated owner information and identifier. Over NFC, it <span class="bcp14">MAY</span> be acceptable to consider the close proximity as intent for this flow.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
+<p id="section-8.1-4">To uphold privacy and anti-tracking features like the Bluetooth MAC address randomization, the accessory <span class="bcp14">MUST</span> only provide non-identifiable data to non-owner requesting devices. One approach is for the accessory to provide encrypted and unlinkable information that only the accessory network service can decrypt. With this approach, the server can employ techniques such as rate limiting and anti-fraud to limit access to the identifier. In addition to being encrypted and unlinkable, the encrypted payload provided by the accessory <span class="bcp14">SHOULD</span> be authenticated and protected against replay. The replay protection is to prevent an adversary using a payload captured once to monitor changes to the partial information associated with the accessory, while the authentication prevents an adversary from impersonating any accessory from a single payload.<a href="#section-8.1-4" class="pilcrow">¶</a></p>
+<div id="design-of-encrypted-identifier-look-up">
 <section id="section-8.1.1">
-          <h4 id="name-design-of-encrypted-serial-">
-<a href="#section-8.1.1" class="section-number selfRef">8.1.1. </a><a href="#name-design-of-encrypted-serial-" class="section-name selfRef">Design of encrypted serial number look-up</a>
+          <h4 id="name-design-of-encrypted-identif">
+<a href="#section-8.1.1" class="section-number selfRef">8.1.1. </a><a href="#name-design-of-encrypted-identif" class="section-name selfRef">Design of encrypted identifier look-up</a>
           </h4>
-<p id="section-8.1.1-1">One way to design this encryption is for the accessory to contain a public key for the accessory network server. For every request received by a device nearby, the accessory would use the public key and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to encrypt a set of fields including the serial number, a monotonic counter or one time token and a signature covering both the serial number and counter or token. The signature can be either a public key signature or symmetric signature, leveraging a key trusted by the network server which <span class="bcp14">MAY</span> be established at manufacturing time or when the user sets up the accessory. Some additional non-identifiable metadata <span class="bcp14">MAY</span> be sent along with this encrypted payload, allowing the requesting device to determine which accessory network service to connect to for the decryption, and for the service to know which decryption key and protocol version to use.<a href="#section-8.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1.1-1">One way to design this encryption is for the accessory to contain a public key for the accessory network server. For every request received by a device nearby, the accessory would use the public key and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to encrypt a set of fields including the identifier, a monotonic counter or one time token and a signature covering both the identifier and counter or token. The signature can be either a public key signature or symmetric signature, leveraging a key trusted by the network server which <span class="bcp14">MAY</span> be established at manufacturing time or when the user sets up the accessory. Some additional non-identifiable metadata <span class="bcp14">MAY</span> be sent along with this encrypted payload, allowing the requesting device to determine which accessory network service to connect to for the decryption, and for the service to know which decryption key and protocol version to use.<a href="#section-8.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3172,15 +3172,15 @@ provides the potential victim with some level of information on the owner, while
 where they have separated from those accessories.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="serial-number-look-up">
+<div id="identifier-look-up">
 <section id="section-9.2">
-        <h3 id="name-serial-number-look-up">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-serial-number-look-up" class="section-name selfRef">Serial number look-up</a>
+        <h3 id="name-identifier-look-up">
+<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-identifier-look-up" class="section-name selfRef">Identifier look-up</a>
         </h3>
-<p id="section-9.2-1">A serial number both physically on the device, as well as retrievable over NFC or Bluetooth LE, can aid recourse actions in the case of unwanted tracking.
-While retrieval of the serial number over NFC implies having physical possession of the accessory, the same conclusion can not be made for Bluetooth given its wireless range.
-The procedure required for serial number look-up over Bluetooth LE intends to strike a balance between the privacy of the owner and ability to empower
-potential victims, by requiring both the accessory to be in separated state as well as a physical action be performed to enable the serial number retrieval.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
+<p id="section-9.2-1">An identifier both physically on the device, as well as retrievable over NFC or Bluetooth LE, can aid recourse actions in the case of unwanted tracking.
+While retrieval of the identifier over NFC implies having physical possession of the accessory, the same conclusion can not be made for Bluetooth given its wireless range.
+The procedure required for identifier look-up over Bluetooth LE intends to strike a balance between the privacy of the owner and ability to empower
+potential victims, by requiring both the accessory to be in separated state as well as a physical action be performed to enable the identifier retrieval.<a href="#section-9.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="location-enabled-payload">
