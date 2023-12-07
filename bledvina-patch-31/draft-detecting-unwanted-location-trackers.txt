@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 8 June 2024                                              Google
+Expires: 9 June 2024                                              Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         6 December 2023
+                                                         7 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 June 2024.
+   This Internet-Draft will expire on 9 June 2024.
 
 Copyright Notice
 
@@ -111,7 +111,7 @@ Table of Contents
        3.14.2.  Identifier retrieval capability
        3.14.3.  Identifier retrieval over Bluetooth LE
        3.14.4.  Identifier retrieval from a server
-       3.14.5.  Idenitifer over NFC
+       3.14.5.  Identifier over NFC
      3.15. Owner registry
        3.15.1.  Obfuscated owner information
        3.15.2.  Persistence
@@ -1134,7 +1134,7 @@ Table of Contents
    For security reasons, the identifier payload returned from an
    accessory in the paired state SHALL be encrypted.
 
-3.14.5.  Idenitifer over NFC
+3.14.5.  Identifier over NFC
 
    For those accessories that support identifier retrieval over NFC, an
    associated accessory SHALL advertise the encrypted serial number
