@@ -307,7 +307,7 @@ Table of Contents
        | Owner              +---------------------|
        | State    separated |   MUST advertise    |
        |            mode    |  location-enabled   |
-       |                    |     payloa          |
+       |                    |     payload         |
        +--------------------+---------------------+
 
           Figure 1: Requirements & Recommendations For Advertising
