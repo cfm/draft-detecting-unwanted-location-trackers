@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 12 May 2024                                              Google
+Expires: 11 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         9 November 2023
+                                                         9 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 May 2024.
+   This Internet-Draft will expire on 11 June 2024.
 
 Copyright Notice
 
@@ -88,7 +88,7 @@ Table of Contents
      3.5.  MAC address
        3.5.1.  Rotation policy
      3.6.  Service data TLV
-     3.7.  Protocol ID
+     3.7.  Network ID
      3.8.  Near-owner bit
      3.9.  Bluetooth LE advertising interval
      3.10. Accessory Connections
@@ -106,13 +106,12 @@ Table of Contents
        3.12.7.  Future hardware
      3.13. Disablement
        3.13.1.  Disablement instructions
-       3.13.2.  Retrieval
      3.14. Identification
        3.14.1.  Serial number identification
        3.14.2.  Identifier retrieval capability
        3.14.3.  Identifier retrieval over Bluetooth LE
        3.14.4.  Identifier retrieval from a server
-       3.14.5.  Identifer over NFC
+       3.14.5.  Identifier over NFC
      3.15. Owner registry
        3.15.1.  Obfuscated owner information
        3.15.2.  Persistence
@@ -120,28 +119,29 @@ Table of Contents
    4.  Accessory Category Value
    5.  Firmware Updates
      5.1.  Backwards Compatibility
-       5.1.1.  Advertisement backwards compatibility
+       5.1.1.  Existing trackers
+       5.1.2.  Advertisement backwards compatibility
    6.  Platform Support for Unwanted Tracking
      6.1.  Owned Accessory Identification
        6.1.1.  Implementation
        6.1.2.  Platform Software Extension
        6.1.3.  Network Access
        6.1.4.  Removal
-   7.  Security Considerations
-     7.1.  Obfuscated owner information look-up
-       7.1.1.  Design of encrypted serial number look-up
-   8.  Privacy Considerations
-     8.1.  Obfuscated owner information
-     8.2.  Serial number look-up
-     8.3.  Location-enabled payload
-       8.3.1.  Stable identifiers
-       8.3.2.  Proprietary company payload data
-   9.  IANA Considerations
-     9.1.  Manufacturer Protocol ID Registry
-       9.1.1.  Temporary Registry
-     9.2.  Product Data Registry
-       9.2.1.  Temporary Registry
-   10. Normative References
+   7.  Onboarding
+     7.1.  Network providers
+   8.  Security Considerations
+     8.1.  Obfuscated owner information look-up
+       8.1.1.  Design of encrypted identifier look-up
+   9.  Privacy Considerations
+     9.1.  Obfuscated owner information
+     9.2.  Identifier look-up
+     9.3.  Location-enabled payload
+       9.3.1.  Stable identifiers
+       9.3.2.  Proprietary company payload data
+   10. IANA Considerations
+     10.1.  Manufacturer Network ID Registry
+       10.1.1.  Temporary Registry
+   11. Normative References
    Authors' Addresses
 
 1.  Introduction
@@ -152,10 +152,12 @@ Table of Contents
    but, as with all technology, it is possible for them to be misused.
    Misuse of location-tracking accessories can result in unwanted
    tracking of individuals or items for nefarious purposes such as
-   stalking, harassment, and theft.  Formalizing a set of best practices
-   for manufacturers will allow for scalable compatibility with unwanted
-   tracking detection technologies on various smartphone platforms and
-   improve privacy and security for individuals.
+   stalking, harassment, and theft.  This document is focused on
+   protecting people from misuse of location-tracking accessories.
+   Formalizing a set of best practices for manufacturers will allow for
+   scalable compatibility with unwanted tracking detection technologies
+   on various smartphone platforms and improve privacy and security for
+   individuals.
 
    Unwanted tracking detection can both detect and alert individuals
    that a location tracker separated from the owner's device is
@@ -234,9 +236,12 @@ Table of Contents
 
    Accessories are considered easily discoverable if they meet one of
    the following criteria:
-   - The item is larger than 30 cm in at least one dimension.
-   - The item is larger than 18 cm x 13 cm in two of its dimensions.
-   - The item is larger than 250 cm^3 in three-dimensional space.
+
+   *  The item is larger than 30 cm in at least one dimension.
+
+   *  The item is larger than 18 cm x 13 cm in two of its dimensions.
+
+   *  The item is larger than 250 cm^3 in three-dimensional space.
 
 3.  Requirements
 
@@ -273,9 +278,9 @@ Table of Contents
    way to communicate its location to its owner via a network (e.g.,
    cell network, crowd-sourced location via Bluetooth, etc.).
 
-   The accessory SHALL maintain an internal state that determines when
-   its location is, or has been, available to the owner via a network.
-   This state is called the location-enabled state.
+   The accessory SHALL maintain an internal state that detects when its
+   location is, or has been, available to the owner via a network.  This
+   state is called the location-enabled state.
 
    Misuse of location-enabled accessories can occur when the owner’s
    device is not physically with the accessory.  Thereby, the accessory
@@ -333,26 +338,26 @@ Table of Contents
 
    The payload format is defined in Table 1
 
-        +=======+===================================+=============+
-        | Bytes | Description                       | Requirement |
-        +=======+===================================+=============+
-        |  0-5  | MAC address                       |   REQUIRED  |
-        +-------+-----------------------------------+-------------+
-        |  6-8  | Flags TLV; length = 1 byte, type  |   OPTIONAL  |
-        |       | = 1 byte, value = 1 byte          |             |
-        +-------+-----------------------------------+-------------+
-        |  9-12 | Service Data TLV; length = 1      |   REQUIRED  |
-        |       | byte, type = 0x16, value = 0xFCB2 |             |
-        +-------+-----------------------------------+-------------+
-        |   13  | Protocol ID                       |   REQUIRED  |
-        +-------+-----------------------------------+-------------+
-        |   14  | Near-owner bit (1 bit) + reserved |   REQUIRED  |
-        |       | (7 bits)                          |             |
-        +-------+-----------------------------------+-------------+
-        | 15-36 | Proprietary company payload data  |   OPTIONAL  |
-        +-------+-----------------------------------+-------------+
+      +=======+======================================+=============+
+      | Bytes | Description                          | Requirement |
+      +=======+======================================+=============+
+      |  0-5  | MAC address                          |   REQUIRED  |
+      +-------+--------------------------------------+-------------+
+      |  6-8  | Flags TLV; length = 1 byte, type = 1 |   OPTIONAL  |
+      |       | byte, value = 1 byte                 |             |
+      +-------+--------------------------------------+-------------+
+      |  9-12 | Service Data TLV; length = 1 byte,   |   REQUIRED  |
+      |       | type = 0x16, value = 0xFCB2          |             |
+      +-------+--------------------------------------+-------------+
+      |   13  | Network ID                           |   REQUIRED  |
+      +-------+--------------------------------------+-------------+
+      |   14  | Near-owner bit (1 bit, least         |   REQUIRED  |
+      |       | significant bit) + reserved (7 bits) |             |
+      +-------+--------------------------------------+-------------+
+      | 15-36 | Proprietary company payload data     |   OPTIONAL  |
+      +-------+--------------------------------------+-------------+
 
-                  Table 1: Location-Enabled Payload Format
+                 Table 1: Location-Enabled Payload Format
 
    When Flags TLV are not added, the MAC address type needs to be set to
    random.  This implies that if Bluetooth LE pairing is supported, the
@@ -456,11 +461,11 @@ Table of Contents
    way for platforms to easily scan for and detect the location-enabled
    Bluetooth advertisement.
 
-3.7.  Protocol ID
+3.7.  Network ID
 
-   The 1-byte Protocol ID SHALL be set based on a registered value for
-   the manufacturer, as defined in Manufacturer Protocol ID Registry
-   (Section 9.1).
+   The 1-byte Network ID SHALL be set based on a registered value for
+   the manufacturer, as defined in Manufacturer Network ID Registry
+   (Section 10.1).
 
 3.8.  Near-owner bit
 
@@ -472,6 +477,8 @@ Table of Contents
    accessory MUST set the near-owner bit to be 1 when the near-owner
    state is in near-owner mode, otherwise the bit is set to 0.  Table 3
    specifies the values of this bit.
+
+   The near-owner bit MUST be the least significant bit.
 
                 +======================+==================+
                 | Near-owner Bit Value | Near-owner state |
@@ -485,9 +492,10 @@ Table of Contents
 
 3.9.  Bluetooth LE advertising interval
 
-   The Bluetooth LE advertising interval SHALL be a maximum interval of
-   2 seconds.  If an accessory manufacturer advertises at a less
-   frequent interval, detection performance is diminished.
+   The detection rate performance has a dependency on the BLE
+   advertising interval used. A maximum advertising interval of 4
+   seconds SHALL be used; for the best detection rate, the advertising
+   interval SHOULD be less than or equal to 2 seconds.
 
 3.10.  Accessory Connections
 
@@ -507,8 +515,8 @@ Table of Contents
    Data fragmentation and reassembly is not defined in this document;
    therefore, the accessory SHALL NOT request an MTU (Maximum
    Transmission Unit) smaller than the maximum length of its write
-   responses for the opcodes defined in (Non-owner controls)[#non-owner-
-   controls] and (opcodes){#opcodes}. In other words, all opcode
+   responses for the opcodes defined in Non-owner controls
+   (Section 3.12.4) and Section 3.11.1.  In other words, all opcode
    response data must fit within a single write operation.
 
 3.11.  Accessory Information
@@ -516,65 +524,114 @@ Table of Contents
    The following accessory information MUST be persistent through the
    lifetime of the accessory: Product data (Section 3.11.1.1),
    Manufacturer name (Section 3.11.1.2), Model name (Section 3.11.1.3),
-   Accessory category (Section 3.11.1.4), and Accessory capabilities
-   (Section 3.11.1.6).
+   Accessory category (Section 3.11.1.4), Accessory capabilities
+   (Section 3.11.1.6), Network ID (Section 3.7), and Battery Type
+   (Section 3.11.1.9).
 
 3.11.1.  Opcodes
 
    The opcodes for accessory information are defined in Table 4.
 
-   +============================================+======+==============+============+
-   |                   Opcode                   |Opcode|   Operands   |    GATT    |
-   |                                            |value |              |subprocedure|
-   +============================================+======+==============+============+
-   |              Get_Product_Data              |0x003 |     None     | Write; To  |
-   |                                            |      |              | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |         Get_Product_Data_Response          |0x803 | Product Data |Indications;|
-   |                                            |      |   (Section   |    From    |
-   |                                            |      |  3.11.1.1)   | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |           Get_Manufacturer_Name            |0x004 |     None     | Write; To  |
-   |                                            |      |              | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |       Get_Manufacturer_Name_Response       |0x804 | Manufacturer |Indications;|
-   |                                            |      |Name (Section |    From    |
-   |                                            |      |  3.11.1.2)   | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |               Get_Model_Name               |0x005 |     None     | Write; To  |
-   |                                            |      |              | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |          Get_Model_Name_Response           |0x805 |  Model Name  |Indications;|
-   |                                            |      |   (Section   |    From    |
-   |                                            |      |  3.11.1.3)   | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |           Get_Accessory_Category           |0x006 |     None     | Write; To  |
-   |                                            |      |              | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |      Get_Accessory_Category_Response       |0x806 |  Accessory   |Indications;|
-   |                                            |      |   Category   |    From    |
-   |                                            |      |   (Section   | Accessory  |
-   |                                            |      |  3.11.1.4)   |            |
-   +--------------------------------------------+------+--------------+------------+
-   |    Get_Protocol_Implementation_Version     |0x007 |     None     | Write; To  |
-   |                                            |      |              | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |Get_Protocol_Implementation_Version_Response|0x807 |   Protocol   |Indications;|
-   |                                            |      |Implementation|    From    |
-   |                                            |      |   Version    | Accessory  |
-   |                                            |      |   (Section   |            |
-   |                                            |      |  3.11.1.5)   |            |
-   +--------------------------------------------+------+--------------+------------+
-   |         Get_Accessory_Capabilities         |0x008 |     None     | Write; To  |
-   |                                            |      |              | Accessory  |
-   +--------------------------------------------+------+--------------+------------+
-   |    Get_Accessory_Capabilities_Response     |0x808 |  Accessory   |Indications;|
-   |                                            |      | Capabilities |    From    |
-   |                                            |      |   (Section   | Accessory  |
-   |                                            |      |  3.11.1.6)   |            |
-   +--------------------------------------------+------+--------------+------------+
+   +===================================+======+==============+============+===========+
+   |               Opcode              |Opcode|   Operands   |    GATT    |Requirement|
+   |                                   |value |              |subprocedure|           |
+   +===================================+======+==============+============+===========+
+   |          Get_Product_Data         |0x003 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |     Get_Product_Data_Response     |0x803 | Product Data |Indications;|  REQUIRED |
+   |                                   |      |   (Section   |    From    |           |
+   |                                   |      |  3.11.1.1)   | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |       Get_Manufacturer_Name       |0x004 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |   Get_Manufacturer_Name_Response  |0x804 | Manufacturer |Indications;|  REQUIRED |
+   |                                   |      |Name (Section |    From    |           |
+   |                                   |      |  3.11.1.2)   | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |           Get_Model_Name          |0x005 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |      Get_Model_Name_Response      |0x805 |  Model Name  |Indications;|  REQUIRED |
+   |                                   |      |   (Section   |    From    |           |
+   |                                   |      |  3.11.1.3)   | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |       Get_Accessory_Category      |0x006 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |  Get_Accessory_Category_Response  |0x806 |  Accessory   |Indications;|  REQUIRED |
+   |                                   |      |   Category   |    From    |           |
+   |                                   |      |   (Section   | Accessory  |           |
+   |                                   |      |  3.11.1.4)   |            |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |Get_Protocol_Implementation_Version|0x007 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |    Get_Protocol_Implementation_   |0x807 |   Protocol   |Indications;|  REQUIRED |
+   |          Version_Response         |      |Implementation|    From    |           |
+   |                                   |      |   Version    | Accessory  |           |
+   |                                   |      |   (Section   |            |           |
+   |                                   |      |  3.11.1.5)   |            |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |     Get_Accessory_Capabilities    |0x008 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |Get_Accessory_Capabilities_Response|0x808 |  Accessory   |Indications;|  REQUIRED |
+   |                                   |      | Capabilities |    From    |           |
+   |                                   |      |   (Section   | Accessory  |           |
+   |                                   |      |  3.11.1.6)   |            |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |           Get_Network_ID          |0x009 |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |       Get_Network_ID_Reponse      |0x809 |  Network ID  |Indications;|  REQUIRED |
+   |                                   |      |(Section 3.7) |    From    |           |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |        Get_Firmware_Version       |0x00A |     None     | Write; To  |  REQUIRED |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |   Get_Firmware_Version_Response   |0x80A |   Firmware   |Indications;|  REQUIRED |
+   |                                   |      |   version    |    From    |           |
+   |                                   |      |   (Section   | Accessory  |           |
+   |                                   |      |  3.11.1.8)   |            |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |          Get_Battery_Type         |0x00B |     None     | Write; To  |  OPTIONAL |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |     Get_Battery_Type_Response     |0x80B | Battery Type |Indications;|  OPTIONAL |
+   |                                   |      |   (Section   |    From    |           |
+   |                                   |      |  3.11.1.9)   | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |         Get_Battery_Level         |0x00C |     None     | Write; To  |  OPTIONAL |
+   |                                   |      |              | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |     Get_Battery_Level_Response    |0x80C |Battery Level |Indications;|  OPTIONAL |
+   |                                   |      |   (Section   |    From    |           |
+   |                                   |      |  3.11.1.10)  | Accessory  |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |              RESERVED             |0x00D |              |            |           |
+   |                                   |  -   |              |            |           |
+   |                                   |0x05F |              |            |           |
+   +-----------------------------------+------+--------------+------------+-----------+
+   |        RESERVED (Response)        |0x80D |              |            |           |
+   |                                   |  -   |              |            |           |
+   |                                   |0x85F |              |            |           |
+   +-----------------------------------+------+--------------+------------+-----------+
 
                    Table 4: Accessory Information Opcodes
+
+   These opcodes SHALL be available when the accessory is in separated
+   state.  These opcodes SHALL NOT be available when the accessory is in
+   the near-owner state.  When any opcode is not available, the
+   accessory SHALL return the Invalid_command error as the
+   ResponseStatus in Command_Response.  If an optional opcode is not
+   available, the accessory SHALL return the Invalid_command error as
+   the ResponseStatus in Command_Response.  If any opcode value is
+   commanded that is not supported by the accessory, it SHALL return the
+   Invalid_command error as the ResponseStatus in the Command_Response.
+   See Command Response (Section 3.12.4.1.1) for details.
 
    Opcodes should be structured as defined below.
 
@@ -593,115 +650,214 @@ Table of Contents
 
    The Product Data operand represents an 8-byte value that is intended
    to serve as a unique identifier for the accessory make and model.
-   This value SHALL be available in a public registry as defined in
-   Section 9.2.
+   This value SHALL be determined during the onboarding process
+   (Section 7).
 
-   The Product Data operand is 8 bytes, composed of two 8-character hex
-   strings (lowercase zero padded), each of which is 4 bytes.
+    +==============+=======+=======+============+====================+
+    | Operand name |  Data | Count | Total Size |    Description     |
+    |              |  type |       |  (Bytes)   |                    |
+    +==============+=======+=======+============+====================+
+    | Product Data | Uint8 |   8   |     64     |  See Product data  |
+    |              |       |       |            | (Section 3.11.1.1) |
+    +--------------+-------+-------+------------+--------------------+
 
-   For example, the Product Data value of 0xdfeceff1e1ff54db, the value
-   converted to binary would be
-
-      0xdfeceff1 11011111 11101100 11101111 11110001
-      0xe1ff54db 11100001 11111111 01010100 11011011
-
-     +==============+===========+===============+====================+
-     | Operand name | Data type | Size (octets) |    Description     |
-     +==============+===========+===============+====================+
-     | Product Data |   Uint8   |       8       |  See Product data  |
-     |              |           |               | (Section 3.11.1.1) |
-     +--------------+-----------+---------------+--------------------+
-
-                       Table 6: Product Data Operand
+                      Table 6: Product Data Operand
 
 3.11.1.2.  Manufacturer name
 
    The Manufacturer Name operand contains the name of the company whose
    brand will appear on the accessory, e.g., ”Acme”.
 
-   +===================+===========+===============+===================+
-   |    Operand name   | Data type | Size (octets) |    Description    |
-   +===================+===========+===============+===================+
-   | Manufacturer Name |   UTF-8   |       64      |    Manufacturer   |
-   |                   |           |               |        name       |
-   +-------------------+-----------+---------------+-------------------+
+     +==============+===========+=======+============+==============+
+     | Operand name | Data type | Count | Total Size | Description  |
+     |              |           |       |  (Bytes)   |              |
+     +==============+===========+=======+============+==============+
+     | Manufacturer |   UTF-8   |   64  |     64     | Manufacturer |
+     |     Name     |           |       |            |     name     |
+     +--------------+-----------+-------+------------+--------------+
 
-                     Table 7: Manufacturer Name Operand
+                    Table 7: Manufacturer Name Operand
 
 3.11.1.3.  Model name
 
    The Model Name operand contains the manufacturer specific model of
    the accessory.
 
-        +==============+===========+===============+=============+
-        | Operand name | Data type | Size (octets) | Description |
-        +==============+===========+===============+=============+
-        |  Model Name  |   UTF-8   |       64      |  Model name |
-        +--------------+-----------+---------------+-------------+
+      +==============+===========+=======+============+=============+
+      | Operand name | Data type | Count | Total Size | Description |
+      |              |           |       |  (Bytes)   |             |
+      +==============+===========+=======+============+=============+
+      |  Model Name  |   UTF-8   |   64  |     64     |  Model name |
+      +--------------+-----------+-------+------------+-------------+
 
-                       Table 8: Model Name Operand
+                        Table 8: Model Name Operand
 
 3.11.1.4.  Accessory category
 
    The Accessory Category operand describes the category the accessory
    most closely resembles.
 
-    +===========+=======+==========+==================================+
-    |  Operand  |  Data |   Size   | Description                      |
-    |    name   |  type | (octets) |                                  |
-    +===========+=======+==========+==================================+
-    | Accessory | Uint8 |    8     | Byte 0: Uint8 value of Accessory |
-    |  Category |       |          | Category Value (Section 4)       |
-    |           |       |          | Byte 1-7: Reserved               |
-    +-----------+-------+----------+----------------------------------+
+      +===========+=======+=======+=========+=======================+
+      |  Operand  |  Data | Count |  Total  |      Description      |
+      |    name   |  type |       |   Size  |                       |
+      |           |       |       | (Bytes) |                       |
+      +===========+=======+=======+=========+=======================+
+      | Accessory | Uint8 |   8   |    8    |  Byte 0: Uint8 value  |
+      |  Category |       |       |         | of Accessory Category |
+      |           |       |       |         |   Value (Section 4)   |
+      |           |       |       |         |   Byte 1-7: Reserved  |
+      +-----------+-------+-------+---------+-----------------------+
 
                     Table 9: Accessory Category Operand
 
 3.11.1.5.  Protocol implementation version
 
-   The Protocol Implemention Version operand contains a value indicating
-   an implemention version of these protocols.
+   The Protocol Implementation Version operand contains a value
+   indicating an implementation version of these protocols.
 
-        +================+========+==========+===================+
-        |  Operand name  |  Data  |   Size   |    Description    |
-        |                |  type  | (octets) |                   |
-        +================+========+==========+===================+
-        |    Protocol    | Uint32 |    4     | Byte 0 : revision |
-        | Implementation |        |          |   version number  |
-        |    Version     |        |          |   Byte 1 : minor  |
-        |                |        |          |   version number  |
-        |                |        |          |  Byte 2-3 : major |
-        |                |        |          |   version number  |
-        +----------------+--------+----------+-------------------+
+     +================+========+=======+=========+===================+
+     |  Operand name  |  Data  | Count |  Total  |    Description    |
+     |                |  type  |       |   Size  |                   |
+     |                |        |       | (Bytes) |                   |
+     +================+========+=======+=========+===================+
+     |    Protocol    | Uint32 |   1   |    4    | Byte 0 : revision |
+     | Implementation |        |       |         |   version number  |
+     |    Version     |        |       |         |   Byte 1 : minor  |
+     |                |        |       |         |   version number  |
+     |                |        |       |         |  Byte 2-3 : major |
+     |                |        |       |         |   version number  |
+     +----------------+--------+-------+---------+-------------------+
 
-            Table 10: Protocol Implementation Version Operand
+             Table 10: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
-   1.0.0.  The equivalent byte value is 0x00000001.
+   1.0.0.  The equivalent 4-byte value is 0x00000001.
 
 3.11.1.6.  Accessory capabilities
 
    The Accessory Capabilities operand enumerates the various
    capabilities supported on the accessory as defined in Table 11.
 
-    +==============+========+==========+=============================+
-    | Operand name |  Data  |   Size   | Description                 |
-    |              |  type  | (octets) |                             |
-    +==============+========+==========+=============================+
-    |  Accessory   | Uint32 |    4     | Bit 0 : Supports play sound |
-    | Capabilities |        |          | Bit 1 : Supports motion     |
-    |              |        |          | detector UT                 |
-    |              |        |          | Bit 2 : Supports identifier |
-    |              |        |          | lookup by NFC               |
-    |              |        |          | Bit 3 : Supports identifier |
-    |              |        |          | lookup by BLE               |
-    +--------------+--------+----------+-----------------------------+
+     +==============+========+=======+=========+====================+
+     | Operand name |  Data  | Count |  Total  |    Description     |
+     |              |  type  |       |   Size  |                    |
+     |              |        |       | (Bytes) |                    |
+     +==============+========+=======+=========+====================+
+     |  Accessory   | Uint32 |   1   |    4    |  Bit 0 : Supports  |
+     | Capabilities |        |       |         |     play sound     |
+     |              |        |       |         |  Bit 1 : Supports  |
+     |              |        |       |         | motion detector UT |
+     |              |        |       |         |  Bit 2 : Supports  |
+     |              |        |       |         | identifier lookup  |
+     |              |        |       |         |       by NFC       |
+     |              |        |       |         |  Bit 3 : Supports  |
+     |              |        |       |         | identifier lookup  |
+     |              |        |       |         |       by BLE       |
+     +--------------+--------+-------+---------+--------------------+
 
                  Table 11: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
    and identifier look-up over BT will have the value set as 1011 in
    binary and 11 as Uint32.
+
+3.11.1.7.  Network ID
+
+   The Network ID operand contains the Network ID for the accessory.
+   This is the same information that's in the BT advertisement header in
+   Table 1.
+
+      +==============+===========+=======+============+=============+
+      | Operand name | Data type | Count | Total Size | Description |
+      |              |           |       |  (Bytes)   |             |
+      +==============+===========+=======+============+=============+
+      |  Network ID  |   Uint8   |   1   |     1      |  Network ID |
+      +--------------+-----------+-------+------------+-------------+
+
+                        Table 12: Network ID Operand
+
+3.11.1.8.  Firmware version
+
+   The Firmware Version describes the current firmware version running
+   on the accessory.  The firmware revision string SHALL use the
+   x[.y[.z]] format where :
+
+   *  <x> is the major version number, required.
+
+   *  <y> is the minor version number, required if it is non zero or if
+      <z> is present.
+
+   *  <z> is the revision version number, required if non zero.
+
+   The firmware revision MUST follow these rules:
+
+   *  <x> is incremented when there is significant change; for example,
+      1.0.0, 2.0.0, 3.0.0, and so on.
+
+   *  <y> is incremented when minor changes are introduced, such as
+      1.1.0, 2.1.0, 3.1.0, and so on.
+
+   *  <z> is incremented when bug fixes are introduced, such as 1.0.1,
+      2.0.1, 3.0.1, and so on.
+
+   *  Subsequent firmware updates can have a lower <y> version only if
+      <x> is incremented.
+
+   *  Subsequent firmware updates can have a lower <z> version only if
+      <x> or <y> is incremented.
+
+   Major version MUST not be greater than (2^16 - 1).  Minor and
+   revision version MUST not be greater than (2^8 - 1).  The value MUST
+   change after every firmware update.
+
+        +==========+========+=======+=========+===================+
+        | Operand  |  Data  | Count |  Total  |    Description    |
+        |   name   |  type  |       |   Size  |                   |
+        |          |        |       | (Bytes) |                   |
+        +==========+========+=======+=========+===================+
+        | Firmware | Uint32 |   1   |    4    | Byte 0 : revision |
+        | version  |        |       |         |   version number  |
+        |          |        |       |         |   Byte 1 : minor  |
+        |          |        |       |         |   version number  |
+        |          |        |       |         |  Byte 2:3 : major |
+        |          |        |       |         |   version number  |
+        +----------+--------+-------+---------+-------------------+
+
+                     Table 13: Firmware Version Operand
+
+3.11.1.9.  Battery type
+
+   The Battery type operand describes the battery type used in the
+   accessory.
+
+   +=========+=======+=======+=========+==============================+
+   | Operand |  Data | Count |  Total  |         Description          |
+   |   name  |  type |       |   Size  |                              |
+   |         |       |       | (Bytes) |                              |
+   +=========+=======+=======+=========+==============================+
+   | Battery | Uint8 |   1   |    1    |         0 = Powered          |
+   |   Type  |       |       |         | 1 = Non-rechargeable battery |
+   |         |       |       |         |   2 = Rechargeable battery   |
+   +---------+-------+-------+---------+------------------------------+
+
+                      Table 14: Battery Type Operand
+
+3.11.1.10.  Battery level
+
+   The Battery level operand indicates the current battery level.
+
+        +=========+=======+=======+=========+====================+
+        | Operand |  Data | Count |  Total  |    Description     |
+        |   name  |  type |       |   Size  |                    |
+        |         |       |       | (Bytes) |                    |
+        +=========+=======+=======+=========+====================+
+        | Battery | Uint8 |   1   |    1    |      0 = Full      |
+        |  Level  |       |       |         |     1 = Medium     |
+        |         |       |       |         |      2 = Low       |
+        |         |       |       |         | 3 = Critically low |
+        +---------+-------+-------+---------+--------------------+
+
+                     Table 15: Battery Level Operand
 
 3.12.  Non-Owner Finding
 
@@ -725,7 +881,7 @@ Table of Contents
 
    The details in this section apply to those accessories that include a
    motion detector.  Values of the variables referenced are specified in
-   Table 12.
+   Table 16.
 
 
    After T_(SEPARATED_UT_TIMEOUT) in separated state, the accessory MUST
@@ -752,8 +908,8 @@ Table of Contents
    If the accessory is still in separated state at the end of
    T_(SEPARATED_UT_BACKOFF), the UT behavior MUST restart.
 
-   A Bluetooth LE connection from a associated device MUST reset the
-   separated behavior and transition the accessory to connected state.
+   A Bluetooth LE connection from an associated device MUST reset the
+   separated behavior.
 
    +=================================+==============+==================+
    | Name                            |    Value     | Description      |
@@ -787,7 +943,7 @@ Table of Contents
    |                                 | distribution |                  |
    +---------------------------------+--------------+------------------+
 
-                   Table 12: Motion Detector Time Values
+                   Table 16: Motion Detector Time Values
 
 3.12.3.  Sound maker
 
@@ -808,46 +964,64 @@ Table of Contents
 3.12.4.  Non-owner controls
 
    Non-owner controls SHALL use the same service and characteristic
-   UUIDs as defined in Accessory Connections (Section 3.10).  The non-
-   owner control point enables a non-owner device to locate the
-   accessory by playing a sound.  The opcodes for the control point are
-   defined in Table 13.
+   UUIDs as defined in Accessory Connections (Section 3.10).
 
-   +============================+========+=============+==============+
-   |           Opcode           | Opcode |   Operands  |     GATT     |
-   |                            | value  |             | subprocedure |
-   +============================+========+=============+==============+
-   |        Sound_Start         | 0x300  |     None    |  Write; To   |
-   |                            |        |             |  accessory   |
-   +----------------------------+--------+-------------+--------------+
-   |         Sound_Stop         | 0x301  |     None    |  Write; To   |
-   |                            |        |             |  accessory   |
-   +----------------------------+--------+-------------+--------------+
-   |      Command_Response      | 0x302  |   Command   | Indications; |
-   |                            |        |   Response  |     From     |
-   |                            |        |   (Section  |  accessory   |
-   |                            |        | 3.12.4.1.1) |              |
-   +----------------------------+--------+-------------+--------------+
-   |      Sound_Completed       | 0x303  |     None    | Indications; |
-   |                            |        |             |     From     |
-   |                            |        |             |  accessory   |
-   +----------------------------+--------+-------------+--------------+
-   |     Get_Serial_Number      | 0x404  |     None    |  Write; To   |
-   |                            |        |             |  accessory   |
-   +----------------------------+--------+-------------+--------------+
-   | Get_Serial_Number_Response | 0x405  |  Identifier | Indications; |
-   |                            |        |   Payload   |     From     |
-   |                            |        |   (Section  |  accessory   |
-   |                            |        |  3.12.4.2)  |              |
-   +----------------------------+--------+-------------+--------------+
+   These controls allow a non-owner to locate the accessory by playing a
+   sound as well as fetch an encrypted payload used to retrieve the
+   identifier of the device.
 
-                Table 13: Non-Owner Control Point Opcodes
+   These opcodes are defined in Table 17.
 
-   This control point SHALL be available to the platform only when the
-   accessory is in separated state.  In all other states, the accessory
-   SHALL return the Invalid_command error as the ResponseStatus in
-   CommandResponse.  See Command Response (Section 3.12.4.1.1) for
-   details.
+     +=========================+========+=============+==============+
+     |          Opcode         | Opcode |   Operands  |     GATT     |
+     |                         | value  |             | subprocedure |
+     +=========================+========+=============+==============+
+     |       Sound_Start       | 0x300  |     None    |  Write; To   |
+     |                         |        |             |  accessory   |
+     +-------------------------+--------+-------------+--------------+
+     |        Sound_Stop       | 0x301  |     None    |  Write; To   |
+     |                         |        |             |  accessory   |
+     +-------------------------+--------+-------------+--------------+
+     |     Command_Response    | 0x302  |   Command   | Indications; |
+     |                         |        |   Response  |     From     |
+     |                         |        |   (Section  |  accessory   |
+     |                         |        | 3.12.4.1.1) |              |
+     +-------------------------+--------+-------------+--------------+
+     |     Sound_Completed     | 0x303  |     None    | Indications; |
+     |                         |        |             |     From     |
+     |                         |        |             |  accessory   |
+     +-------------------------+--------+-------------+--------------+
+     |      Get_Identifier     | 0x404  |     None    |  Write; To   |
+     |                         |        |             |  accessory   |
+     +-------------------------+--------+-------------+--------------+
+     | Get_Identifier_Response | 0x405  |  Identifier | Indications; |
+     |                         |        |   Payload   |     From     |
+     |                         |        |   (Section  |  accessory   |
+     |                         |        |  3.12.4.2)  |              |
+     +-------------------------+--------+-------------+--------------+
+     |         RESERVED        | 0x304  |             |              |
+     |                         |   -    |             |              |
+     |                         | 0x35F  |             |              |
+     +-------------------------+--------+-------------+--------------+
+     |   RESERVED (Response)   | 0x405  |             |              |
+     |                         |   -    |             |              |
+     |                         | 0x45F  |             |              |
+     +-------------------------+--------+-------------+--------------+
+
+                    Table 17: Non-Owner Controls Opcodes
+
+   Sound_Start and Sound_Stop SHALL only be available to the platform
+   when the accessory is in the separated state.
+
+   In all other states, the accessory SHALL return the Invalid_command
+   error as the ResponseStatus in Command_Response.
+
+   Get_Identifier SHALL only be available when in identifier read state;
+   otherwise, it MUST send Command_Response (Section 3.12.4.1.1) with
+   the Invalid_command as the ResponseStatus.
+
+   The identifier read state is discussed further in Identifier Payload
+   (Section 3.12.4.2).
 
 3.12.4.1.  Play sound
 
@@ -865,7 +1039,7 @@ Table of Contents
    *  The Sound_Stop opcode is used to stop an ongoing sound request.
 
    *  If the sound event is completed or was not initiated by the
-      connected non owner device, the accessory responds with the
+      connected non-owner device, the accessory responds with the
       Invalid_state ResponseStatus code.
 
    *  If the accessory does not support the play sound procedure, it
@@ -886,51 +1060,57 @@ Table of Contents
    accessory SHALL respond to any invalid opcode with Command_Response
    and Invalid_command as the ResponseStatus.
 
-   +================+========+==========+==============================+
-   | Operand        | Data   | Size     | Description                  |
-   |                | type   | (octets) |                              |
-   +================+========+==========+==============================+
-   | CommandOpCode  | Uint16 | 2        | The control procedure        |
-   |                |        |          | matching this response       |
-   +----------------+--------+----------+------------------------------+
-   | ResponseStatus | Uint16 | 2        | 0x0000 Success               |
-   |                |        |          | 0x0001 Invalid_state         |
-   |                |        |          | 0x0002                       |
-   |                |        |          | Invalid_configuration        |
-   |                |        |          | 0x0003 Invalid_length        |
-   |                |        |          | 0x0004 Invalid_param         |
-   |                |        |          | 0xFFFF Invalid_command       |
-   +----------------+--------+----------+------------------------------+
+   +================+========+=====+=========+========================+
+   | Operand name   |   Data |Count|  Total  |      Description       |
+   |                |   type |     |   Size  |                        |
+   |                |        |     | (Bytes) |                        |
+   +================+========+=====+=========+========================+
+   | CommandOpCode  | Uint16 |  1  |    2    | The control procedure  |
+   |                |        |     |         | matching this response |
+   +----------------+--------+-----+---------+------------------------+
+   | ResponseStatus | Uint16 |  1  |    2    |     0x0000 Success     |
+   |                |        |     |         |  0x0001 Invalid_state  |
+   |                |        |     |         |         0x0002         |
+   |                |        |     |         | Invalid_configuration  |
+   |                |        |     |         | 0x0003 Invalid_length  |
+   |                |        |     |         |  0x0004 Invalid_param  |
+   |                |        |     |         | 0xFFFF Invalid_command |
+   +----------------+--------+-----+---------+------------------------+
 
-                    Table 14: Command Response Operands
+                   Table 18: Command Response Operands
 
 3.12.4.2.  Identifier Payload
 
-   The Get_Serial_Number opcode is used to retrieve identifier lookup
-   payload over Bluetooth LE.  This MUST be enabled for 5 minutes upon
-   user action on the accessory (for example, press and hold a button
-   for 10 seconds to initiate identifier read state).  When the
-   accessory is in this mode, it MUST respond with
-   Get_Serial_Number_Response opcode and Serial Number Payload operand.
+   The Get_Identifier opcode is used to retrieve identifier lookup
+   payload over Bluetooth LE.  To enable this opcode, the accessory MUST
+   be in the identifier read state.  To enter the identifier read state,
+   a user action on the accessory MUST be performed (for example, press
+   and hold a button for 10 seconds).  The identifier read state MUST be
+   enabled for 5 minutes once the user action on the accessory is
+   successfully performed.  When the accessory is in this mode, it MUST
+   respond with Get_Identifier_Response opcode and Identifier Payload
+   operand.
 
-    +============+=======+============+===============================+
-    |  Operand   |  Data |    Size    |          Description          |
-    |            |  type |  (octets)  |                               |
-    +============+=======+============+===============================+
-    |   Serial   | UTF-8 | defined by | String for URL from which the |
-    | Number URL |       | accessory  |  identifier can be retrieved  |
-    +------------+-------+------------+-------------------------------+
+   +============+=======+===========+============+=====================+
+   |  Operand   |  Data |   Count   |   Total    |     Description     |
+   |    name    |  type |           |    Size    |                     |
+   |            |       |           |  (Bytes)   |                     |
+   +============+=======+===========+============+=====================+
+   | Identifier | UTF-8 |  defined  |  defined   |    The encrypted    |
+   |  Payload   |       |     by    |     by     | identifier, encoded |
+   |            |       | accessory | accessory  |   as a hex string.  |
+   +------------+-------+-----------+------------+---------------------+
 
-               Table 15: Serial Number Payload Over Bluetooth
+                Table 19: Identifier Payload Over Bluetooth
 
-   The encrypted identifier SHALL be an argument passed to this URL and
-   it is REQUIRED that any metadata passed be non-identifiable.
+   It is REQUIRED that the encrypted identifier (which in some cases is
+   the product serial number) be non-identifiable.
 
    If the accessory is not in identifier read state, it MUST send
    Command_Response (Section 3.12.4.1.1) with the Invalid_command as the
    ResponseStatus.  Further considerations for how these operands should
-   be implemented are discussed in Design of encrypted serial number
-   look-up (Section 7.1.1).
+   be implemented are discussed in Design of encrypted identifier
+   look-up (Section 8.1.1).
 
 3.12.5.  Alternate finding hardware
 
@@ -939,7 +1119,7 @@ Table of Contents
 
 3.12.6.  Recommended Finding Options
 
-   Table 16 lists two RECOMMENDED options on the set of technology in an
+   Table 20 lists two RECOMMENDED options on the set of technology in an
    accessory to make it findable.
 
                    +=============+==========+==========+
@@ -954,7 +1134,7 @@ Table of Contents
                    | Lights      |          |    X     |
                    +-------------+----------+----------+
 
-                        Table 16: Accessory Finding
+                        Table 20: Accessory Finding
                               Hardware Options
 
 3.12.7.  Future hardware
@@ -976,14 +1156,7 @@ Table of Contents
    image, diagram, animation, etc.) that MUST be available when the
    platform is online and OPTIONALLY when offline.  Disablement
    procedure or instructions CAN change with accessory firmware updates.
-
-3.13.2.  Retrieval
-
-   A registry which maps Product data (Section 3.11.1.1) to an
-   affiliated URL supporting retrieval of disablement instructions SHALL
-   be available for platforms to reference, as defined in Section 9.2.
-   This URL must return a response which can be rendered by an HTML
-   view.
+   These are provided as part of the onboarding process (Section 7).
 
 3.14.  Identification
 
@@ -1009,7 +1182,7 @@ Table of Contents
    For privacy reasons, accessories that support identifier retrieval
    for identifiers not included in the advertising packet over Bluetooth
    LE MUST have a physical mechanism, for example, a button, that SHALL
-   be required to enable the Get_Serial_Number opcode, as discussed in
+   be required to enable the Get_Identifier opcode, as discussed in
    Identifier Payload (Section 3.12.4.2).
 
    The accessory manufacturer SHALL provide both a text description of
@@ -1017,34 +1190,22 @@ Table of Contents
    visual depiction (e.g. image, diagram, animation, etc.) that MUST be
    available when the platform is online and OPTIONALLY when offline.
    The description and visual depiction CAN change with accessory
-   firmware updates.
-
-   A registry which maps Product Data (Section 3.11.1.1) to an
-   affiliated URL that will return a text description and visual
-   depiction of how to enable identifier look-up over Bluetooth LE SHALL
-   be available for platforms to reference, as defined in Section 9.2.
-   This URL MUST return a response which can be rendered by an HTML
-   view.
+   firmware updates.  These are provided as part of the onboarding
+   process (Section 7).
 
 3.14.4.  Identifier retrieval from a server
 
    For security reasons, the identifier payload returned from an
    accessory in the paired state SHALL be encrypted.
 
-   A registry which maps Product Data (Section 3.11.1.1) to an
-   affiliated URL which will decrypt the identifier payload and return
-   the identifier value SHALL be available for platforms to reference,
-   as defined in Section 9.2.  This URL MUST return a response which can
-   be rendered by an HTML view.  The arguments sent to this URL SHALL
-   match those that are defined in Table 15.  Security considerations
-   are discussed in Section 7.1.
-
-3.14.5.  Identifer over NFC
+3.14.5.  Identifier over NFC
 
    For those accessories that support identifier retrieval over NFC, an
-   associated accessory SHALL advertise a URL which SHALL decrypt the
-   identifier payload and return the identifier of the accessory in a
-   form that can be rendered in the platform's HTML view.
+   associated accessory SHALL advertise the encrypted identifier encoded
+   as a hex string.  This string SHALL be an argument passed to the URL
+   defined in the Product data registry (product-data-registry) which
+   SHALL decrypt the identifier payload and return the identifier of the
+   accessory in a form that can be rendered in the platform's HTML view.
 
    The encrypted identifier when in associated state SHALL be an
    argument passed to this URL and it is REQUIRED that any metadata
@@ -1060,10 +1221,10 @@ Table of Contents
 
    A limited amount of obfuscated owner information from the owner
    registry SHALL be made available to the platform along with a
-   retrieved identifier (serial-number-retrieval).  This information
-   SHALL be part of the response of the identifier retrieval from a
-   server (serial-number-from-server) which can be rendered in a
-   platform's HTML view.
+   retrieved identifier (identifier-retrieval).  This information SHALL
+   be part of the response of the identifier retrieval from a server
+   (identifier-from-server) which can be rendered in a platform's HTML
+   view.
 
    This MUST include at least one of the following:
 
@@ -1089,7 +1250,7 @@ Table of Contents
 
    Accessory manufacturer’s MUST pick an accessory category value that
    closest resembles their physical product.  If none of the accessory
-   categories provided in Table 17 match the physical product, Other
+   categories provided in Table 21 match the physical product, Other
    MUST be chosen.
 
                +============================+=============+
@@ -1180,7 +1341,7 @@ Table of Contents
                | Reserved for future use    | 2-127, 168+ |
                +----------------------------+-------------+
 
-                   Table 17: Accessory Category Values
+                   Table 21: Accessory Category Values
 
 5.  Firmware Updates
 
@@ -1188,12 +1349,12 @@ Table of Contents
 
 5.1.  Backwards Compatibility
 
-   ### Existing trackers
+5.1.1.  Existing trackers
 
    Existing trackers should be updated on a best-effort basis to
    implement the protocols and practices outlined above.
 
-5.1.1.  Advertisement backwards compatibility
+5.1.2.  Advertisement backwards compatibility
 
    The manufacturer MAY continue to use the company’s existing service
    UUID as registered in the Bluetooth SIG until October 1, 2024, after
@@ -1209,7 +1370,7 @@ Table of Contents
    Detection performance for existing service UUIDs may be lower than if
    the unwanted tracking protocol UUID is used.
 
-   Companies who have registered their protocol IDs will appear in a
+   Companies who have registered their Network IDs will appear in a
    table below.
 
 6.  Platform Support for Unwanted Tracking
@@ -1245,8 +1406,8 @@ Table of Contents
    the platform.  This set MUST account for the uncertainty involved
    with the MAC address (Section 3.5).
 
-   The protocol ID in the advertisement payload, as specified in
-   Table 1, SHALL be used to associate an accessory detected with the
+   The Network ID in the advertisement payload, as specified in Table 1,
+   SHALL be used to associate an accessory detected with the
    manufacturer's software extension.
 
 6.1.3.  Network Access
@@ -1260,28 +1421,63 @@ Table of Contents
    with an accessory if the manufacturer's software is removed or if the
    platform unassociates from the accessory.
 
-7.  Security Considerations
+7.  Onboarding
 
-7.1.  Obfuscated owner information look-up
+   Accessory manufacturers MUST follow a minimum set of steps for their
+   accessories to be detectable by platforms such as adding their
+   Network ID value to the Manufacturer network ID Registry
+   (Section 10.1).
+
+   During onboarding, a product data registry will be created that
+   includes information such as:
+
+   *  Product Data: an 8-byte string representing a unique identifier
+      for a product.  See Product Data (Section 3.11.1.1).
+
+   *  Disablement Instructions: information on how a user can disable
+      the tracker.
+
+   *  Identifier Look-up Over Bluetooth Instructions: visual depictions
+      for enabling identifier look-up over Bluetooth LE.
+
+   *  Identifier Look-up: a method to retrieve the obfuscated owner
+      information and possibly identifier.
+
+   *  Product Name: a string representing the accessory make and model
+      associated with the Product Data string.
+
+   Additional details will follow in 2024 to specify formats for
+   disablement instructions and product images.
+
+7.1.  Network providers
+
+   Companies that have their own accessory-locating networks will need
+   to create infrastructure to support the scaled retrieval of
+   disablement instructions and product images.  Additional information
+   for network providers will be updated in 2024.
+
+8.  Security Considerations
+
+8.1.  Obfuscated owner information look-up
 
    Obfuscated owner information look-up is required to display important
    information to users who encounter an unwanted tracking notification.
    It helps them tie the notification to a specific physical device and
    recognize the accessory as belonging to a friend or relative.
-   Displaying a serial number may be one method to allow for partial
-   user information look up.
+   Displaying an identifier (or serial number) may be one method to
+   allow for partial user information look up.
 
-   However, the serial number is unique and stable, and the partial user
+   However, the identifier is unique and stable, and the partial user
    information can further make the accessory identifiable.  Therefore,
-   serial number (if used) and obfuscated owner information SHOULD NOT
-   be made directly available to any requesting devices.  Instead,
-   several security- and privacy-preserving steps SHOULD be employed.
+   identifier (if used) and obfuscated owner information SHOULD NOT be
+   made directly available to any requesting devices.  Instead, several
+   security- and privacy-preserving steps SHOULD be employed.
 
-   The obfuscated owner information and serial number look-up SHALL only
-   be available in separated mode for an associated accessory.  When
+   The obfuscated owner information and identifier look-up SHALL only be
+   available in separated mode for an associated accessory.  When
    requested through any long range wireless interface like Bluetooth, a
    user action MUST be required for the requesting device to access the
-   obfuscated owner information and serial number.  Over NFC, it MAY be
+   obfuscated owner information and identifier.  Over NFC, it MAY be
    acceptable to consider the close proximity as intent for this flow.
 
    To uphold privacy and anti-tracking features like the Bluetooth MAC
@@ -1290,34 +1486,34 @@ Table of Contents
    for the accessory to provide encrypted and unlinkable information
    that only the accessory network service can decrypt.  With this
    approach, the server can employ techniques such as rate limiting and
-   anti-fraud to limit access to the serial number.  In addition to
-   being encrypted and unlinkable, the encrypted payload provided by the
+   anti-fraud to limit access to the identifier.  In addition to being
+   encrypted and unlinkable, the encrypted payload provided by the
    accessory SHOULD be authenticated and protected against replay.  The
    replay protection is to prevent an adversary using a payload captured
    once to monitor changes to the partial information associated with
    the accessory, while the authentication prevents an adversary from
    impersonating any accessory from a single payload.
 
-7.1.1.  Design of encrypted serial number look-up
+8.1.1.  Design of encrypted identifier look-up
 
    One way to design this encryption is for the accessory to contain a
    public key for the accessory network server.  For every request
    received by a device nearby, the accessory would use the public key
    and a public key encryption scheme (ie: RSA-OAEP, ECIES, or HPKE) to
-   encrypt a set of fields including the serial number, a monotonic
-   counter or one time token and a signature covering both the serial
-   number and counter or token.  The signature can be either a public
-   key signature or symmetric signature, leveraging a key trusted by the
-   network server which MAY be established at manufacturing time or when
-   the user sets up the accessory.  Some additional non-identifiable
+   encrypt a set of fields including the identifier, a monotonic counter
+   or one time token and a signature covering both the identifier and
+   counter or token.  The signature can be either a public key signature
+   or symmetric signature, leveraging a key trusted by the network
+   server which MAY be established at manufacturing time or when the
+   user sets up the accessory.  Some additional non-identifiable
    metadata MAY be sent along with this encrypted payload, allowing the
    requesting device to determine which accessory network service to
    connect to for the decryption, and for the service to know which
    decryption key and protocol version to use.
 
-8.  Privacy Considerations
+9.  Privacy Considerations
 
-8.1.  Obfuscated owner information
+9.1.  Obfuscated owner information
 
    In many circumstances when unwanted tracking occurs, the individual
    being tracked knows the owner of the location-tracker.  By allowing
@@ -1328,22 +1524,22 @@ Table of Contents
    arbitrary situations where they have separated from those
    accessories.
 
-8.2.  Serial number look-up
+9.2.  Identifier look-up
 
-   A serial number both physically on the device, as well as retrievable
+   An identifier both physically on the device, as well as retrievable
    over NFC or Bluetooth LE, can aid recourse actions in the case of
-   unwanted tracking.  While retrieval of the serial number over NFC
+   unwanted tracking.  While retrieval of the identifier over NFC
    implies having physical possession of the accessory, the same
    conclusion can not be made for Bluetooth given its wireless range.
-   The procedure required for serial number look-up over Bluetooth LE
+   The procedure required for identifier look-up over Bluetooth LE
    intends to strike a balance between the privacy of the owner and
    ability to empower potential victims, by requiring both the accessory
    to be in separated state as well as a physical action be performed to
-   enable the serial number retrieval.
+   enable the identifier retrieval.
 
-8.3.  Location-enabled payload
+9.3.  Location-enabled payload
 
-8.3.1.  Stable identifiers
+9.3.1.  Stable identifiers
 
    Rotating the mac address of the location-enabled payload, as
    described in Section 3.5, balances the risk of nefarious stable
@@ -1354,20 +1550,20 @@ Table of Contents
    the ability to piece together long stretches of longitudinal data on
    the whereabouts of an accessory.
 
-8.3.2.  Proprietary company payload data
+9.3.2.  Proprietary company payload data
 
    Accessory manufacturers SHOULD evaluate the contents of the
    proprietary company payload data in Table 1 to ensure it does not
    introduce additional privacy risk through the broadcast of stable
    identifiers or unencrypted sensitive data.
 
-9.  IANA Considerations
+10.  IANA Considerations
 
-   IANA will create a new registry group called "Unwanted Tracking
-   Protocols (UTP)".  This group includes the "Manufacturer Protocol ID"
-   and "Product Data" registries described below.
+   Eventually an IANA will create a new registry group called "Unwanted
+   Tracking Protocols (UTP)".  This group includes the "Manufacturer
+   Network ID" registry.
 
-9.1.  Manufacturer Protocol ID Registry
+10.1.  Manufacturer Network ID Registry
 
    New entries are assigned only for values that have received Expert
    Review, per Section 4.5 of [RFC8126].
@@ -1377,70 +1573,30 @@ Table of Contents
    *  Manufacturer Name: the name of an organization that is producing a
       location-tracker accessory
 
-   *  Protocol ID: a 1-byte value specifying the Protocol ID associated
+   *  Network ID: a 1-byte value specifying the Network ID associated
       with the Manufacturer Name
 
-9.1.1.  Temporary Registry
+10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 18.
+   are listed in Table 22.
 
-                      +=============+==============+
-                      | Protocol ID | Manufacturer |
-                      +=============+==============+
-                      |     0x00    |   Reserved   |
-                      +-------------+--------------+
-                      |     0x01    |  Apple Inc.  |
-                      +-------------+--------------+
-                      |     0x02    |  Google LLC  |
-                      +-------------+--------------+
+                       +============+==============+
+                       | Network ID | Manufacturer |
+                       +============+==============+
+                       |    0x00    |   Reserved   |
+                       +------------+--------------+
+                       |    0x01    |  Apple Inc.  |
+                       +------------+--------------+
+                       |    0x02    |  Google LLC  |
+                       +------------+--------------+
+                       |    0xFF    |   Reserved   |
+                       +------------+--------------+
 
-                          Table 18: Manufacturer
-                                 Registry
+                           Table 22: Manufacturer
+                                  Registry
 
-9.2.  Product Data Registry
-
-   New entries are assigned only for values that have received Expert
-   Review, per Section 4.5 of [RFC8126].
-
-   There SHALL NOT be two entries in this registry with the same Product
-   Data value.  Identifier Look-up Over Bluetooth Instructions field MAY
-   be left empty if the accessory does not support that capability.
-
-   An entry in this registry contains the following fields:
-
-   *  Product Data: an 8-byte string representing a unique identifier
-      for a product.  See Product Data (Section 3.11.1.1).
-
-   *  Disablement Instructions: a string representing the URL where
-      disablement instructions can be retrieved.
-
-   *  Identifier Look-up Over Bluetooth Instructions: a string
-      representing the URL where the text instructions and visual
-      depictions for enabling identifier look-up over Bluetooth LE can
-      be retrieved.
-
-   *  Identifier Look-up: a string representing the URL where the
-      identifier and obfuscated owner information can be retrieved.
-
-   *  Product Name: a string representing the product name associated
-      with the Product Data string.
-
-9.2.1.  Temporary Registry
-
-   Until this an IANA registry is available, the values in this registry
-   are listed in Table 19.
-
-   +=========+==================+============================+=========+
-   | Product |   Disablement    |      Identifier Look-      | Product |
-   |   Data  | Instructions URL |     up Over Bluetooth      |   Name  |
-   |         |                  |      Instructions URL      |         |
-   +=========+==================+============================+=========+
-   +---------+------------------+----------------------------+---------+
-
-                      Table 19: Product Data Registry
-
-10.  Normative References
+11.  Normative References
 
    [BTCore5.4]
               "Bluetooth Core Specification v5.4", 31 January 2023,
