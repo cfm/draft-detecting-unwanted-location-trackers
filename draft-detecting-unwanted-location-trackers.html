@@ -2057,7 +2057,13 @@ In other words, all opcode response data must fit within a single write operatio
             </tbody>
           </table>
 </div>
-<p id="section-3.11.1-3">Opcodes should be structured as defined below.<a href="#section-3.11.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-3">These opcodes <span class="bcp14">SHALL</span> be available when the accessory is in separated state.
+These opcodes <span class="bcp14">SHALL NOT</span> be available when the accessory is in the near-owner state.
+When any opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
+If an optional opcode is not available, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.
+If any opcode value is commanded that is not supported by the accessory, it <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in the Command_Response.
+See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> for details.<a href="#section-3.11.1-3" class="pilcrow">¶</a></p>
+<p id="section-3.11.1-4">Opcodes should be structured as defined below.<a href="#section-3.11.1-4" class="pilcrow">¶</a></p>
 <span id="name-accessory-opcode-structure"></span><table class="center" id="table-5">
             <caption>
 <a href="#table-5" class="selfRef">Table 5</a>:
@@ -2527,12 +2533,14 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
           <h4 id="name-non-owner-controls">
 <a href="#section-3.12.4" class="section-number selfRef">3.12.4. </a><a href="#name-non-owner-controls" class="section-name selfRef">Non-owner controls</a>
           </h4>
-<p id="section-3.12.4-1">Non-owner controls <span class="bcp14">SHALL</span> use the same service and characteristic UUIDs as defined in <span><a href="#accessory-connections" class="internal xref">Accessory Connections</a> (<a href="#accessory-connections" class="auto internal xref">Section 3.10</a>)</span>. The non-owner control point enables a non-owner device to locate the accessory by playing a sound. The opcodes for the control point are defined in <a href="#_table-non-owner-control-pt-opcodes" class="auto internal xref">Table 17</a>.<a href="#section-3.12.4-1" class="pilcrow">¶</a></p>
-<span id="name-non-owner-control-point-opc"></span><div id="_table-non-owner-control-pt-opcodes">
+<p id="section-3.12.4-1">Non-owner controls <span class="bcp14">SHALL</span> use the same service and characteristic UUIDs as defined in <span><a href="#accessory-connections" class="internal xref">Accessory Connections</a> (<a href="#accessory-connections" class="auto internal xref">Section 3.10</a>)</span>.<a href="#section-3.12.4-1" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-2">These controls allow a non-owner to locate the accessory by playing a sound as well as fetch an encrypted payload used to retrieve the identifier of the device.<a href="#section-3.12.4-2" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-3">These opcodes are defined in <a href="#_table-non-owner-controls-opcodes" class="auto internal xref">Table 17</a>.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
+<span id="name-non-owner-controls-opcodes"></span><div id="_table-non-owner-controls-opcodes">
 <table class="center" id="table-17">
             <caption>
 <a href="#table-17" class="selfRef">Table 17</a>:
-<a href="#name-non-owner-control-point-opc" class="selfRef">Non-Owner Control Point Opcodes</a>
+<a href="#name-non-owner-controls-opcodes" class="selfRef">Non-Owner Controls Opcodes</a>
             </caption>
 <thead>
               <tr>
@@ -2598,7 +2606,10 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
             </tbody>
           </table>
 </div>
-<p id="section-3.12.4-3">This control point <span class="bcp14">SHALL</span> be available to the platform only when the accessory is in separated state. In all other states, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in CommandResponse. See <span><a href="#command-response" class="internal xref">Command Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> for details.<a href="#section-3.12.4-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-5">Sound_Start and Sound_Stop <span class="bcp14">SHALL</span> only be available to the platform when the accessory is in the separated state.<a href="#section-3.12.4-5" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-6">In all other states, the accessory <span class="bcp14">SHALL</span> return the Invalid_command error as the ResponseStatus in Command_Response.<a href="#section-3.12.4-6" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-7">Get_Identifier <span class="bcp14">SHALL</span> only be available when in identifier read state; otherwise, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus.<a href="#section-3.12.4-7" class="pilcrow">¶</a></p>
+<p id="section-3.12.4-8">The identifier read state is discussed further in <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.12.4.2</a>)</span>.<a href="#section-3.12.4-8" class="pilcrow">¶</a></p>
 <div id="play-sound">
 <section id="section-3.12.4.1">
             <h5 id="name-play-sound">
@@ -2616,7 +2627,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <p id="section-3.12.4.1-2.3.1">The Sound_Stop opcode is used to stop an ongoing sound request.<a href="#section-3.12.4.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.12.4.1-2.4">
-                <p id="section-3.12.4.1-2.4.1">If the sound event is completed or was not initiated by the connected non owner device, the accessory responds with the Invalid_state ResponseStatus code.<a href="#section-3.12.4.1-2.4.1" class="pilcrow">¶</a></p>
+                <p id="section-3.12.4.1-2.4.1">If the sound event is completed or was not initiated by the connected non-owner device, the accessory responds with the Invalid_state ResponseStatus code.<a href="#section-3.12.4.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.12.4.1-2.5">
                 <p id="section-3.12.4.1-2.5.1">If the accessory does not support the play sound procedure, it responds with Invalid_command ResponseStatus code.<a href="#section-3.12.4.1-2.5.1" class="pilcrow">¶</a></p>
@@ -2625,7 +2636,7 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
                 <p id="section-3.12.4.1-2.6.1">If a Sound_Start procedure is initiated when another play sound action is in progress, it rejects with Invalid_state error code.<a href="#section-3.12.4.1-2.6.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-3.12.4.1-2.7">
-                <p id="section-3.12.4.1-2.7.1">The accessory <span class="bcp14">SHALL</span> confirm the completion of the stop sound procedure by sending  the Sound_Completed message.<a href="#section-3.12.4.1-2.7.1" class="pilcrow">¶</a></p>
+                <p id="section-3.12.4.1-2.7.1">The accessory <span class="bcp14">SHALL</span> confirm the completion of the stop sound procedure by sending the Sound_Completed message.<a href="#section-3.12.4.1-2.7.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 <div id="command-response">
@@ -2673,7 +2684,9 @@ The sound maker <span class="bcp14">MUST</span> emit a sound with minimum 60 Pho
 <a href="#section-3.12.4.2" class="section-number selfRef">3.12.4.2. </a><a href="#name-identifier-payload" class="section-name selfRef">Identifier Payload</a>
             </h5>
 <p id="section-3.12.4.2-1">The Get_Identifier opcode is used to retrieve identifier lookup payload over Bluetooth LE.
-This <span class="bcp14">MUST</span> be enabled for 5 minutes upon user action on the accessory (for example, press and hold a button for 10 seconds to initiate identifier read state).
+To enable this opcode, the accessory <span class="bcp14">MUST</span> be in the identifier read state.
+To enter the identifier read state, a user action on the accessory <span class="bcp14">MUST</span> be performed (for example, press and hold a button for 10 seconds).
+The identifier read state <span class="bcp14">MUST</span> be enabled for 5 minutes once the user action on the accessory is successfully performed.
 When the accessory is in this mode, it <span class="bcp14">MUST</span> respond with Get_Identifier_Response opcode and Identifier Payload operand.<a href="#section-3.12.4.2-1" class="pilcrow">¶</a></p>
 <span id="name-identifier-payload-over-blu"></span><div id="_table-id-payload-over-bt">
 <table class="center" id="table-19">
@@ -2691,7 +2704,7 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
               </thead>
               <tbody>
                 <tr>
-                  <td class="text-center" rowspan="1" colspan="1">Encrypted Identifier</td>
+                  <td class="text-center" rowspan="1" colspan="1">Identifier Payload</td>
                   <td class="text-center" rowspan="1" colspan="1">UTF-8</td>
                   <td class="text-center" rowspan="1" colspan="1">defined by accessory</td>
                   <td class="text-center" rowspan="1" colspan="1">The encrypted identifier, encoded as a hex string.</td>
@@ -2699,7 +2712,7 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
               </tbody>
             </table>
 </div>
-<p id="section-3.12.4.2-3">The encrypted identifier (which in some cases is the product serial number) <span class="bcp14">SHALL</span> be an argument passed to the URL defined in the <a href="product-data-registry">Product data registry</a> and it is <span class="bcp14">REQUIRED</span> that any metadata passed be non-identifiable.<a href="#section-3.12.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-3.12.4.2-3">It is <span class="bcp14">REQUIRED</span> that the encrypted identifier (which in some cases is the product serial number) be non-identifiable.<a href="#section-3.12.4.2-3" class="pilcrow">¶</a></p>
 <p id="section-3.12.4.2-4">If the accessory is not in identifier read state, it <span class="bcp14">MUST</span> send <span><a href="#command-response" class="internal xref">Command_Response</a> (<a href="#command-response" class="auto internal xref">Section 3.12.4.1.1</a>)</span> with the Invalid_command as the ResponseStatus. Further considerations for how these operands should be implemented are discussed in <span><a href="#design-of-encrypted-identifier-look-up" class="internal xref">Design of encrypted identifier look-up</a> (<a href="#design-of-encrypted-identifier-look-up" class="auto internal xref">Section 8.1.1</a>)</span>.<a href="#section-3.12.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
