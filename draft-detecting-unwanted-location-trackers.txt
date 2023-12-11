@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 11 June 2024                                             Google
+Expires: 13 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                         9 December 2023
+                                                        11 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2024.
+   This Internet-Draft will expire on 13 June 2024.
 
 Copyright Notice
 
@@ -301,7 +301,7 @@ Table of Contents
                             |  Enabled in Past 24 |
                             |        Hours        |
        +--------------------+---------------------|
-       |         near-owner |     SHOULD NOT      |
+       |         near-owner |        MAY          |
        |            mode    | advertise location- |
        | Near-              |  enabled payload    |
        | Owner              +---------------------|
@@ -313,18 +313,9 @@ Table of Contents
           Figure 1: Requirements & Recommendations For Advertising
                           Location-Enabled Payload
 
-   It is RECOMMENDED that the location-enabled payload is only
-   advertised when the accessory is in the separated state.  The
-   reasoning behind this recommendation is that unwanted tracking
-   detection relies on the Bluetooth LE advertisements emitted while in
-   the location-enabled state to determine if an unknown accessory is
-   traveling with someone who is not the owner.  If the location-enabled
-   payload is advertised only in the separated state, that minimizes
-   false-positive UT alerts.
-
-   As a point of clarity, if the accessory maker chooses to continue
-   advertising the location-enabled payload while in near-owner mode,
-   setting the near-owner bit (Section 3.8) compensates for this.
+   If the accessory maker chooses to continue advertising the location-
+   enabled payload while in near-owner mode, setting the near-owner bit
+   (Section 3.8) compensates for this.
 
 3.4.  Location-enabled Bluetooth LE Advertisement Payload
 
