@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-10T00:42:38.000989+00:00",
+  "timestamp": "2023-12-12T00:40:04.323768+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -52,6 +52,16 @@
       "name": "Charter",
       "description": "",
       "color": "6F58E0"
+    },
+    {
+      "name": "version-01",
+      "description": "",
+      "color": "c2e0c6"
+    },
+    {
+      "name": "DULT WG",
+      "description": "",
+      "color": "0e8a16"
     }
   ],
   "issues": [
@@ -60,7 +70,7 @@
       "id": "I_kwDOJdqgvc5lOq-R",
       "title": "Protection from theft",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "kfet",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -69,8 +79,8 @@
       "labels": [],
       "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
       "createdAt": "2023-05-06T00:54:39Z",
-      "updatedAt": "2023-12-06T02:03:54Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-12T00:30:01Z",
+      "closedAt": "2023-12-12T00:20:01Z",
       "comments": [
         {
           "author": "Sn0wfreezeDev",
@@ -155,6 +165,20 @@
           "body": "The question of theft protection vs unwanted tracking was discussed at the first IETF BoF meeting. Notes are there: \r\n\r\nQuote from Eva Galperin summarizes the position of the focus on protecting people: https://datatracker.ietf.org/doc/minutes-117-dult-202307271630/ \r\n\r\n\"Want to push back on the idea that tracking children,\r\nelderly, stolen goods without detection. It's fine for children\r\nand elderly to know they are being tracked. Anti-theft technologies\r\nlike this are stalking devices. People are more important than property.\"",
           "createdAt": "2023-12-06T02:03:53Z",
           "updatedAt": "2023-12-06T02:03:53Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this issue per above comments.",
+          "createdAt": "2023-12-12T00:20:01Z",
+          "updatedAt": "2023-12-12T00:20:01Z"
+        },
+        {
+          "author": "Guggie30",
+          "authorAssociation": "NONE",
+          "body": "So it\u2019s safe to say that there will be no attempt to develop standards that will prevent unwanted stalking and preserve detection of stolen property?   That is the final verdict?\r\n\r\nDoug Gerard\r\n\r\nOn Dec 11, 2023, at 7:20\u202fPM, Brent Ledvina ***@***.***> wrote:\r\n\r\n\ufeff\r\n\r\nClosing this issue per above comments.\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/3#issuecomment-1851104808>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/BAZIRFMIS2LTNTI27D4V2GTYI6PLZAVCNFSM6AAAAAAXXXR4SWVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTQNJRGEYDIOBQHA>.\r\nYou are receiving this because you commented.Message ID: ***@***.***>\r\n",
+          "createdAt": "2023-12-12T00:30:00Z",
+          "updatedAt": "2023-12-12T00:30:00Z"
         }
       ]
     },
@@ -355,7 +379,7 @@
       "labels": [],
       "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\nS 3.5.1.\r\n>   When in near-owner state, the accessory SHALL rotate its resolvable\r\n>   and private address every 15 minutes.  This is a privacy\r\n>   consideration to deter tracking of the accessory by non-owners when\r\n>   it is in physical proximity to the owner.\r\n\r\n\u201cCan you still track a device in this state?\u201d",
       "createdAt": "2023-05-10T01:18:04Z",
-      "updatedAt": "2023-06-23T17:18:35Z",
+      "updatedAt": "2023-12-10T16:09:13Z",
       "closedAt": null,
       "comments": [
         {
@@ -371,6 +395,13 @@
           "body": "Yes, my question was whether the owner could still track the device using the network. I.e., do nearby devices still publish reports to the network?\r\n\r\nWith that said, I don't think the use of the term \"tracking\" with that limited meaning is helpful here. It's all tracking.\r\n",
           "createdAt": "2023-06-23T17:18:34Z",
           "updatedAt": "2023-06-23T17:18:34Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "To answer this question: \"do nearby devices still publish reports to the network?\" It's up to the network provider how this is done. owner could publish locations to the network directly, just to other devices on their account, or not publish.\r\n\r\n",
+          "createdAt": "2023-12-10T16:09:12Z",
+          "updatedAt": "2023-12-10T16:09:12Z"
         }
       ]
     },
@@ -407,10 +438,12 @@
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "DULT WG"
+      ],
       "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Thu, 04 May 2023 00:05 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\n> 5.  Firmware Updates\r\n>\r\n> The accessory SHOULD have firmware that is updatable by the owner.\r\n\r\n\u201cThis seems bad for the reasons above.\u201d",
       "createdAt": "2023-05-10T01:18:53Z",
-      "updatedAt": "2023-05-11T00:29:26Z",
+      "updatedAt": "2023-12-11T22:43:17Z",
       "closedAt": null,
       "comments": [
         {
@@ -440,6 +473,13 @@
           "body": "Well, I think that this basically is a function of the overly narrow threat model of this document. which is that it doesn't address how to prevent the creation of a malicious device which uses the network.\r\n\r\nSee: https://educatedguesswork.org/posts/unwanted-tracking/#the-broader-threat-model\r\n",
           "createdAt": "2023-05-11T00:29:26Z",
           "updatedAt": "2023-05-11T00:29:26Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Propose that we take up this particular issue as part of the DULT WG",
+          "createdAt": "2023-12-11T22:43:10Z",
+          "updatedAt": "2023-12-11T22:43:10Z"
         }
       ]
     },
@@ -448,15 +488,15 @@
       "id": "I_kwDOJdqgvc5ll8nG",
       "title": "non-owner controls should only be enabled in separated mode",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/14",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "From Eric Rescorla <[ekr@rtfm.com](mailto:ekr@rtfm.com)>, Sun, 07 May 2023 20:06 UTC\r\nvia [unwanted-trackers-request@ietf.org](mailto:unwanted-trackers-request@ietf.org)\r\n\r\n\r\nThe non-owner controls specified in S 3.12.4 should probably only be\r\nenabled\r\nin separated mode. It would obviously be quite annoying if I could cause any\r\ntag near me to start emitting noise.",
       "createdAt": "2023-05-10T18:37:44Z",
-      "updatedAt": "2023-12-06T01:55:19Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-10T16:11:04Z",
+      "closedAt": "2023-12-10T16:11:04Z",
       "comments": [
         {
           "author": "bdetwiler",
@@ -478,6 +518,13 @@
           "body": "PR #118 is attempting to address this issue",
           "createdAt": "2023-12-06T01:55:18Z",
           "updatedAt": "2023-12-06T01:55:18Z"
+        },
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Correction, this PR addresses this issue: PR #157. Closing this issue",
+          "createdAt": "2023-12-10T16:11:04Z",
+          "updatedAt": "2023-12-10T16:11:04Z"
         }
       ]
     },
@@ -672,10 +719,12 @@
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "DULT WG"
+      ],
       "body": "// to: draft-detecting-unwanted-location-trackers@ietf.org\r\n// from: <klein.elliot@gmail.com> \r\n// on: May 2, 2023\r\n\r\n\r\nI recommend the addition of \"Shipment/Package\" as one additional category to list as I anticipate devices included on or within package shipments will help monitor if lost or otherwise to determine ETA or other exceptions to on-time delivery of important packages -- including vaccines, pharma products, medical devices, or other valuable shipment(s) with particular relevance into expanding B2B enterprise market use cases.\r\n\r\nThanks,\r\n\r\nElliot Klein\r\n",
       "createdAt": "2023-05-31T20:29:30Z",
-      "updatedAt": "2023-12-06T02:55:03Z",
+      "updatedAt": "2023-12-11T22:41:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -850,12 +899,22 @@
       "author": "siddikaparlak",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "DULT WG"
+      ],
       "body": "From: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\n\r\nSection 5. Firmware updates allow the user to update the accessory. How will customised firmware be prevented from being uploaded? Secure methods for software signing would need to be part of the technical requirements manufacturers would need to conform to.",
       "createdAt": "2023-06-08T21:17:19Z",
-      "updatedAt": "2023-06-08T21:17:19Z",
+      "updatedAt": "2023-12-11T22:39:53Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This is something the IETF WG will take up as part of the follow-on effort. ",
+          "createdAt": "2023-12-11T22:38:27Z",
+          "updatedAt": "2023-12-11T22:38:27Z"
+        }
+      ]
     },
     {
       "number": 30,
@@ -955,9 +1014,17 @@
       "labels": [],
       "body": "Make the \"Paired (Owned) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n",
       "createdAt": "2023-06-30T22:13:58Z",
-      "updatedAt": "2023-06-30T22:13:58Z",
+      "updatedAt": "2023-12-10T16:14:01Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think this is correctly addressed that it's mandatory in the latest version.",
+          "createdAt": "2023-12-10T16:14:00Z",
+          "updatedAt": "2023-12-10T16:14:00Z"
+        }
+      ]
     },
     {
       "number": 35,
@@ -2266,6 +2333,22 @@
           "updatedAt": "2023-11-28T00:29:39Z"
         }
       ]
+    },
+    {
+      "number": 160,
+      "id": "I_kwDOJdqgvc55X7V2",
+      "title": "Identifier Payload Size",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/160",
+      "state": "OPEN",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The section 3.12.4.2. Identifier Payload for serial number/identifier lookup should include additional info for length since the actual payload length/size is based on the accessory.  ",
+      "createdAt": "2023-12-11T18:46:21Z",
+      "updatedAt": "2023-12-11T18:46:21Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -2508,10 +2591,12 @@
       "author": "josselindlb",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "version-01"
+      ],
       "body": "Hi there,\r\n\r\nI was not sure how much bundling is usually done in PRs, so I ended up bundling some, especially as these are related in some cases. This PR provides addresses the following:\r\n\r\n1. Disambiguate \"Pairing\" and use \"association\" instead where applicable (issue #17 ).\r\n2. Not require a given MAC address format (issue #18 ).\r\n3. When not in separated mode, require to rotate the MAC \"at least every 120 minutes\" instead of \"every 15 minutes\": the rational is that 120 should be good enough so we don't really need to require 15 minutes (of course 15 mn would be allowed).\r\n4. Make the \"Paired (Associated) Accessory Identification\" mandatory instead of optional for platforms to support: the rational is that the experience would be poor if this is not supported by platforms.\r\n\r\nThanks,\r\nJosselin\r\n",
       "createdAt": "2023-06-05T22:56:23Z",
-      "updatedAt": "2023-06-12T21:41:05Z",
+      "updatedAt": "2023-12-11T18:04:51Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "873911be2ef169cd672a8941600d3ba6c0672351",
@@ -3476,10 +3561,12 @@
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "version-01"
+      ],
       "body": "",
       "createdAt": "2023-10-02T22:55:24Z",
-      "updatedAt": "2023-12-08T15:04:05Z",
+      "updatedAt": "2023-12-11T18:04:29Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "164903fc8b7de9945739ce750f978007efbbf843",
@@ -4193,10 +4280,12 @@
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "version-01"
+      ],
       "body": "",
       "createdAt": "2023-10-23T19:16:48Z",
-      "updatedAt": "2023-12-08T15:04:16Z",
+      "updatedAt": "2023-12-11T18:03:36Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "e446c27c81e5a40659693206f2cea95eae7a3bbf",
@@ -4214,6 +4303,13 @@
           "body": "@davidlazarov @zaeddinger is this superseded by PR #96 ?",
           "createdAt": "2023-12-08T15:04:15Z",
           "updatedAt": "2023-12-08T15:04:15Z"
+        },
+        {
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yeah, looks like #76 and #90 can be reverted.",
+          "createdAt": "2023-12-10T07:06:28Z",
+          "updatedAt": "2023-12-10T07:06:28Z"
         }
       ],
       "reviews": []
@@ -4422,10 +4518,12 @@
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "version-01"
+      ],
       "body": "",
       "createdAt": "2023-10-25T19:14:06Z",
-      "updatedAt": "2023-11-30T16:59:28Z",
+      "updatedAt": "2023-12-11T18:03:22Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "36f1b16b24fb0973e8708a4190dd16b37f123255",
@@ -7338,26 +7436,28 @@
     {
       "number": 151,
       "id": "PR_kwDOJdqgvc5hepnO",
-      "title": "wip, some wording cleanup attempts",
+      "title": "optional: some wording cleanup attempts",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/151",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-12-08T02:06:46Z",
-      "updatedAt": "2023-12-09T16:38:31Z",
+      "updatedAt": "2023-12-11T17:59:37Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "bc15523a020c1311d5c8fbd991cc51101e838125",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "bledvina-patch-34",
       "headRefOid": "0fa08f21decf4085f7653051fbb0ca8d927edc00",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-12-11T17:59:37Z",
+      "mergedAt": "2023-12-11T17:59:37Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "05dc1e5ff69bdaff8d8e425bfbf35b1d3da02f8c"
+      },
       "comments": [],
       "reviews": [
         {
@@ -7384,6 +7484,19 @@
           "body": "looks good to me",
           "createdAt": "2023-12-09T16:38:31Z",
           "updatedAt": "2023-12-09T16:38:31Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5p1uF7",
+          "commit": {
+            "abbreviatedOid": "0fa08f2"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-11T17:06:31Z",
+          "updatedAt": "2023-12-11T17:06:31Z",
           "comments": []
         }
       ]
@@ -7697,22 +7810,105 @@
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "version-01"
+      ],
       "body": "",
       "createdAt": "2023-12-09T17:22:07Z",
-      "updatedAt": "2023-12-09T17:22:08Z",
+      "updatedAt": "2023-12-11T18:59:23Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "bfb2cfdb7e28b71781fb77e883e8dc22ac8d773f",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "clarify-operand-sizes",
-      "headRefOid": "087025541767a645179f8ad2f050cfdd2bc172c9",
+      "headRefOid": "84aacbb12b924542e7894145b72e479419500a43",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5pvLud",
+          "commit": {
+            "abbreviatedOid": "0870255"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-10T07:09:22Z",
+          "updatedAt": "2023-12-10T07:09:23Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "The total size should remain 8 bytes, not 64.",
+              "createdAt": "2023-12-10T07:09:22Z",
+              "updatedAt": "2023-12-10T07:09:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5pvL2v",
+          "commit": {
+            "abbreviatedOid": "0870255"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-10T07:11:48Z",
+          "updatedAt": "2023-12-10T07:12:01Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Should we somehow indicate that this is \"at most 64\"? Same for Model Name below.",
+              "createdAt": "2023-12-10T07:11:48Z",
+              "updatedAt": "2023-12-10T07:12:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5p1uQe",
+          "commit": {
+            "abbreviatedOid": "0870255"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-11T17:06:53Z",
+          "updatedAt": "2023-12-11T17:06:54Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "yes , good catch\r\n\r\n",
+              "createdAt": "2023-12-11T17:06:53Z",
+              "updatedAt": "2023-12-11T17:06:54Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5p2x_n",
+          "commit": {
+            "abbreviatedOid": "0870255"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-11T18:59:23Z",
+          "updatedAt": "2023-12-11T18:59:23Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "yes, good catch. I've pushed back a fix.",
+              "createdAt": "2023-12-11T18:59:23Z",
+              "updatedAt": "2023-12-11T18:59:23Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
