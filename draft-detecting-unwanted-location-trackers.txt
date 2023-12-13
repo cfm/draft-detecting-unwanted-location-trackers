@@ -1217,8 +1217,13 @@ Table of Contents
 
 3.15.3.  Availability for law enforcement
 
-   The owner registry SHALL be made available to law enforcement upon a
-   valid law enforcement request.
+   Available ownership registry information SHOULD be produced in
+   response to a valid law enforcement request seeking information
+   related to the misuse of location-tracking accessories provided that
+   the request is submitted pursuant to defined procedures for obtaining
+   such information.  Network providers SHOULD define their own
+   procedures for submission of valid legal requests from law
+   enforcement.
 
 4.  Accessory Category Value
 
