@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 14 June 2024                                             Google
+Expires: 15 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        12 December 2023
+                                                        13 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 June 2024.
+   This Internet-Draft will expire on 15 June 2024.
 
 Copyright Notice
 
@@ -723,20 +723,21 @@ Table of Contents
    The Accessory Capabilities operand enumerates the various
    capabilities supported on the accessory as defined in Table 11.
 
-    +==============+========+==========+=============================+
-    | Operand name |  Data  |   Size   | Description                 |
-    |              |  type  | (octets) |                             |
-    +==============+========+==========+=============================+
-    |  Accessory   | Uint32 |    4     | Bit 0 : Supports play sound |
-    | Capabilities |        |          | Bit 1 : Supports motion     |
-    |              |        |          | detector UT                 |
-    |              |        |          | Bit 2 : Supports identifier |
-    |              |        |          | lookup by NFC               |
-    |              |        |          | Bit 3 : Supports identifier |
-    |              |        |          | lookup by BLE               |
-    +--------------+--------+----------+-----------------------------+
+      +==============+========+==========+==========================+
+      | Operand name |  Data  |   Size   | Description              |
+      |              |  type  | (octets) |                          |
+      +==============+========+==========+==========================+
+      |  Accessory   | Uint32 |    4     | Bit 0 : Supports play    |
+      | Capabilities |        |          | sound (REQUIRED)         |
+      |              |        |          | Bit 1 : Supports motion  |
+      |              |        |          | detector UT              |
+      |              |        |          | Bit 2 : Supports         |
+      |              |        |          | identifier lookup by NFC |
+      |              |        |          | Bit 3 : Supports         |
+      |              |        |          | identifier lookup by BLE |
+      +--------------+--------+----------+--------------------------+
 
-                 Table 11: Accessory Capabilities Operand
+                  Table 11: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
    and identifier look-up over BT will have the value set as 1011 in
@@ -1087,6 +1088,8 @@ Table of Contents
 
    The accessory SHOULD provide alternate means to help find it, e.g. by
    vibrating or flashing lights, via a platform-compatible method.
+   Future versions of this document will consider support for haptics
+   and lights.
 
 3.12.6.  Recommended Finding Options
 
