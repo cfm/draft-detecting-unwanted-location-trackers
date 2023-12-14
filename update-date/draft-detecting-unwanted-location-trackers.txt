@@ -1356,11 +1356,8 @@ Table of Contents
 
                     Table 22: Legacy Manufacturer IDs
 
-   Detection performance for existing service UUIDs may be lower than if
-   the unwanted tracking protocol UUID is used.
-
-   Companies who have registered their Network IDs will appear in a
-   table below.
+   If using existing service UUIDs, rather than the unwanted tracking
+   protocol UUID, detection performance might be degraded.
 
 6.  Platform Support for Unwanted Tracking
 
