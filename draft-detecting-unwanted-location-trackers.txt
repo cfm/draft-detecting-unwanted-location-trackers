@@ -716,7 +716,7 @@ Table of Contents
             Table 10: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
-   1.0.0.  The equivalent 4-byte value is 0x00000001.
+   1.0.0.  The equivalent 4-byte value is 0x00010000.
 
 3.11.1.6.  Accessory capabilities
 
