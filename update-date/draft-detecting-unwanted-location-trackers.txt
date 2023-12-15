@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 16 June 2024                                             Google
+Expires: 17 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        14 December 2023
+                                                        15 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 June 2024.
+   This Internet-Draft will expire on 17 June 2024.
 
 Copyright Notice
 
@@ -1341,20 +1341,8 @@ Table of Contents
 
    Manufacturers can register their service UUID by reaching out to the
    listed authors.  Backwards compatibility requests must be submitted
-   by January 15, 2024.
-
-   Legacy IDs that have been registered with the platforms are listed in
-   Table 22.
-
-                +==============+=========================+
-                | Manufacturer |        Legacy ID        |
-                +==============+=========================+
-                | Apple        | N/A (Manufacturer data) |
-                +--------------+-------------------------+
-                | Google       |          0xAAFE         |
-                +--------------+-------------------------+
-
-                    Table 22: Legacy Manufacturer IDs
+   by January 15, 2024.  Manufacturers who have registered their Network
+   IDs will appear in a table below.
 
    If using existing service UUIDs, rather than the unwanted tracking
    protocol UUID, detection performance might be degraded.
@@ -1565,7 +1553,7 @@ Table of Contents
 10.1.1.  Temporary Registry
 
    Until this an IANA registry is available, the values in this registry
-   are listed in Table 23.
+   are listed in Table 22.
 
                        +============+==============+
                        | Network ID | Manufacturer |
@@ -1579,7 +1567,7 @@ Table of Contents
                        |    0xFF    |   Reserved   |
                        +------------+--------------+
 
-                           Table 23: Manufacturer
+                           Table 22: Manufacturer
                                   Registry
 
 11.  Normative References
