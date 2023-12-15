@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 16 June 2024                                             Google
+Expires: 17 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        14 December 2023
+                                                        15 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 June 2024.
+   This Internet-Draft will expire on 17 June 2024.
 
 Copyright Notice
 
@@ -644,55 +644,61 @@ Table of Contents
    This value SHALL be determined during the onboarding process
    (Section 7).
 
-     +==============+===========+===============+====================+
-     | Operand name | Data type | Size (octets) |    Description     |
-     +==============+===========+===============+====================+
-     | Product Data |   Uint8   |       8       |  See Product data  |
-     |              |           |               | (Section 3.11.1.1) |
-     +--------------+-----------+---------------+--------------------+
+    +==============+=======+=======+============+====================+
+    | Operand name |  Data | Count | Total Size |    Description     |
+    |              |  type |       |  (Bytes)   |                    |
+    +==============+=======+=======+============+====================+
+    | Product Data | Uint8 |   8   |     8      |  See Product data  |
+    |              |       |       |            | (Section 3.11.1.1) |
+    +--------------+-------+-------+------------+--------------------+
 
-                       Table 6: Product Data Operand
+                      Table 6: Product Data Operand
 
 3.11.1.2.  Manufacturer name
 
    The Manufacturer Name operand contains the name of the company whose
    brand will appear on the accessory, e.g., ”Acme”.
 
-   +===================+===========+===============+===================+
-   |    Operand name   | Data type | Size (octets) |    Description    |
-   +===================+===========+===============+===================+
-   | Manufacturer Name |   UTF-8   |  64 (maximum) |    Manufacturer   |
-   |                   |           |               |        name       |
-   +-------------------+-----------+---------------+-------------------+
+   +==============+===========+===========+============+==============+
+   | Operand name | Data type |   Count   | Total Size | Description  |
+   |              |           |           |  (Bytes)   |              |
+   +==============+===========+===========+============+==============+
+   | Manufacturer |   UTF-8   |     64    |     64     | Manufacturer |
+   |     Name     |           | (maximum) | (maximum)  |     name     |
+   +--------------+-----------+-----------+------------+--------------+
 
-                     Table 7: Manufacturer Name Operand
+                    Table 7: Manufacturer Name Operand
 
 3.11.1.3.  Model name
 
    The Model Name operand contains the manufacturer specific model of
    the accessory.
 
-        +==============+===========+===============+=============+
-        | Operand name | Data type | Size (octets) | Description |
-        +==============+===========+===============+=============+
-        |  Model Name  |   UTF-8   |  64 (maximum) |  Model name |
-        +--------------+-----------+---------------+-------------+
+    +==============+===========+===========+============+=============+
+    | Operand name | Data type |   Count   | Total Size | Description |
+    |              |           |           |  (Bytes)   |             |
+    +==============+===========+===========+============+=============+
+    |  Model Name  |   UTF-8   |     64    |     64     |  Model name |
+    |              |           | (maximum) | (maximum)  |             |
+    +--------------+-----------+-----------+------------+-------------+
 
-                       Table 8: Model Name Operand
+                        Table 8: Model Name Operand
 
 3.11.1.4.  Accessory category
 
    The Accessory Category operand describes the category the accessory
    most closely resembles.
 
-    +===========+=======+==========+==================================+
-    |  Operand  |  Data |   Size   | Description                      |
-    |    name   |  type | (octets) |                                  |
-    +===========+=======+==========+==================================+
-    | Accessory | Uint8 |    8     | Byte 0: Uint8 value of Accessory |
-    |  Category |       |          | Category Value (Section 4)       |
-    |           |       |          | Byte 1-7: Reserved               |
-    +-----------+-------+----------+----------------------------------+
+      +===========+=======+=======+=========+=======================+
+      |  Operand  |  Data | Count |  Total  |      Description      |
+      |    name   |  type |       |   Size  |                       |
+      |           |       |       | (Bytes) |                       |
+      +===========+=======+=======+=========+=======================+
+      | Accessory | Uint8 |   8   |    8    |  Byte 0: Uint8 value  |
+      |  Category |       |       |         | of Accessory Category |
+      |           |       |       |         |   Value (Section 4)   |
+      |           |       |       |         |   Byte 1-7: Reserved  |
+      +-----------+-------+-------+---------+-----------------------+
 
                     Table 9: Accessory Category Operand
 
@@ -701,19 +707,20 @@ Table of Contents
    The Protocol Implementation Version operand contains a value
    indicating an implementation version of these protocols.
 
-        +================+========+==========+===================+
-        |  Operand name  |  Data  |   Size   |    Description    |
-        |                |  type  | (octets) |                   |
-        +================+========+==========+===================+
-        |    Protocol    | Uint32 |    4     | Byte 0 : revision |
-        | Implementation |        |          |   version number  |
-        |    Version     |        |          |   Byte 1 : minor  |
-        |                |        |          |   version number  |
-        |                |        |          |  Byte 2-3 : major |
-        |                |        |          |   version number  |
-        +----------------+--------+----------+-------------------+
+     +================+========+=======+=========+===================+
+     |  Operand name  |  Data  | Count |  Total  |    Description    |
+     |                |  type  |       |   Size  |                   |
+     |                |        |       | (Bytes) |                   |
+     +================+========+=======+=========+===================+
+     |    Protocol    | Uint32 |   1   |    4    | Byte 0 : revision |
+     | Implementation |        |       |         |   version number  |
+     |    Version     |        |       |         |   Byte 1 : minor  |
+     |                |        |       |         |   version number  |
+     |                |        |       |         |  Byte 2-3 : major |
+     |                |        |       |         |   version number  |
+     +----------------+--------+-------+---------+-------------------+
 
-            Table 10: Protocol Implementation Version Operand
+             Table 10: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
    1.0.0.  The equivalent 4-byte value is 0x00010000.
@@ -723,19 +730,22 @@ Table of Contents
    The Accessory Capabilities operand enumerates the various
    capabilities supported on the accessory as defined in Table 11.
 
-      +==============+========+==========+==========================+
-      | Operand name |  Data  |   Size   | Description              |
-      |              |  type  | (octets) |                          |
-      +==============+========+==========+==========================+
-      |  Accessory   | Uint32 |    4     | Bit 0 : Supports play    |
-      | Capabilities |        |          | sound (REQUIRED)         |
-      |              |        |          | Bit 1 : Supports motion  |
-      |              |        |          | detector UT              |
-      |              |        |          | Bit 2 : Supports         |
-      |              |        |          | identifier lookup by NFC |
-      |              |        |          | Bit 3 : Supports         |
-      |              |        |          | identifier lookup by BLE |
-      +--------------+--------+----------+--------------------------+
+    +==============+========+=======+=========+=======================+
+    | Operand name |  Data  | Count |  Total  |      Description      |
+    |              |  type  |       |   Size  |                       |
+    |              |        |       | (Bytes) |                       |
+    +==============+========+=======+=========+=======================+
+    |  Accessory   | Uint32 |   1   |    4    | Bit 0 : Supports play |
+    | Capabilities |        |       |         |    sound (REQUIRED)   |
+    |              |        |       |         |    Bit 1 : Supports   |
+    |              |        |       |         |   motion detector UT  |
+    |              |        |       |         |    Bit 2 : Supports   |
+    |              |        |       |         |  identifier lookup by |
+    |              |        |       |         |          NFC          |
+    |              |        |       |         |    Bit 3 : Supports   |
+    |              |        |       |         |  identifier lookup by |
+    |              |        |       |         |          BLE          |
+    +--------------+--------+-------+---------+-----------------------+
 
                   Table 11: Accessory Capabilities Operand
 
@@ -749,13 +759,14 @@ Table of Contents
    This is the same information that's in the BT advertisement header in
    Table 1.
 
-        +==============+===========+===============+=============+
-        | Operand name | Data type | Size (octets) | Description |
-        +==============+===========+===============+=============+
-        |  Network ID  |   Uint8   |       1       |  Network ID |
-        +--------------+-----------+---------------+-------------+
+      +==============+===========+=======+============+=============+
+      | Operand name | Data type | Count | Total Size | Description |
+      |              |           |       |  (Bytes)   |             |
+      +==============+===========+=======+============+=============+
+      |  Network ID  |   Uint8   |   1   |     1      |  Network ID |
+      +--------------+-----------+-------+------------+-------------+
 
-                       Table 12: Network ID Operand
+                        Table 12: Network ID Operand
 
 3.11.1.8.  Firmware version
 
@@ -791,14 +802,18 @@ Table of Contents
    revision version MUST not be greater than (2^8 - 1).  The value MUST
    change after every firmware update.
 
-    +==========+========+==========+==================================+
-    | Operand  |  Data  |   Size   |           Description            |
-    |   name   |  type  | (octets) |                                  |
-    +==========+========+==========+==================================+
-    | Firmware | Uint32 |    4     | Byte 0 : revision version number |
-    | version  |        |          |  Byte 1 : minor version number   |
-    |          |        |          | Byte 2:3 : major version number  |
-    +----------+--------+----------+----------------------------------+
+        +==========+========+=======+=========+===================+
+        | Operand  |  Data  | Count |  Total  |    Description    |
+        |   name   |  type  |       |   Size  |                   |
+        |          |        |       | (Bytes) |                   |
+        +==========+========+=======+=========+===================+
+        | Firmware | Uint32 |   1   |    4    | Byte 0 : revision |
+        | version  |        |       |         |   version number  |
+        |          |        |       |         |   Byte 1 : minor  |
+        |          |        |       |         |   version number  |
+        |          |        |       |         |  Byte 2:3 : major |
+        |          |        |       |         |   version number  |
+        +----------+--------+-------+---------+-------------------+
 
                      Table 13: Firmware Version Operand
 
@@ -807,32 +822,34 @@ Table of Contents
    The Battery type operand describes the battery type used in the
    accessory.
 
-       +=========+=======+==========+==============================+
-       | Operand |  Data |   Size   |         Description          |
-       |   name  |  type | (octets) |                              |
-       +=========+=======+==========+==============================+
-       | Battery | Uint8 |    1     |         0 = Powered          |
-       |   Type  |       |          | 1 = Non-rechargeable battery |
-       |         |       |          |   2 = Rechargeable battery   |
-       +---------+-------+----------+------------------------------+
+   +=========+=======+=======+=========+==============================+
+   | Operand |  Data | Count |  Total  |         Description          |
+   |   name  |  type |       |   Size  |                              |
+   |         |       |       | (Bytes) |                              |
+   +=========+=======+=======+=========+==============================+
+   | Battery | Uint8 |   1   |    1    |         0 = Powered          |
+   |   Type  |       |       |         | 1 = Non-rechargeable battery |
+   |         |       |       |         |   2 = Rechargeable battery   |
+   +---------+-------+-------+---------+------------------------------+
 
-                       Table 14: Battery Type Operand
+                      Table 14: Battery Type Operand
 
 3.11.1.10.  Battery level
 
    The Battery level operand indicates the current battery level.
 
-            +=========+=======+==========+====================+
-            | Operand |  Data |   Size   |    Description     |
-            |   name  |  type | (octets) |                    |
-            +=========+=======+==========+====================+
-            | Battery | Uint8 |    1     |      0 = Full      |
-            |  Level  |       |          |     1 = Medium     |
-            |         |       |          |      2 = Low       |
-            |         |       |          | 3 = Critically low |
-            +---------+-------+----------+--------------------+
+        +=========+=======+=======+=========+====================+
+        | Operand |  Data | Count |  Total  |    Description     |
+        |   name  |  type |       |   Size  |                    |
+        |         |       |       | (Bytes) |                    |
+        +=========+=======+=======+=========+====================+
+        | Battery | Uint8 |   1   |    1    |      0 = Full      |
+        |  Level  |       |       |         |     1 = Medium     |
+        |         |       |       |         |      2 = Low       |
+        |         |       |       |         | 3 = Critically low |
+        +---------+-------+-------+---------+--------------------+
 
-                      Table 15: Battery Level Operand
+                     Table 15: Battery Level Operand
 
 3.12.  Non-Owner Finding
 
@@ -1035,23 +1052,24 @@ Table of Contents
    accessory SHALL respond to any invalid opcode with Command_Response
    and Invalid_command as the ResponseStatus.
 
-   +================+========+==========+==============================+
-   | Operand        | Data   | Size     | Description                  |
-   |                | type   | (octets) |                              |
-   +================+========+==========+==============================+
-   | CommandOpCode  | Uint16 | 2        | The control procedure        |
-   |                |        |          | matching this response       |
-   +----------------+--------+----------+------------------------------+
-   | ResponseStatus | Uint16 | 2        | 0x0000 Success               |
-   |                |        |          | 0x0001 Invalid_state         |
-   |                |        |          | 0x0002                       |
-   |                |        |          | Invalid_configuration        |
-   |                |        |          | 0x0003 Invalid_length        |
-   |                |        |          | 0x0004 Invalid_param         |
-   |                |        |          | 0xFFFF Invalid_command       |
-   +----------------+--------+----------+------------------------------+
+   +================+========+=====+=========+========================+
+   | Operand name   |   Data |Count|  Total  |      Description       |
+   |                |   type |     |   Size  |                        |
+   |                |        |     | (Bytes) |                        |
+   +================+========+=====+=========+========================+
+   | CommandOpCode  | Uint16 |  1  |    2    | The control procedure  |
+   |                |        |     |         | matching this response |
+   +----------------+--------+-----+---------+------------------------+
+   | ResponseStatus | Uint16 |  1  |    2    |     0x0000 Success     |
+   |                |        |     |         |  0x0001 Invalid_state  |
+   |                |        |     |         |         0x0002         |
+   |                |        |     |         | Invalid_configuration  |
+   |                |        |     |         | 0x0003 Invalid_length  |
+   |                |        |     |         |  0x0004 Invalid_param  |
+   |                |        |     |         | 0xFFFF Invalid_command |
+   +----------------+--------+-----+---------+------------------------+
 
-                    Table 18: Command Response Operands
+                   Table 18: Command Response Operands
 
 3.12.4.2.  Identifier Payload
 
@@ -1065,13 +1083,15 @@ Table of Contents
    respond with Get_Identifier_Response opcode and Identifier Payload
    operand.
 
-    +============+===========+============+===========================+
-    |  Operand   | Data type |    Size    |        Description        |
-    |            |           |  (octets)  |                           |
-    +============+===========+============+===========================+
-    | Identifier |   UTF-8   | defined by | The encrypted identifier, |
-    |  Payload   |           | accessory  |  encoded as a hex string. |
-    +------------+-----------+------------+---------------------------+
+   +============+=======+===========+============+=====================+
+   |  Operand   |  Data |   Count   |   Total    |     Description     |
+   |    name    |  type |           |    Size    |                     |
+   |            |       |           |  (Bytes)   |                     |
+   +============+=======+===========+============+=====================+
+   | Identifier | UTF-8 |  defined  |  defined   |    The encrypted    |
+   |  Payload   |       |     by    |     by     | identifier, encoded |
+   |            |       | accessory | accessory  |   as a hex string.  |
+   +------------+-------+-----------+------------+---------------------+
 
                 Table 19: Identifier Payload Over Bluetooth
 
