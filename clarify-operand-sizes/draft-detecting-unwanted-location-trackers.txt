@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 13 June 2024                                             Google
+Expires: 17 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        11 December 2023
+                                                        15 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 June 2024.
+   This Internet-Draft will expire on 17 June 2024.
 
 Copyright Notice
 
@@ -301,7 +301,7 @@ Table of Contents
                             |  Enabled in Past 24 |
                             |        Hours        |
        +--------------------+---------------------|
-       |         near-owner |     SHOULD NOT      |
+       |         near-owner |        MAY          |
        |            mode    | advertise location- |
        | Near-              |  enabled payload    |
        | Owner              +---------------------|
@@ -313,18 +313,9 @@ Table of Contents
           Figure 1: Requirements & Recommendations For Advertising
                           Location-Enabled Payload
 
-   It is RECOMMENDED that the location-enabled payload is only
-   advertised when the accessory is in the separated state.  The
-   reasoning behind this recommendation is that unwanted tracking
-   detection relies on the Bluetooth LE advertisements emitted while in
-   the location-enabled state to determine if an unknown accessory is
-   traveling with someone who is not the owner.  If the location-enabled
-   payload is advertised only in the separated state, that minimizes
-   false-positive UT alerts.
-
-   As a point of clarity, if the accessory maker chooses to continue
-   advertising the location-enabled payload while in near-owner mode,
-   setting the near-owner bit (Section 3.8) compensates for this.
+   If the accessory maker chooses to continue advertising the location-
+   enabled payload while in near-owner mode, setting the near-owner bit
+   (Section 3.8) compensates for this.
 
 3.4.  Location-enabled Bluetooth LE Advertisement Payload
 
@@ -532,93 +523,93 @@ Table of Contents
 
    The opcodes for accessory information are defined in Table 4.
 
-   +===================================+======+==============+============+===========+
-   |               Opcode              |Opcode|   Operands   |    GATT    |Requirement|
-   |                                   |value |              |subprocedure|           |
-   +===================================+======+==============+============+===========+
-   |          Get_Product_Data         |0x003 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |     Get_Product_Data_Response     |0x803 | Product Data |Indications;|  REQUIRED |
-   |                                   |      |   (Section   |    From    |           |
-   |                                   |      |  3.11.1.1)   | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |       Get_Manufacturer_Name       |0x004 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |   Get_Manufacturer_Name_Response  |0x804 | Manufacturer |Indications;|  REQUIRED |
-   |                                   |      |Name (Section |    From    |           |
-   |                                   |      |  3.11.1.2)   | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |           Get_Model_Name          |0x005 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |      Get_Model_Name_Response      |0x805 |  Model Name  |Indications;|  REQUIRED |
-   |                                   |      |   (Section   |    From    |           |
-   |                                   |      |  3.11.1.3)   | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |       Get_Accessory_Category      |0x006 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |  Get_Accessory_Category_Response  |0x806 |  Accessory   |Indications;|  REQUIRED |
-   |                                   |      |   Category   |    From    |           |
-   |                                   |      |   (Section   | Accessory  |           |
-   |                                   |      |  3.11.1.4)   |            |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |Get_Protocol_Implementation_Version|0x007 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |    Get_Protocol_Implementation_   |0x807 |   Protocol   |Indications;|  REQUIRED |
-   |          Version_Response         |      |Implementation|    From    |           |
-   |                                   |      |   Version    | Accessory  |           |
-   |                                   |      |   (Section   |            |           |
-   |                                   |      |  3.11.1.5)   |            |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |     Get_Accessory_Capabilities    |0x008 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |Get_Accessory_Capabilities_Response|0x808 |  Accessory   |Indications;|  REQUIRED |
-   |                                   |      | Capabilities |    From    |           |
-   |                                   |      |   (Section   | Accessory  |           |
-   |                                   |      |  3.11.1.6)   |            |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |           Get_Network_ID          |0x009 |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |       Get_Network_ID_Reponse      |0x809 |  Network ID  |Indications;|  REQUIRED |
-   |                                   |      |(Section 3.7) |    From    |           |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |        Get_Firmware_Version       |0x00A |     None     | Write; To  |  REQUIRED |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |   Get_Firmware_Version_Response   |0x80A |   Firmware   |Indications;|  REQUIRED |
-   |                                   |      |   version    |    From    |           |
-   |                                   |      |   (Section   | Accessory  |           |
-   |                                   |      |  3.11.1.8)   |            |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |          Get_Battery_Type         |0x00B |     None     | Write; To  |  OPTIONAL |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |     Get_Battery_Type_Response     |0x80B | Battery Type |Indications;|  OPTIONAL |
-   |                                   |      |   (Section   |    From    |           |
-   |                                   |      |  3.11.1.9)   | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |         Get_Battery_Level         |0x00C |     None     | Write; To  |  OPTIONAL |
-   |                                   |      |              | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |     Get_Battery_Level_Response    |0x80C |Battery Level |Indications;|  OPTIONAL |
-   |                                   |      |   (Section   |    From    |           |
-   |                                   |      |  3.11.1.10)  | Accessory  |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |              RESERVED             |0x00D |              |            |           |
-   |                                   |  -   |              |            |           |
-   |                                   |0x05F |              |            |           |
-   +-----------------------------------+------+--------------+------------+-----------+
-   |        RESERVED (Response)        |0x80D |              |            |           |
-   |                                   |  -   |              |            |           |
-   |                                   |0x85F |              |            |           |
-   +-----------------------------------+------+--------------+------------+-----------+
+   +=======================+======+==============+============+===========+
+   |Opcode                 |Opcode|   Operands   |    GATT    |Requirement|
+   |                       | value|              |subprocedure|           |
+   +=======================+======+==============+============+===========+
+   |Get_Product_Data       | 0x003|     None     | Write; To  |  REQUIRED |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Product_Data_      | 0x803| Product Data |Indications;|  REQUIRED |
+   |Response               |      |   (Section   |    From    |           |
+   |                       |      |  3.11.1.1)   | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Manufacturer_      | 0x004|     None     | Write; To  |  REQUIRED |
+   |Name                   |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Manufacturer_      | 0x804| Manufacturer |Indications;|  REQUIRED |
+   |Name_Response          |      |Name (Section |    From    |           |
+   |                       |      |  3.11.1.2)   | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Model_Name         | 0x005|     None     | Write; To  |  REQUIRED |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Model_Name_        | 0x805|  Model Name  |Indications;|  REQUIRED |
+   |Response               |      |   (Section   |    From    |           |
+   |                       |      |  3.11.1.3)   | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Accessory_         | 0x006|     None     | Write; To  |  REQUIRED |
+   |Category               |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Accessory_         | 0x806|  Accessory   |Indications;|  REQUIRED |
+   |Category_Response      |      |   Category   |    From    |           |
+   |                       |      |   (Section   | Accessory  |           |
+   |                       |      |  3.11.1.4)   |            |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Protocol_          | 0x007|     None     | Write; To  |  REQUIRED |
+   |Implementation_Version |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Protocol_          | 0x807|   Protocol   |Indications;|  REQUIRED |
+   |Implementation_Version_|      |Implementation|    From    |           |
+   |Response               |      |   Version    | Accessory  |           |
+   |                       |      |   (Section   |            |           |
+   |                       |      |  3.11.1.5)   |            |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Accessory_         | 0x008|     None     | Write; To  |  REQUIRED |
+   |Capabilities           |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Accessory_         | 0x808|  Accessory   |Indications;|  REQUIRED |
+   |Capabilities_Response  |      | Capabilities |    From    |           |
+   |                       |      |   (Section   | Accessory  |           |
+   |                       |      |  3.11.1.6)   |            |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Network_ID         | 0x009|     None     | Write; To  |  REQUIRED |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Network_ID_        | 0x809|  Network ID  |Indications;|  REQUIRED |
+   |Response               |      |(Section 3.7) |    From    |           |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Firmware_Version   | 0x00A|     None     | Write; To  |  REQUIRED |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Firmware_Version_  | 0x80A|   Firmware   |Indications;|  REQUIRED |
+   |Response               |      |   version    |    From    |           |
+   |                       |      |   (Section   | Accessory  |           |
+   |                       |      |  3.11.1.8)   |            |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Battery_Type       | 0x00B|     None     | Write; To  |  OPTIONAL |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Battery_Type_      | 0x80B| Battery Type |Indications;|  OPTIONAL |
+   |Response               |      |   (Section   |    From    |           |
+   |                       |      |  3.11.1.9)   | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Battery_Level      | 0x00C|     None     | Write; To  |  OPTIONAL |
+   |                       |      |              | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |Get_Battery_Level_     | 0x80C|Battery Level |Indications;|  OPTIONAL |
+   |Response               |      |   (Section   |    From    |           |
+   |                       |      |  3.11.1.10)  | Accessory  |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |RESERVED               | 0x00D|              |            |           |
+   |                       |     -|              |            |           |
+   |                       | 0x05F|              |            |           |
+   +-----------------------+------+--------------+------------+-----------+
+   |RESERVED (Response)    | 0x80D|              |            |           |
+   |                       |     -|              |            |           |
+   |                       | 0x85F|              |            |           |
+   +-----------------------+------+--------------+------------+-----------+
 
                    Table 4: Accessory Information Opcodes
 
@@ -668,13 +659,13 @@ Table of Contents
    The Manufacturer Name operand contains the name of the company whose
    brand will appear on the accessory, e.g., ”Acme”.
 
-     +==============+===========+=======+============+==============+
-     | Operand name | Data type | Count | Total Size | Description  |
-     |              |           |       |  (Bytes)   |              |
-     +==============+===========+=======+============+==============+
-     | Manufacturer |   UTF-8   |   64  |     64     | Manufacturer |
-     |     Name     |           |       |            |     name     |
-     +--------------+-----------+-------+------------+--------------+
+   +==============+===========+===========+============+==============+
+   | Operand name | Data type |   Count   | Total Size | Description  |
+   |              |           |           |  (Bytes)   |              |
+   +==============+===========+===========+============+==============+
+   | Manufacturer |   UTF-8   |     64    |     64     | Manufacturer |
+   |     Name     |           | (maximum) | (maximum)  |     name     |
+   +--------------+-----------+-----------+------------+--------------+
 
                     Table 7: Manufacturer Name Operand
 
@@ -683,12 +674,13 @@ Table of Contents
    The Model Name operand contains the manufacturer specific model of
    the accessory.
 
-      +==============+===========+=======+============+=============+
-      | Operand name | Data type | Count | Total Size | Description |
-      |              |           |       |  (Bytes)   |             |
-      +==============+===========+=======+============+=============+
-      |  Model Name  |   UTF-8   |   64  |     64     |  Model name |
-      +--------------+-----------+-------+------------+-------------+
+    +==============+===========+===========+============+=============+
+    | Operand name | Data type |   Count   | Total Size | Description |
+    |              |           |           |  (Bytes)   |             |
+    +==============+===========+===========+============+=============+
+    |  Model Name  |   UTF-8   |     64    |     64     |  Model name |
+    |              |           | (maximum) | (maximum)  |             |
+    +--------------+-----------+-----------+------------+-------------+
 
                         Table 8: Model Name Operand
 
@@ -731,31 +723,31 @@ Table of Contents
              Table 10: Protocol Implementation Version Operand
 
    The Major.Minor.Revision value associated with this document is
-   1.0.0.  The equivalent 4-byte value is 0x00000001.
+   1.0.0.  The equivalent 4-byte value is 0x00010000.
 
 3.11.1.6.  Accessory capabilities
 
    The Accessory Capabilities operand enumerates the various
    capabilities supported on the accessory as defined in Table 11.
 
-     +==============+========+=======+=========+====================+
-     | Operand name |  Data  | Count |  Total  |    Description     |
-     |              |  type  |       |   Size  |                    |
-     |              |        |       | (Bytes) |                    |
-     +==============+========+=======+=========+====================+
-     |  Accessory   | Uint32 |   1   |    4    |  Bit 0 : Supports  |
-     | Capabilities |        |       |         |     play sound     |
-     |              |        |       |         |  Bit 1 : Supports  |
-     |              |        |       |         | motion detector UT |
-     |              |        |       |         |  Bit 2 : Supports  |
-     |              |        |       |         | identifier lookup  |
-     |              |        |       |         |       by NFC       |
-     |              |        |       |         |  Bit 3 : Supports  |
-     |              |        |       |         | identifier lookup  |
-     |              |        |       |         |       by BLE       |
-     +--------------+--------+-------+---------+--------------------+
+    +==============+========+=======+=========+=======================+
+    | Operand name |  Data  | Count |  Total  |      Description      |
+    |              |  type  |       |   Size  |                       |
+    |              |        |       | (Bytes) |                       |
+    +==============+========+=======+=========+=======================+
+    |  Accessory   | Uint32 |   1   |    4    | Bit 0 : Supports play |
+    | Capabilities |        |       |         |    sound (REQUIRED)   |
+    |              |        |       |         |    Bit 1 : Supports   |
+    |              |        |       |         |   motion detector UT  |
+    |              |        |       |         |    Bit 2 : Supports   |
+    |              |        |       |         |  identifier lookup by |
+    |              |        |       |         |          NFC          |
+    |              |        |       |         |    Bit 3 : Supports   |
+    |              |        |       |         |  identifier lookup by |
+    |              |        |       |         |          BLE          |
+    +--------------+--------+-------+---------+-----------------------+
 
-                 Table 11: Accessory Capabilities Operand
+                  Table 11: Accessory Capabilities Operand
 
    For example, an accessory supporting play sound, motion detector UT,
    and identifier look-up over BT will have the value set as 1011 in
@@ -1116,6 +1108,8 @@ Table of Contents
 
    The accessory SHOULD provide alternate means to help find it, e.g. by
    vibrating or flashing lights, via a platform-compatible method.
+   Future versions of this document will consider support for haptics
+   and lights.
 
 3.12.6.  Recommended Finding Options
 
@@ -1144,7 +1138,7 @@ Table of Contents
 
 3.13.  Disablement
 
-   The accessory SHALL have a way to disabled such that its future
+   The accessory SHALL have a way to be disabled such that its future
    locations cannot be seen by its owner.  Disablement SHALL be done via
    some physical action (e.g., button press, gesture, removal of
    battery, etc.).
@@ -1243,8 +1237,13 @@ Table of Contents
 
 3.15.3.  Availability for law enforcement
 
-   The owner registry SHALL be made available to law enforcement upon a
-   valid law enforcement request.
+   Available ownership registry information SHOULD be produced in
+   response to a valid law enforcement request seeking information
+   related to the misuse of location-tracking accessories provided that
+   the request is submitted pursuant to defined procedures for obtaining
+   such information.  Network providers SHOULD define their own
+   procedures for submission of valid legal requests from law
+   enforcement.
 
 4.  Accessory Category Value
 
