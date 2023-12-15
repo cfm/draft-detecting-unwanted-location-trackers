@@ -817,6 +817,9 @@ Table of Contents
 
                      Table 13: Firmware Version Operand
 
+   As an example, a Major.Minor.Revision value of 1.0.0 has an
+   equivalent 4-byte value of 0x00010000.
+
 3.11.1.9.  Battery type
 
    The Battery type operand describes the battery type used in the
