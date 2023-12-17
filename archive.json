@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-14T00:39:01.964557+00:00",
+  "timestamp": "2023-12-17T00:42:40.202368+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -746,7 +746,7 @@
       "id": "I_kwDOJdqgvc5man40",
       "title": "Availability for law enforcement",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/20",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -755,8 +755,8 @@
       ],
       "body": "// Originally from alexis@eff.org on May 15th, 2023\r\n// via unwanted-trackers@ietf.org\r\n\r\n''''\r\n3.15.3.  Availability for law enforcement\r\n\r\n  The pairing registry SHALL be made available to law enforcement upon\r\n  a valid law enforcement request.\r\n''''\r\n\r\nSince this a protocol for how a location tracker should behave for proper detection, this section is out of scope. This appears to dictate on what should happen with law enforcement access on what happens *after detection*, thus the protocol completing it's task and afterwards the user deciding on whatever action to take.\r\n\r\nI anticipate language about law enforcement would appear somewhere in the usage of user establishing a tracker for use (benign or malicious), but strongly suggest addressing law enforcement access should be stricken from the scope of the specification.\r\n",
       "createdAt": "2023-05-20T18:50:38Z",
-      "updatedAt": "2023-12-13T22:44:11Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-14T19:06:53Z",
+      "closedAt": "2023-12-14T19:06:52Z",
       "comments": [
         {
           "author": "zoracon",
@@ -778,6 +778,13 @@
           "body": "PR #165 attempts to address this. ",
           "createdAt": "2023-12-13T22:09:25Z",
           "updatedAt": "2023-12-13T22:44:11Z"
+        },
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "PR https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/165 has been merged",
+          "createdAt": "2023-12-14T19:06:52Z",
+          "updatedAt": "2023-12-14T19:06:52Z"
         }
       ]
     },
@@ -2422,16 +2429,26 @@
       "id": "I_kwDOJdqgvc55X7V2",
       "title": "Identifier Payload Size",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/160",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "version-01"
+      ],
       "body": "The section 3.12.4.2. Identifier Payload for serial number/identifier lookup should include additional info for length since the actual payload length/size is based on the accessory.  ",
       "createdAt": "2023-12-11T18:46:21Z",
-      "updatedAt": "2023-12-11T18:46:21Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2023-12-14T19:09:15Z",
+      "closedAt": "2023-12-14T19:09:15Z",
+      "comments": [
+        {
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "body": "Discussed that this will be handled by BT protocol and isn't needed in this protocol",
+          "createdAt": "2023-12-14T19:09:15Z",
+          "updatedAt": "2023-12-14T19:09:15Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -4625,7 +4642,7 @@
       "id": "PR_kwDOJdqgvc5dydl3",
       "title": "Updates to backward compatibility for legacy IDs",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/96",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "zaeddinger",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4634,14 +4651,14 @@
       ],
       "body": "",
       "createdAt": "2023-10-25T19:14:06Z",
-      "updatedAt": "2023-12-11T18:03:22Z",
+      "updatedAt": "2023-12-15T18:02:25Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "36f1b16b24fb0973e8708a4190dd16b37f123255",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "zaeddinger-patch-10",
       "headRefOid": "bbbfbce5c14af184782b3d42124ff5be16a8a408",
-      "closedAt": null,
+      "closedAt": "2023-12-15T18:02:25Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -4652,6 +4669,13 @@
           "body": "@bledvina yeah that's right - thinking about it as 2 options: (1) have legacy ID, don't use protocol ID [and header is 1 byte shorter], (2) have protocol ID & use the new service UUID",
           "createdAt": "2023-10-27T16:39:13Z",
           "updatedAt": "2023-10-27T16:39:13Z"
+        },
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Obsolete. Merged into PR#162",
+          "createdAt": "2023-12-15T18:02:25Z",
+          "updatedAt": "2023-12-15T18:02:25Z"
         }
       ],
       "reviews": [
@@ -7917,7 +7941,7 @@
       "id": "PR_kwDOJdqgvc5hl5yD",
       "title": "Fix up operand tables to clarify sizes",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/159",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [],
@@ -7926,17 +7950,19 @@
       ],
       "body": "",
       "createdAt": "2023-12-09T17:22:07Z",
-      "updatedAt": "2023-12-11T18:59:23Z",
+      "updatedAt": "2023-12-15T03:10:30Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
-      "baseRefOid": "bfb2cfdb7e28b71781fb77e883e8dc22ac8d773f",
+      "baseRefOid": "219778bd9ed9efd0ace636b53071c2d259136577",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "clarify-operand-sizes",
-      "headRefOid": "84aacbb12b924542e7894145b72e479419500a43",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c36d755d259a802871742412c71d2e3b7190eeb6",
+      "closedAt": "2023-12-15T03:10:29Z",
+      "mergedAt": "2023-12-15T03:10:29Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "a73a90c8fe80d7b119bbc4a80cc483493b03ecd4"
+      },
       "comments": [],
       "reviews": [
         {
@@ -8018,6 +8044,26 @@
               "updatedAt": "2023-12-11T18:59:23Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5qPqNf",
+          "commit": {
+            "abbreviatedOid": "0870255"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-14T18:46:36Z",
+          "updatedAt": "2023-12-14T18:46:36Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "this will be addressed here: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/166\r\n",
+              "createdAt": "2023-12-14T18:46:36Z",
+              "updatedAt": "2023-12-14T18:46:36Z"
+            }
+          ]
         }
       ]
     },
@@ -8077,13 +8123,13 @@
       ],
       "body": "Update date and remove TBD link (authors contact info is already in the doc)",
       "createdAt": "2023-12-12T19:29:03Z",
-      "updatedAt": "2023-12-13T16:17:23Z",
+      "updatedAt": "2023-12-15T18:12:06Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "dbb25a55aee0027b5c76005b58e81baea3a59ab2",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "update-date",
-      "headRefOid": "201ad989ae005b45f3b9b97a304c2af544a4a3b0",
+      "headRefOid": "394d7f9f0a2a7b18877c6faed8bc88c4a4ce2f56",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -8155,7 +8201,7 @@
       "id": "PR_kwDOJdqgvc5h2pm2",
       "title": "fix protocol impl version example to be little-endian",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/164",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bdetwiler",
       "authorAssociation": "OWNER",
       "assignees": [
@@ -8166,17 +8212,19 @@
       ],
       "body": "",
       "createdAt": "2023-12-13T03:54:23Z",
-      "updatedAt": "2023-12-13T18:35:34Z",
+      "updatedAt": "2023-12-14T22:09:18Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "dbb25a55aee0027b5c76005b58e81baea3a59ab2",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "fix-protocol-impl-version-example",
       "headRefOid": "9b934577050bfaa75e7867238bc4c393d6fbd897",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-12-14T22:09:17Z",
+      "mergedAt": "2023-12-14T22:09:17Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "219778bd9ed9efd0ace636b53071c2d259136577"
+      },
       "comments": [],
       "reviews": [
         {
@@ -8218,6 +8266,19 @@
               "updatedAt": "2023-12-13T18:35:34Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5qPzmR",
+          "commit": {
+            "abbreviatedOid": "9b93457"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-14T19:07:53Z",
+          "updatedAt": "2023-12-14T19:07:53Z",
+          "comments": []
         }
       ]
     },
@@ -8272,6 +8333,92 @@
           "body": "",
           "createdAt": "2023-12-13T22:09:06Z",
           "updatedAt": "2023-12-13T22:09:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 166,
+      "id": "PR_kwDOJdqgvc5iB4Mz",
+      "title": "add clarification that strings have a max not strict length",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/166",
+      "state": "MERGED",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [
+        "version-01"
+      ],
+      "body": "",
+      "createdAt": "2023-12-14T17:59:20Z",
+      "updatedAt": "2023-12-14T22:08:44Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "2c96979717e08f8b6ab995b19ce0388223eee6ef",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "max-length-of-string-opcodes",
+      "headRefOid": "5d0c25cd7b2891d57d91b6eb6781ab53754767d6",
+      "closedAt": "2023-12-14T22:08:44Z",
+      "mergedAt": "2023-12-14T22:08:44Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "a678bfb973f767d7a998e14821ba9446529ff599"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5qPX-3",
+          "commit": {
+            "abbreviatedOid": "5d0c25c"
+          },
+          "author": "davidlazarov",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-14T18:09:58Z",
+          "updatedAt": "2023-12-14T18:09:58Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 167,
+      "id": "PR_kwDOJdqgvc5iIaCp",
+      "title": "add example for firmware version operand",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/167",
+      "state": "MERGED",
+      "author": "bdetwiler",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "this is only for consistency with protocol version example",
+      "createdAt": "2023-12-15T17:37:37Z",
+      "updatedAt": "2023-12-15T18:17:24Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "a73a90c8fe80d7b119bbc4a80cc483493b03ecd4",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "add-example-for-fw-version",
+      "headRefOid": "8b6c0b1e7ec6fb6b66b7bb7abc45fc445bdd6690",
+      "closedAt": "2023-12-15T18:17:24Z",
+      "mergedAt": "2023-12-15T18:17:24Z",
+      "mergedBy": "bdetwiler",
+      "mergeCommit": {
+        "oid": "832e3c9517f4e615f4b9f074f275a009296436fa"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5qXsb0",
+          "commit": {
+            "abbreviatedOid": "8b6c0b1"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2023-12-15T17:40:00Z",
+          "updatedAt": "2023-12-15T17:40:00Z",
           "comments": []
         }
       ]
