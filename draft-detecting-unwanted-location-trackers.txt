@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 17 June 2024                                             Google
+Expires: 20 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        15 December 2023
+                                                        18 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 June 2024.
+   This Internet-Draft will expire on 20 June 2024.
 
 Copyright Notice
 
@@ -1347,7 +1347,8 @@ Table of Contents
 
 5.  Firmware Updates
 
-   The accessory SHOULD have firmware that is updatable by the owner.
+   The accessory SHOULD have a mechanism for the manufacturer to provide
+   firmware updates.
 
 5.1.  Backwards Compatibility
 
