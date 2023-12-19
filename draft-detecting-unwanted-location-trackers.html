@@ -12,12 +12,12 @@
 <meta content="
        This document lists a set of best practices and protocols for accessory manufacturers whose products have built-in location-tracking capabilities. By following these requirements and recommendations, a location-tracking accessory will be compatible with unwanted tracking detection and alerts on mobile platforms. This is an important capability for improving the privacy and safety of individuals in the circumstance that those accessories are used to track their location without their knowledge or consent. 
     " name="description">
-<meta content="xml2rfc 3.18.2" name="generator">
+<meta content="xml2rfc 3.19.0" name="generator">
 <meta content="unwanted tracking" name="keyword">
 <meta content="location tracker" name="keyword">
 <meta content="draft-detecting-unwanted-location-trackers-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.2
+  xml2rfc 3.19.0
     Python 3.11.6
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
@@ -1033,7 +1033,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 20 June 2024</td>
+<td class="center">Expires 21 June 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1046,12 +1046,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-detecting-unwanted-location-trackers-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-12-18" class="published">18 December 2023</time>
+<time datetime="2023-12-19" class="published">19 December 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-06-20">20 June 2024</time></dd>
+<dd class="expires"><time datetime="2024-06-21">21 June 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1105,7 +1105,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 21 June 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -3133,9 +3133,10 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
           <h4 id="name-advertisement-backwards-com">
 <a href="#section-5.1.2" class="section-number selfRef">5.1.2. </a><a href="#name-advertisement-backwards-com" class="section-name selfRef">Advertisement backwards compatibility</a>
           </h4>
-<p id="section-5.1.2-1">The manufacturer <span class="bcp14">MAY</span> continue to use the company’s existing service UUID as registered in the Bluetooth SIG until October 1, 2024, after which all manufacturers must use the unwanted tracking service UUID to be detected for unwanted tracking. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated. If the manufacturer wishes to use their existing service UUID until that time, the UUID <span class="bcp14">MUST</span> be registered with platforms. Manufacturers can register their service UUID by reaching out to the listed authors here (link TBD). Backwards compatibility requests must be submitted by December 1, 2023.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.1.2-2">Detection performance for existing service UUIDs may be lower than if the unwanted tracking protocol UUID is used.<a href="#section-5.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.1.2-3">Companies who have registered their Network IDs will appear in a table below.<a href="#section-5.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-1">The manufacturer <span class="bcp14">MAY</span> continue to use the company’s existing service UUID (Legacy ID) as registered in the Bluetooth SIG until November 1, 2024, after which all manufacturers <span class="bcp14">MUST</span> use the unwanted tracking service UUID to be detected for unwanted tracking. Trackers that use the company's Legacy ID <span class="bcp14">MUST</span> be able to have their firmware updated. This applies to new or updated trackers and any existing trackers that have the ability to have their firmware updated.<a href="#section-5.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-2">If the manufacturer wishes to use their Legacy ID, the Legacy ID <span class="bcp14">MUST</span> be registered with platforms. If a manufacturer is using a Legacy ID, Network ID in <a href="#_table-payload-format" class="auto internal xref">Table 1</a> <span class="bcp14">MAY</span> be omitted.<a href="#section-5.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-3">Manufacturers can register their service UUID by reaching out to the listed authors. Backwards compatibility requests must be submitted by January 15, 2024. Manufacturers who have registered their Network IDs will appear in a table below.<a href="#section-5.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.1.2-4">If using existing service UUIDs, rather than the unwanted tracking protocol UUID, detection performance might be degraded.<a href="#section-5.1.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
