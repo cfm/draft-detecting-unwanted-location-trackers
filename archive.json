@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-17T00:42:40.202368+00:00",
+  "timestamp": "2023-12-19T00:39:40.187858+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -8419,6 +8419,48 @@
           "body": "LGTM",
           "createdAt": "2023-12-15T17:40:00Z",
           "updatedAt": "2023-12-15T17:40:00Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 168,
+      "id": "PR_kwDOJdqgvc5iTqBt",
+      "title": "Clarify FW update text",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/168",
+      "state": "MERGED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-12-18T21:18:03Z",
+      "updatedAt": "2023-12-18T21:29:25Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "832e3c9517f4e615f4b9f074f275a009296436fa",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "bledvina-patch-39",
+      "headRefOid": "29f59352be1911723a8d0758043503aaa713eb74",
+      "closedAt": "2023-12-18T21:29:25Z",
+      "mergedAt": "2023-12-18T21:29:25Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "9f7db878de6fc0d5913667338713173006b0b74c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5qjrQP",
+          "commit": {
+            "abbreviatedOid": "29f5935"
+          },
+          "author": "bdetwiler",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-18T21:28:51Z",
+          "updatedAt": "2023-12-18T21:28:51Z",
           "comments": []
         }
       ]
