@@ -5,12 +5,12 @@
 Network Working Group                                         B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                               Z. Eddinger
-Expires: 21 June 2024                                             Google
+Expires: 22 June 2024                                             Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                        19 December 2023
+                                                        20 December 2023
 
 
                   Detecting Unwanted Location Trackers
@@ -50,7 +50,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 June 2024.
+   This Internet-Draft will expire on 22 June 2024.
 
 Copyright Notice
 
@@ -1399,8 +1399,9 @@ Table of Contents
 6.1.1.  Implementation
 
    Unwanted tracking SHOULD recognize an accessory associated to that
-   owner device by matching the MAC address advertised, as defined in
-   Table 1, against the one(s) expected during that time.
+   owner device by matching the MAC address advertised as defined in
+   Table 1, or some other part of the payload, against the one(s)
+   expected during that time.
 
 6.1.2.  Platform Software Extension
 
@@ -1408,9 +1409,9 @@ Table of Contents
    capability as a software extension to its unwanted tracking
    detection.
 
-   Accessory manufacturers SHALL provide this set of MAC addresses to
-   the platform.  This set MUST account for the uncertainty involved
-   with the MAC address (Section 3.5).
+   Accessory manufacturers SHALL provide this set of MAC addresses or
+   matching rules to the platform.  This set MUST account for the
+   uncertainty involved with the MAC address (Section 3.5).
 
    The Network ID in the advertisement payload, as specified in Table 1,
    SHALL be used to associate an accessory detected with the
