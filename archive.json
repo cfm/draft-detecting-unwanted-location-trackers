@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-19T00:39:40.187858+00:00",
+  "timestamp": "2023-12-21T00:38:54.551495+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -2449,6 +2449,22 @@
           "updatedAt": "2023-12-14T19:09:15Z"
         }
       ]
+    },
+    {
+      "number": 170,
+      "id": "I_kwDOJdqgvc56Kcpx",
+      "title": "MAC address language improvements",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/170",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "From Yannick Sierra:\r\n\r\nIn the next revision of the document, I think it would be good to work together to add some clarifications on the following points:\r\n- Clarify if the owner recognizable data in the payload replaces or augments the matching of the MAC address in the \u201cowned accessory identification\". If it replaces the MAC, then we should clarify the requirements on the MAC address.\r\n- Clarify the section 6.1.1. and 6.1.2. in \"owned accessory identification\u201d to include a length and offset for the matching when using data from the payload along describing the matching as a byte comparisons.\r\n- If the data in the payload replaces rather than augments the MAC comparison, we should have a requirement that the matching must be over 46bit minimum, so the probability of the platform of mis-categorizing an accessory as \u201cOwned\u201d remains low. ",
+      "createdAt": "2023-12-19T22:53:29Z",
+      "updatedAt": "2023-12-19T22:53:29Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -8114,7 +8130,7 @@
       "id": "PR_kwDOJdqgvc5h1DGp",
       "title": "Most-recent legacy UUID language ",
       "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/162",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "siddikaparlak",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -8123,19 +8139,62 @@
       ],
       "body": "Update date and remove TBD link (authors contact info is already in the doc)",
       "createdAt": "2023-12-12T19:29:03Z",
-      "updatedAt": "2023-12-15T18:12:06Z",
+      "updatedAt": "2023-12-19T05:16:48Z",
       "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "baseRefName": "main",
       "baseRefOid": "dbb25a55aee0027b5c76005b58e81baea3a59ab2",
       "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
       "headRefName": "update-date",
       "headRefOid": "394d7f9f0a2a7b18877c6faed8bc88c4a4ce2f56",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-12-19T05:16:47Z",
+      "mergedAt": "2023-12-19T05:16:47Z",
+      "mergedBy": "siddikaparlak",
+      "mergeCommit": {
+        "oid": "541d99c691c87daf124d3035b0a958ff32d07114"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5p_5od",
+          "commit": {
+            "abbreviatedOid": "394d7f9"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "LGTM",
+          "createdAt": "2023-12-12T20:12:35Z",
+          "updatedAt": "2023-12-19T02:54:34Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Shouldn't this be January 15, 2024?",
+              "createdAt": "2023-12-12T20:12:35Z",
+              "updatedAt": "2023-12-19T02:54:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOJdqgvc5qkzsH",
+          "commit": {
+            "abbreviatedOid": "1019c7f"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-19T03:21:39Z",
+          "updatedAt": "2023-12-19T03:21:40Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "yes I updated in one of the earlier commits.",
+              "createdAt": "2023-12-19T03:21:40Z",
+              "updatedAt": "2023-12-19T03:21:40Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 163,
@@ -8461,6 +8520,90 @@
           "body": "",
           "createdAt": "2023-12-18T21:28:51Z",
           "updatedAt": "2023-12-18T21:28:51Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 169,
+      "id": "PR_kwDOJdqgvc5iY7XV",
+      "title": "Update language for MAC address rotation",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/169",
+      "state": "MERGED",
+      "author": "davidlazarov",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-12-19T16:34:50Z",
+      "updatedAt": "2023-12-19T21:07:04Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "541d99c691c87daf124d3035b0a958ff32d07114",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "davidlazarov-patch-4",
+      "headRefOid": "4ac891c442d4ae769ebc20231f8f557027e03ab2",
+      "closedAt": "2023-12-19T21:07:04Z",
+      "mergedAt": "2023-12-19T21:07:04Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "70bae11d42d1997564b94197b1cf40f11d658dbc"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5qrOXe",
+          "commit": {
+            "abbreviatedOid": "4ac891c"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approving per email thread with Yannick + David",
+          "createdAt": "2023-12-19T21:06:51Z",
+          "updatedAt": "2023-12-19T21:06:51Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 171,
+      "id": "PR_kwDOJdqgvc5icmqp",
+      "title": "Generalize the platform support section to account for detection not based on MAC address",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/pull/171",
+      "state": "MERGED",
+      "author": "davidlazarov",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-12-20T08:41:10Z",
+      "updatedAt": "2023-12-20T15:34:46Z",
+      "baseRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "baseRefName": "main",
+      "baseRefOid": "70bae11d42d1997564b94197b1cf40f11d658dbc",
+      "headRepository": "bdetwiler/draft-detecting-unwanted-location-trackers",
+      "headRefName": "davidlazarov-patch-5",
+      "headRefOid": "20d990a8fb1872069279c0c9deae0be6ad48f409",
+      "closedAt": "2023-12-20T15:34:46Z",
+      "mergedAt": "2023-12-20T15:34:46Z",
+      "mergedBy": "davidlazarov",
+      "mergeCommit": {
+        "oid": "439a1abc65ee8d4c96013cd7078365bbe40c4330"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJdqgvc5qwIMS",
+          "commit": {
+            "abbreviatedOid": "20d990a"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Good addition.",
+          "createdAt": "2023-12-20T14:24:31Z",
+          "updatedAt": "2023-12-20T14:24:31Z",
           "comments": []
         }
       ]
