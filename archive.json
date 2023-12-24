@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-21T00:38:54.551495+00:00",
+  "timestamp": "2023-12-24T00:41:43.821149+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -2463,6 +2463,38 @@
       "body": "From Yannick Sierra:\r\n\r\nIn the next revision of the document, I think it would be good to work together to add some clarifications on the following points:\r\n- Clarify if the owner recognizable data in the payload replaces or augments the matching of the MAC address in the \u201cowned accessory identification\". If it replaces the MAC, then we should clarify the requirements on the MAC address.\r\n- Clarify the section 6.1.1. and 6.1.2. in \"owned accessory identification\u201d to include a length and offset for the matching when using data from the payload along describing the matching as a byte comparisons.\r\n- If the data in the payload replaces rather than augments the MAC comparison, we should have a requirement that the matching must be over 46bit minimum, so the probability of the platform of mis-categorizing an accessory as \u201cOwned\u201d remains low. ",
       "createdAt": "2023-12-19T22:53:29Z",
       "updatedAt": "2023-12-19T22:53:29Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 172,
+      "id": "I_kwDOJdqgvc56WO7j",
+      "title": "Printing Non-SN Unique Identifiers",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/172",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "3.14 & 3.14.1 \r\n\r\nStrong concerns that we\u2019re making an allowance for vendors to opt out of printing the unique identifier in an easily accessible location on the physical device. It\u2019s my understanding that those identifiers are a critical part of the physical evidence in law enforcement response to unwanted tracking related calls from victims, and in the prosecution of such cases. Recommend we discuss this issue with victim advocacy groups, and consider requiring all identifiers to be printed on the physical device. ",
+      "createdAt": "2023-12-21T15:39:39Z",
+      "updatedAt": "2023-12-21T15:39:39Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 173,
+      "id": "I_kwDOJdqgvc56WbRt",
+      "title": "Owner Registry - Storage Duration",
+      "url": "https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/173",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Re: 3.15.2 \r\n\r\nIn circumstances that indicate someone is possibly concerned the accessory has been used for unwanted tracking, e.g. upon NFC tap or other owner lookup that indicates the victim has physical access to the accessory (like a button push), we should consider extending the duration of the owner registry storage so that the victim has enough time to engage with the systems required to secure the owner information, e.g. law enforcement and the courts. This is another topic that is important to engage with victim advocacy groups on, for their expertise. \r\n",
+      "createdAt": "2023-12-21T16:07:59Z",
+      "updatedAt": "2023-12-21T16:07:59Z",
       "closedAt": null,
       "comments": []
     }
