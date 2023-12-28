@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-26T00:37:58.735564+00:00",
+  "timestamp": "2023-12-28T00:37:22.191894+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -79,7 +79,7 @@
       "labels": [],
       "body": "A big contribution to the usefulness and popularity of AirTags (and similar tech) is the ability of their owners to track valuable items (cars, luggage, etc) in case they get stolen from their owners.\r\n\r\nWith the current specification it seems this use case is not considered, and any criminal with any compatible smart device (iOS/Android) will be allowed to detect such tracking and disable it 30m after stealing valuables.\r\n",
       "createdAt": "2023-05-06T00:54:39Z",
-      "updatedAt": "2023-12-12T01:46:52Z",
+      "updatedAt": "2023-12-27T00:54:11Z",
       "closedAt": null,
       "comments": [
         {
@@ -207,6 +207,13 @@
           "body": "Ok.  Now we\u2019re getting somewhere.  This is an excellent suggestion.  I\u2019d like to see this developed further.\r\nDoug\r\n\r\nOn Dec 11, 2023, at 8:08\u202fPM, Kalin Fetvadjiev ***@***.***> wrote:\r\n\r\n\ufeff\r\n\r\nJust to develop this suggestion a bit further, a possible approach is to disable tracking, but make available an obfuscated ID of the device used to disable it to the tracker owner. OEMs can record that action, and inform the tracker owner that they are being recorded, if they want to get that obfuscated ID.\r\n\r\nThe tracker owner can submit the obfuscated ID to authorities, which can request decoding from OEMs, and do further investigation (e.g. locate the device by its real ID, and recover a stolen car) after going trough the state-specific motions to approve those actions (e.g. obtaining a judge order).\r\n\r\n\u2014\r\nReply to this email directly, view it on GitHub<https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/3#issuecomment-1851143648>, or unsubscribe<https://github.com/notifications/unsubscribe-auth/BAZIRFJNYHWRQOL6A3C6EMTYI6VBFAVCNFSM6AAAAAAXXXR4SWVHI2DSMVQWIX3LMV43OSLTON2WKQ3PNVWWK3TUHMYTQNJRGE2DGNRUHA>.\r\nYou are receiving this because you commented.Message ID: ***@***.***>\r\n",
           "createdAt": "2023-12-12T01:46:51Z",
           "updatedAt": "2023-12-12T01:46:51Z"
+        },
+        {
+          "author": "ArcticZeroo",
+          "authorAssociation": "NONE",
+          "body": "> Just to develop this suggestion a bit further, a possible approach is to disable tracking, but make available an obfuscated ID of the device used to disable it to the tracker owner. OEMs can record that action, and inform the tracker owner that they are being recorded, if they want to get that obfuscated ID.\r\n> \r\n> The tracker owner can submit the obfuscated ID to authorities, which can request decoding from OEMs, and do further investigation (e.g. locate the device by its real ID, and recover a stolen car) after going trough the state-specific motions to approve those actions (e.g. obtaining a judge order).\r\n\r\nDefinitely a neat idea as far as solving the theft problem goes, but I don't see this solution as being in-scope for this particular spec.\r\n\r\nCorrect me if I'm wrong, but the platforms used by location trackers are not interoperable and are not required to be as a part of this spec - the spec only outlines a platform-agnostic way for the trackers themselves to advertise their presence, and otherwise there is no communication between platforms (e.g. even after implementation of this spec, my Android phone wouldn't report the location of an AirTag to Apple, but the spec would allow it to detect the AirTag being on my person). \r\n\r\nIf my understanding is correct, how would this (obfuscated) device ID make its way to the tracker owner if they are on another platform? There is no way for my Android phone to inform Apple that I've disabled tracking on the AirTag. IMO, there are also negative privacy implications for these platforms to start storing device IDs, especially since this spec is in the context of reducing unwanted tracking.\r\n\r\nFurther, as far as I can tell, disablement is currently only defined as a physical action, so there is no actual way to figure out which person/device has physically disabled the tracker. The spec would need to define a way to disable an unwanted tracker through bluetooth.",
+          "createdAt": "2023-12-27T00:53:12Z",
+          "updatedAt": "2023-12-27T00:54:11Z"
         }
       ]
     },
