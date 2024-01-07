@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-04T00:39:40.214462+00:00",
+  "timestamp": "2024-01-07T00:43:34.483995+00:00",
   "repo": "bdetwiler/draft-detecting-unwanted-location-trackers",
   "labels": [
     {
@@ -2482,10 +2482,12 @@
       "author": "cstapl",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "DULT WG"
+      ],
       "body": "3.14 & 3.14.1 \r\n\r\nStrong concerns that we\u2019re making an allowance for vendors to opt out of printing the unique identifier in an easily accessible location on the physical device. It\u2019s my understanding that those identifiers are a critical part of the physical evidence in law enforcement response to unwanted tracking related calls from victims, and in the prosecution of such cases. Recommend we discuss this issue with victim advocacy groups, and consider requiring all identifiers to be printed on the physical device. ",
       "createdAt": "2023-12-21T15:39:39Z",
-      "updatedAt": "2023-12-21T15:39:39Z",
+      "updatedAt": "2024-01-05T20:50:50Z",
       "closedAt": null,
       "comments": []
     },
@@ -2498,10 +2500,12 @@
       "author": "cstapl",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "DULT WG"
+      ],
       "body": "Re: 3.15.2 \r\n\r\nIn circumstances that indicate someone is possibly concerned the accessory has been used for unwanted tracking, e.g. upon NFC tap or other owner lookup that indicates the victim has physical access to the accessory (like a button push), we should consider extending the duration of the owner registry storage so that the victim has enough time to engage with the systems required to secure the owner information, e.g. law enforcement and the courts. This is another topic that is important to engage with victim advocacy groups on, for their expertise. \r\n",
       "createdAt": "2023-12-21T16:07:59Z",
-      "updatedAt": "2023-12-21T16:07:59Z",
+      "updatedAt": "2024-01-05T20:50:41Z",
       "closedAt": null,
       "comments": []
     }
